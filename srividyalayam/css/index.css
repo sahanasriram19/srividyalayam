@@ -282,73 +282,17 @@
     padding: 6rem 2rem;
 }
 
-.videos-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.video-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    overflow: hidden;
-}
-
-.video-wrap iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .about-visual {
-        padding-bottom: 3rem;
-    }
-
-    .about-badge {
-        position: static;
-        display: inline-block;
-        margin-top: 1.5rem;
-    }
-
-    .gallery-carousel {
-        max-width: 100%;
-        aspect-ratio: 4/3;
-    }
-
-    .videos-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* VIDEOS */
-#videos {
-    background: white;
-    padding: 6rem 2rem;
-}
-
 .videos-layout {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 220px 1fr;
     gap: 2rem;
     margin-top: 3rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .videos-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
 }
 
@@ -376,12 +320,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    min-width: 160px;
+    justify-content: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: border-color 0.2s;
+}
+
+.youtube-channel:hover {
+    border-color: var(--gold);
 }
 
 .yt-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--gold);
 }
 
@@ -395,14 +345,14 @@
 
 .yt-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--gold-light);
+    line-height: 1.3;
 }
 
 .yt-btn {
     display: inline-block;
-    margin-top: 0.5rem;
     background: var(--gold);
     color: var(--crimson-deep);
     font-family: 'Raleway', sans-serif;
@@ -410,9 +360,9 @@
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    text-decoration: none;
     padding: 0.65rem 1.2rem;
     transition: background 0.2s;
+    margin-top: 0.5rem;
 }
 
 .yt-btn:hover { background: var(--gold-light); }
@@ -421,10 +371,7 @@
     .videos-layout {
         grid-template-columns: 1fr;
     }
-    .videos-grid {
-        grid-template-columns: 1fr;
-    }
     .youtube-channel {
-        min-width: unset;
+        padding: 2rem;
     }
 }
