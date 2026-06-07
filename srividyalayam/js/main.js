@@ -70,7 +70,7 @@ if (slides.length) {
   }
 
   // Auto-advance every 3 seconds
-  setInterval(() => goToSlide(current + 1), 3000);
+  setInterval(() => goToSlide(current + 1), 8000);
 
   // Click dots to jump to slide
   dots.forEach((dot, i) => {
