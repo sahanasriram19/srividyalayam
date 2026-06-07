@@ -288,13 +288,8 @@ background: linear-gradient(160deg, #8B5A00 0%, #C07800 40%, #E09010 60%, #C0780
   font-size: 0.75rem; font-weight: 600;
   letter-spacing: 0.2em; text-transform: uppercase;
   cursor: pointer;
-  animation: bobble 2.5s ease-in-out infinite;
+  width: 100%;
+  text-align: center;
 }
-
-.hero-discover-arrow {
-  font-size: 1.2rem;
-}
-
-.hero-discover:hover {
-  color: rgba(42, 20, 0, 0.9);
-}
+.hero-discover-arrow { font-size: 1.2rem; }
+.hero-discover:hover { color: rgba(42, 20, 0, 0.9); }
