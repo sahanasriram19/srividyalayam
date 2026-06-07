@@ -273,6 +273,10 @@ background: linear-gradient(160deg, #8B5A00 0%, #C07800 40%, #E09010 60%, #C0780
 
 .gallery-dot.active { background: var(--gold); }
 
+.gallery-dots {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .gallery-carousel { max-width: 100%; }
 }
