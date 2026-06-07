@@ -10,7 +10,7 @@
 
 .founder-grid {
     display: grid;
-    grid-template-columns: 380px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 5rem;
     align-items: start;
 }
@@ -49,9 +49,10 @@
 
 .founder-quote-card {
     background: var(--crimson);
-    padding: 1.5rem;
+    padding: 1.2rem;
     margin-top: 1.5rem;
     border-left: 3px solid var(--gold);
+    max-width: 280px;
 }
 
 .founder-quote-text {
@@ -141,9 +142,7 @@
     margin-bottom: 2rem;
 }
 
-.contact-details {
-    list-style: none;
-}
+.contact-details { list-style: none; }
 
 .contact-details li {
     display: flex;
@@ -187,6 +186,10 @@
     .founder-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+
+    .founder-quote-card {
+        max-width: 100%;
     }
 
     .founder-highlights {

@@ -133,7 +133,7 @@
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 5rem;
     align-items: center;
 }
@@ -195,6 +195,7 @@
 .about-visual {
     position: relative;
     padding-bottom: 2rem;
+    max-width: 280px;
 }
 
 .about-divider {
@@ -286,7 +287,6 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: 3rem;
     max-width: 900px;
     margin: 3rem auto 0 auto;
 }
@@ -329,8 +329,29 @@
 
 .yt-btn:hover { background: var(--gold-light); }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-visual {
+        max-width: 100%;
+        padding-bottom: 3rem;
+    }
+
+    .about-badge {
+        position: static;
+        display: inline-block;
+        margin-top: 1.5rem;
+    }
+
+    .gallery-carousel {
+        max-width: 100%;
+        aspect-ratio: 4/3;
+    }
+
     .videos-grid { grid-template-columns: 1fr; }
-    .yt-channel-inner { flex-direction: column; text-align: center; }
     .videos-layout { max-width: 100%; }
 }
