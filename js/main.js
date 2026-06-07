@@ -85,3 +85,38 @@ if (discoverBtn) {
     document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
   });
 }
+
+// --- Stats count-up animation ---
+const statNums = document.querySelectorAll('.stat-num');
+if (statNums.length) {
+  const countUp = (el) => {
+    const target = el.getAttribute('data-target');
+    if (!target) return;
+    const isInfinity = target === '∞';
+    if (isInfinity) { el.textContent = '∞'; return; }
+    const suffix = target.replace(/[0-9]/g, '');
+    const num = parseInt(target.replace(/\D/g, ''));
+    let current = 0;
+    const duration = 1500;
+    const step = Math.ceil(num / (duration / 16));
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= num) {
+        current = num;
+        clearInterval(timer);
+      }
+      el.textContent = current + suffix;
+    }, 16);
+  };
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        countUp(entry.target);
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statNums.forEach(el => statsObserver.observe(el));
+}
