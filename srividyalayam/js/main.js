@@ -69,8 +69,8 @@ if (slides.length) {
     dots[current].classList.add('active');
   }
 
-  // Auto-advance every 3 seconds
-  setInterval(() => goToSlide(current + 1), 8000);
+  // Auto-advance every 5 seconds
+  setInterval(() => goToSlide(current + 1), 5000);
 
   // Click dots to jump to slide
   dots.forEach((dot, i) => {
