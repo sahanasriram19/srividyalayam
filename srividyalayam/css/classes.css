@@ -1,0 +1,292 @@
+/* =============================================
+   SRIVIDYALAYAM — classes.html styles only
+   (shared styles are in style.css)
+   ============================================= */
+
+#classes {
+    background: white;
+    padding: 6rem 2rem;
+}
+
+.classes-intro {
+    max-width: 640px;
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 3.5rem;
+}
+
+.class-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid rgba(107, 0, 32, 0.12);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+}
+
+.class-block.reverse {
+    direction: rtl;
+}
+
+.class-block.reverse>* {
+    direction: ltr;
+}
+
+.class-visual {
+    background: linear-gradient(135deg, var(--crimson-deep), var(--crimson));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    position: relative;
+    overflow: hidden;
+}
+
+.class-visual::before {
+    content: '';
+    position: absolute;
+    inset: 16px;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    pointer-events: none;
+}
+
+.class-visual-icon {
+    font-size: 6rem;
+    color: rgba(201, 168, 76, 0.25);
+}
+
+.class-visual-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(201, 168, 76, 0.5);
+    white-space: nowrap;
+}
+
+.class-info {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.class-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+}
+
+.class-sub {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.class-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+}
+
+.class-features {
+    list-style: none;
+    margin-bottom: 1.8rem;
+}
+
+.class-features li {
+    font-size: 0.87rem;
+    color: var(--muted);
+    padding: 0.45rem 0;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.class-features li:last-child {
+    border-bottom: none;
+}
+
+.feat-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+.level-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.level-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    background: rgba(107, 0, 32, 0.07);
+    padding: 0.3rem 0.75rem;
+}
+
+/* SCHEDULE */
+#schedule {
+    background: var(--crimson-deep);
+    padding: 5rem 2rem;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.schedule-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 2rem;
+}
+
+.schedule-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.schedule-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+}
+
+.schedule-card-text {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(245, 233, 200, 0.65);
+}
+
+#schedule .section-badge {
+    color: var(--gold);
+}
+
+#schedule .section-title {
+    color: var(--cream);
+}
+
+#schedule .section-title em {
+    color: var(--gold-light);
+}
+
+/* ENROLMENT */
+#enrol {
+    background: var(--cream);
+    padding: 6rem 2rem;
+}
+
+.enrol-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.enrol-intro p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.steps {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.steps li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.4rem;
+}
+
+.step-num {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background: var(--crimson);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold-light);
+}
+
+.step-text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--muted);
+    padding-top: 0.35rem;
+}
+
+.step-text strong {
+    color: var(--text);
+}
+
+.enrol-form {
+    background: white;
+    border: 1px solid rgba(107, 0, 32, 0.1);
+    padding: 2.5rem;
+}
+
+.form-success {
+    line-height: 1.7;
+    padding: 2.5rem 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .class-block {
+        grid-template-columns: 1fr;
+    }
+
+    .class-block.reverse {
+        direction: ltr;
+    }
+
+    .class-visual {
+        min-height: 200px;
+    }
+
+    .class-info {
+        padding: 2rem;
+    }
+
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .enrol-wrap {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}

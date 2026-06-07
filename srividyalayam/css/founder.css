@@ -1,0 +1,200 @@
+/* =============================================
+   SRIVIDYALAYAM — founder.html styles only
+   (shared styles are in style.css)
+   ============================================= */
+
+#founder-story {
+    background: white;
+    padding: 6rem 2rem;
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+.founder-photo-wrap {
+    position: relative;
+}
+
+.founder-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(140deg, var(--crimson-deep), var(--crimson));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-photo::before {
+    content: '';
+    position: absolute;
+    inset: 14px;
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.founder-photo-icon {
+    font-size: 8rem;
+    color: rgba(201, 168, 76, 0.2);
+}
+
+/* To add a real photo replace the icon with:
+   <img src="images/founder.jpg" alt="Founder" style="width:100%;height:100%;object-fit:cover;"> */
+
+.founder-quote-card {
+    background: var(--crimson);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-left: 3px solid var(--gold);
+}
+
+.founder-quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(245, 233, 200, 0.9);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+
+.founder-quote-attr {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.founder-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+}
+
+.founder-body p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 1.1rem;
+}
+
+.founder-body p strong {
+    color: var(--text);
+}
+
+.founder-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.highlight-item {
+    background: var(--cream);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    padding: 1.2rem 1.5rem;
+}
+
+.highlight-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--crimson);
+    display: block;
+    line-height: 1;
+}
+
+.highlight-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    display: block;
+}
+
+/* CONTACT */
+#contact {
+    background: var(--cream);
+    padding: 6rem 2rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-info-text {
+    font-size: 0.97rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 2rem;
+}
+
+.contact-details {
+    list-style: none;
+}
+
+.contact-details li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.4rem;
+    font-size: 0.93rem;
+    color: var(--muted);
+}
+
+.contact-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    background: rgba(107, 0, 32, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    color: var(--crimson);
+}
+
+.contact-detail-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.contact-form-wrap {
+    background: white;
+    border: 1px solid rgba(107, 0, 32, 0.1);
+    padding: 2.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .founder-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .founder-highlights {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
