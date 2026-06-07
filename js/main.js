@@ -97,7 +97,7 @@ if (statNums.length) {
     const suffix = target.replace(/[0-9]/g, '');
     const num = parseInt(target.replace(/\D/g, ''));
     let current = 0;
-    const duration = 1500;
+    const duration = 3000;
     const step = Math.ceil(num / (duration / 16));
     const timer = setInterval(() => {
       current += step;
