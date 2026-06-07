@@ -10,7 +10,7 @@
 
 .founder-grid {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 420px 1fr;
     gap: 5rem;
     align-items: start;
 }
@@ -52,7 +52,7 @@
     padding: 1.2rem;
     margin-top: 1.5rem;
     border-left: 3px solid var(--gold);
-    max-width: 280px;
+    max-width: 420px;
 }
 
 .founder-quote-text {
