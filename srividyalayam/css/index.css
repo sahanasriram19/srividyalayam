@@ -312,52 +312,6 @@
     border: none;
 }
 
-/* Channel card */
-.youtube-channel {
-    display: block;
-    background: var(--crimson-deep);
-    border: 1px solid rgba(201, 168, 76, 0.3);
-    text-decoration: none;
-    transition: border-color 0.2s;
-    padding: 1.5rem 2rem;
-}
-
-.youtube-channel:hover { border-color: var(--gold); }
-
-.yt-channel-inner {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.yt-channel-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(201, 168, 76, 0.4);
-    flex-shrink: 0;
-}
-
-.yt-channel-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
-.yt-channel-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--gold-light);
-}
-
-.yt-channel-sub {
-    font-size: 0.78rem;
-    color: rgba(245, 233, 200, 0.5);
-    letter-spacing: 0.05em;
-}
-
 .yt-btn {
     display: inline-block;
     margin-top: 0.5rem;
