@@ -77,3 +77,11 @@ if (slides.length) {
     dot.addEventListener('click', () => goToSlide(i));
   });
 }
+
+// --- Discover More scroll ---
+const discoverBtn = document.querySelector('.hero-discover');
+if (discoverBtn) {
+  discoverBtn.addEventListener('click', () => {
+    document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+  });
+}
