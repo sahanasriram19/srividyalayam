@@ -221,8 +221,8 @@ background: linear-gradient(160deg, #8B5A00 0%, #C07800 40%, #E09010 60%, #C0780
 .gallery-carousel {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  aspect-ratio: 1/1;
+  max-width: 750px;
+  aspect-ratio: 4/3;
   margin: 0 auto;
   background: var(--gold-pale);
   border: 1px solid rgba(201, 168, 76, 0.35);
