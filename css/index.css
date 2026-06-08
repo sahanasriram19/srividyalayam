@@ -329,6 +329,10 @@
 
 .yt-btn:hover { background: var(--gold-light); }
 
+.video-single .video-item {
+    width: 100%;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .about-grid {
