@@ -329,15 +329,19 @@
 
 .yt-btn:hover { background: var(--gold-light); }
 
+.video-single {
+    display: flex;
+    justify-content: center;
+}
+
 .video-single .video-item {
-    width: 100%;
+    width: calc(50% - 0.75rem);
 }
 
 .video-caption {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2rem;
     font-style: italic;
-    font-weight: bold;
     color: var(--muted);
     text-align: center;
     padding: 0.75rem 0.5rem 0 0.5rem;
