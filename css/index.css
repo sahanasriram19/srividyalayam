@@ -133,7 +133,7 @@
 
 .about-grid {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 350px 1fr;
     gap: 5rem;
     align-items: center;
 }
@@ -195,7 +195,7 @@
 .about-visual {
     position: relative;
     padding-bottom: 2rem;
-    max-width: 200px;
+    max-width: 350px;
 }
 
 .about-divider {
