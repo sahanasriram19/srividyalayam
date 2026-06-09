@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Mobile hamburger toggle ---
   const hamburger = document.querySelector('.nav-hamburger');
-  const navLinks  = document.querySelector('.nav-links');
+  const navLinks = document.querySelector('.nav-links');
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('open');
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Gallery carousel ---
 const slides = document.querySelectorAll('.gallery-slide');
-const dots   = document.querySelectorAll('.gallery-dot');
+const dots = document.querySelectorAll('.gallery-dot');
 if (slides.length) {
   let current = 0;
 
@@ -119,4 +119,18 @@ if (statNums.length) {
   }, { threshold: 0.5 });
 
   statNums.forEach(el => statsObserver.observe(el));
+}
+
+// --- Testimonial slider ---
+const track = document.querySelector('.testimonial-track');
+if (track) {
+  const cards = track.querySelectorAll('.testimonial-card');
+  const cardWidth = () => cards[0].offsetWidth + 32; // 32 = gap
+  let tIndex = 0;
+  const maxIndex = cards.length - 3;
+
+  window.slideTestimonials = function (dir) {
+    tIndex = Math.max(0, Math.min(tIndex + dir, maxIndex));
+    track.style.transform = `translateX(-${tIndex * cardWidth()}px)`;
+  };
 }
