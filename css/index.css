@@ -28,7 +28,7 @@
 .hero-bg {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: url('../images/hero-bg.jpg') center center / cover no-repeat;
+    background: url('../images/hero-bg2.jpg') center center / cover no-repeat;
     z-index: -2;
 }
 
