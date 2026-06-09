@@ -16,21 +16,21 @@
 
 /* HERO */
 #hero {
-    min-height: 100vh;
+    min-height: 70vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    padding: 5rem 2rem 3rem;
+    padding: 4rem 2rem 3rem;
 }
 
 #hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('../images/hero-bg.jpg') center center / cover no-repeat;
+    background: url('../images/hero-bg.jpg') center center / contain no-repeat;
     background-attachment: fixed;
     filter: blur(0px);
     transform: scale(1.0);
