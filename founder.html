@@ -39,8 +39,7 @@
 
         <div class="founder-photo-wrap reveal">
           <div class="founder-photo">
-          <img src="images/founder.jpg" alt="Founder name" style="width:100%;height:100%;object-fit:cover;"> 
-    
+            <img src="images/founder.jpg" alt="Founder name" style="width:100%;height:100%;object-fit:cover;">
           </div>
           <div class="founder-quote-card">
             <p class="founder-quote-text">"Music is not a skill you acquire — it is a language you slowly begin to remember."</p>
@@ -52,15 +51,12 @@
           <div class="section-badge"><span class="badge-line"></span>Our Founder</div>
           <h2 class="section-title">Two Decades of<br><em>Musical Devotion</em></h2>
           <div class="founder-divider"></div>
-          
-          <p>Srividya Sriram is an established young vocalist in the carnatic, South Indian music tradition with <strong>over 25 years of teaching experience</strong>. With inherited talent in this divine art form, she started learning music at the tender age of 4. Srividya’s performing career began very early at the age of 12 
-            under the able guidance of her guru Smt. Kamakshi Balasubramanyam, a senior disciple of Late Shri. Calcutta Krishnamoorthy. She is now furthering her musical acumen under Shri. L. N. Gurumurthy, Chennai.</p>
 
-        <p>Bhakthi and Bhaavam in her blessed sonorous voice take her concerts to a different plane. Her urge to push creative boundaries has lead to well received solo as well as collaborative works. Today, Srividya is an <strong>A grade artist of All India Radio, Chennai</strong>.
-        Srividya Sriram is also a violin virtuoso after training for more than 2 decades under the tutelage of Vidushi Vasantha Kannan of the illustrious Lalgudi gharana.</p>
-        
-        <p>She has toured widely within India and abroad to perform in prestigious institutions and music festivals, both as a vocalist and a violinist.
-        Srividya believes in creating enriching musical experiences for her students of all ages. Having taught at GIIS, GICC and GIG, Srividya is currently an Instrumental studies instructor at the School of the Arts (SOTA).</p>
+          <p>Srividya Sriram is an established young vocalist in the carnatic, South Indian music tradition with <strong>over 25 years of teaching experience</strong>. With inherited talent in this divine art form, she started learning music at the tender age of 4. Srividya's performing career began very early at the age of 12 under the able guidance of her guru Smt. Kamakshi Balasubramanyam, a senior disciple of Late Shri. Calcutta Krishnamoorthy. She is now furthering her musical acumen under Shri. L. N. Gurumurthy, Chennai.</p>
+
+          <p>Bhakthi and Bhaavam in her blessed sonorous voice take her concerts to a different plane. Her urge to push creative boundaries has lead to well received solo as well as collaborative works. Today, Srividya is an <strong>A grade artist of All India Radio, Chennai</strong>. Srividya Sriram is also a violin virtuoso after training for more than 2 decades under the tutelage of Vidushi Vasantha Kannan of the illustrious Lalgudi gharana.</p>
+
+          <p>She has toured widely within India and abroad to perform in prestigious institutions and music festivals, both as a vocalist and a violinist. Srividya believes in creating enriching musical experiences for her students of all ages. Having taught at GIIS, GICC and GIG, Srividya is currently an Instrumental studies instructor at the School of the Arts (SOTA).</p>
 
           <div class="founder-highlights">
             <div class="highlight-item">
@@ -173,6 +169,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="founder.html">Our Founder</a></li>
         <li><a href="classes.html">Classes & Enrolment</a></li>
+        <li><a href="whychooseus.html">Why Choose Us</a></li>
       </ul>
       <p class="footer-copy">© 2025 Srividyalayam Music School, Singapore. All rights reserved.</p>
     </div>
@@ -180,15 +177,29 @@
 
   <script src="js/main.js"></script>
   <script>
-    function submitContactForm() {
+    async function submitContactForm() {
       const name  = document.getElementById('c-name').value.trim();
       const email = document.getElementById('c-email').value.trim();
       if (!name || !email) {
         alert('Please fill in your name and email before submitting.');
         return;
       }
-      document.getElementById('contact-form').style.display = 'none';
-      document.getElementById('contact-success').style.display = 'block';
+      const response = await fetch('https://formspree.io/f/meewkllk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          phone: document.getElementById('c-phone').value,
+          email,
+          message: document.getElementById('c-message').value,
+        })
+      });
+      if (response.ok) {
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('contact-success').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
     }
   </script>
 </body>

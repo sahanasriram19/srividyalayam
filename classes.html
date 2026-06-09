@@ -70,7 +70,7 @@
       <!-- VIOLIN -->
       <div class="class-block reverse reveal">
         <div class="class-visual">
-          <img src="images/violin.jpg" alt="Carnatic Violin" style="width:100%;height:100%;object-fit:cover;"> 
+          <img src="images/violin.jpg" alt="Carnatic Violin" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="class-info">
           <div class="class-name">Carnatic Violin</div>
@@ -231,6 +231,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="founder.html">Our Founder</a></li>
         <li><a href="classes.html">Classes & Enrolment</a></li>
+        <li><a href="whychooseus.html">Why Choose Us</a></li>
       </ul>
       <p class="footer-copy">© 2025 Srividyalayam Music School, Singapore. All rights reserved.</p>
     </div>
@@ -238,7 +239,7 @@
 
   <script src="js/main.js"></script>
   <script>
-    function submitEnrolForm() {
+    async function submitEnrolForm() {
       const name  = document.getElementById('e-name').value.trim();
       const phone = document.getElementById('e-phone').value.trim();
       const email = document.getElementById('e-email').value.trim();
@@ -249,8 +250,28 @@
         return;
       }
 
-      document.getElementById('enrol-form-inner').style.display = 'none';
-      document.getElementById('enrol-success').style.display = 'block';
+      const response = await fetch('https://formspree.io/f/meewkllk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          class: cls,
+          age: document.getElementById('e-age').value,
+          parent: document.getElementById('e-parent').value,
+          level: document.getElementById('e-level').value,
+          timing: document.getElementById('e-timing').value,
+          notes: document.getElementById('e-notes').value,
+        })
+      });
+
+      if (response.ok) {
+        document.getElementById('enrol-form-inner').style.display = 'none';
+        document.getElementById('enrol-success').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
     }
   </script>
 </body>
