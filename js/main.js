@@ -66,7 +66,7 @@ if (slides.length) {
     slides[current].classList.add('active');
   }
 
-  setInterval(() => goToSlide(current + 1), 5000);
+  setInterval(() => goToSlide(current + 1), 3000);
 }
 
 // --- Discover More scroll ---
