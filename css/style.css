@@ -235,11 +235,10 @@ nav {
 
 /* ---- PAGE HERO (founder + classes pages) ---- */
 .page-hero {
-  background: linear-gradient(160deg, #8B5A00 0%, #C07800 40%, #E09010 60%, #C07800 100%);
-  padding: 12rem 2rem 8rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    background: linear-gradient(160deg, #8B5A00 0%, #C07800 40%, #E09010 60%, #C07800 100%);
+    padding: 14rem 2rem 10rem;
+    text-align: center;
+    position: relative; overflow: hidden;
 }
 
 .page-hero::before {
