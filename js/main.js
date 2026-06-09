@@ -57,25 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Gallery carousel ---
 const slides = document.querySelectorAll('.gallery-slide');
-const dots = document.querySelectorAll('.gallery-dot');
 if (slides.length) {
   let current = 0;
 
   function goToSlide(n) {
     slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
     current = (n + slides.length) % slides.length;
     slides[current].classList.add('active');
-    dots[current].classList.add('active');
   }
 
-  // Auto-advance every 5 seconds
   setInterval(() => goToSlide(current + 1), 5000);
-
-  // Click dots to jump to slide
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => goToSlide(i));
-  });
 }
 
 // --- Discover More scroll ---
