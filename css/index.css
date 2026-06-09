@@ -31,6 +31,7 @@
     position: absolute;
     inset: 0;
     background: url('../images/hero-bg.jpg') center center / cover no-repeat;
+    background-attachment: fixed;
     filter: blur(0px);
     transform: scale(1.0);
     z-index: 0;
