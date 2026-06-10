@@ -456,7 +456,6 @@ footer {
   letter-spacing: 0.05em;
 }
 
-/* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   nav {
     padding: 0 1.5rem;
@@ -466,7 +465,7 @@ footer {
     display: flex;
   }
 
-.nav-links {
+  .nav-links {
     display: flex;
     position: absolute;
     top: 70px;
@@ -480,20 +479,27 @@ footer {
     overflow: hidden;
     opacity: 0;
     transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
-}
+  }
 
-.nav-links.open {
+  .nav-links.open {
     max-height: 400px;
     opacity: 1;
     padding: 1rem 0;
-} 
-
+  }
   .nav-links a {
     padding: 0.85rem 2rem;
   }
 
   .nav-links a.active::after {
     display: none;
+  }
+
+ /* Fix Enrol Now button on mobile */
+  .nav-links .nav-cta {
+    margin: 0.5rem 2rem !important;
+    text-align: center !important;
+    border-radius: 2px !important;
+    padding: 0.75rem 1.2rem !important;
   }
 
   .form-row {
