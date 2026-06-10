@@ -466,7 +466,7 @@ footer {
     display: flex;
   }
 
-  .nav-links {
+.nav-links {
     display: none;
     position: absolute;
     top: 70px;
@@ -476,11 +476,16 @@ footer {
     flex-direction: column;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(201, 168, 76, 0.3);
-  }
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
-  .nav-links.open {
+.nav-links.open {
     display: flex;
-  }
+    transform: translateY(0);
+    opacity: 1;
+}
 
   .nav-links a {
     padding: 0.85rem 2rem;

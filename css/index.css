@@ -130,6 +130,11 @@
     z-index: 2;
 }
 
+#hero .hero-bg,
+#hero .hero-overlay {
+    z-index: -1;
+}
+
 .hero-discover-arrow { font-size: 1.2rem; }
 .hero-discover:hover { color: var(--gold-light); }
 
