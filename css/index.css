@@ -130,8 +130,8 @@
     z-index: 2;
 }
 
-#hero .hero-bg,
-#hero .hero-overlay {
+.hero-bg,
+.hero-overlay {
     z-index: -1;
 }
 
@@ -372,4 +372,38 @@ footer {
     .videos-grid { grid-template-columns: 1fr; }
     .videos-layout { max-width: 100%; }
     .video-single .video-item { width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-visual {
+        max-width: 100%;
+        padding-bottom: 3rem;
+    }
+
+    .gallery-carousel {
+        max-width: 100%;
+        aspect-ratio: 4/3;
+    }
+
+    .videos-grid { grid-template-columns: 1fr; }
+    .videos-layout { max-width: 100%; }
+    .video-single .video-item { width: 100%; }
+
+    /* Fix for iOS Safari - switch fixed to absolute on mobile */
+    .hero-bg,
+    .hero-overlay {
+        position: absolute !important;
+        z-index: 0;
+    }
+
+    #hero {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
 }

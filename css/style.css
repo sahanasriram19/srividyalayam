@@ -467,25 +467,26 @@ footer {
   }
 
 .nav-links {
-    display: none;
+    display: flex;
     position: absolute;
     top: 70px;
     left: 0;
     right: 0;
     background: var(--crimson-deep);
     flex-direction: column;
-    padding: 1rem 0;
+    padding: 0;
     border-bottom: 1px solid rgba(201, 168, 76, 0.3);
-    transform: translateY(-10px);
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
 }
 
 .nav-links.open {
-    display: flex;
-    transform: translateY(0);
+    max-height: 400px;
     opacity: 1;
-}
+    padding: 1rem 0;
+} 
 
   .nav-links a {
     padding: 0.85rem 2rem;
