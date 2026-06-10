@@ -500,9 +500,11 @@ footer {
     text-align: center !important;
     border-radius: 2px !important;
     padding: 0.65rem 1.2rem !important;
-    display: block !important;
-    width: calc(100% - 4rem) !important;
+    display: inline-block !important;
+    width: auto !important;
+    align-self: flex-start !important;
 }
+
   .form-row {
     grid-template-columns: 1fr;
   }
