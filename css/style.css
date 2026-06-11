@@ -494,9 +494,8 @@ footer {
     display: none;
   }
 
- /* Fix Enrol Now button on mobile */
 .nav-links .nav-cta {
-    margin: 0.75rem 2rem 0.5rem 2rem !important;
+    margin: 0 2rem !important;
     text-align: center !important;
     border-radius: 2px !important;
     padding: 0.65rem 1.2rem !important;
