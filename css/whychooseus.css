@@ -204,11 +204,9 @@
 }
 
 .testimonial-role {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--crimson);
-    letter-spacing: 0.05em;
-    font-style: normal;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-style: italic;
 }
 
 /* CTA */
