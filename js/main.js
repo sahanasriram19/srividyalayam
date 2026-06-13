@@ -126,3 +126,10 @@ if (track) {
     track.style.transform = `translateX(-${tIndex * cardWidth()}px)`;
   };
 }
+
+// --- Testimonial read more ---
+window.toggleTestimonial = function(btn) {
+  const text = btn.previousElementSibling;
+  text.classList.toggle('expanded');
+  btn.textContent = text.classList.contains('expanded') ? 'Read less' : 'Read more';
+};

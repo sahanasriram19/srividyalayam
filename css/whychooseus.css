@@ -145,10 +145,10 @@
 .testimonial-card {
     background: var(--cream);
     border: 1px solid rgba(201, 168, 76, 0.25);
-    padding: 2rem 2.5rem;
-    min-width: calc((100% - 2rem) / 2);
-    max-width: calc((100% - 2rem) / 2);
-    min-height: 260px;
+    padding: 2rem 1.8rem;
+    min-width: calc((100% - 4rem) / 3);
+    max-width: calc((100% - 4rem) / 3);
+    min-height: 320px;
     flex-shrink: 0;
     box-sizing: border-box;
     display: flex;
@@ -181,11 +181,42 @@
 
 .testimonial-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-style: italic;
-    line-height: 1.8;
+    line-height: 1.75;
     color: var(--text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    overflow: hidden;
+}
+
+.testimonial-text.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+}
+
+.testimonial-readmore {
+    background: none;
+    border: none;
+    color: var(--crimson);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+}
+
+.testimonial-readmore:hover {
+    color: var(--crimson-deep);
 }
 
 .testimonial-author {
