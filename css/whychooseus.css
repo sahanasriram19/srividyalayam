@@ -139,7 +139,7 @@
     display: flex;
     gap: 2rem;
     transition: transform 0.5s ease;
-    align-items: stretch;
+    align-items: flex-start;
 }
 
 .testimonial-card {
@@ -187,18 +187,13 @@
     color: var(--text);
     margin-bottom: 0.5rem;
 
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
+    max-height: 8.4em; /* ~6 lines at 1.4em line-height */
     overflow: hidden;
+    transition: max-height 0.4s ease;
 }
 
 .testimonial-text.expanded {
-    display: block;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-    overflow: visible;
+    max-height: 1000px;
 }
 
 .testimonial-readmore {
