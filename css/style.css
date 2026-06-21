@@ -201,24 +201,24 @@ nav {
 }
 
 .btn-ghost {
-  background: transparent;
-  color: var(--gold-light);
-  padding: 0.85rem 2.2rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border: 1px solid rgba(201, 168, 76, 0.5);
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: border-color 0.2s, color 0.2s;
+    background: transparent;
+    color: var(--gold-light);
+    padding: 0.85rem 2.2rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid rgba(42, 20, 0, 0.5);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
 }
 
 .btn-ghost:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+    border-color: rgba(42, 20, 0, 0.9);
+    color: rgba(42, 20, 0, 0.9);
 }
 
 /* ---- REVEAL ANIMATION ---- */
