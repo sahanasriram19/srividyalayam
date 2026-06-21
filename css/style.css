@@ -191,18 +191,18 @@ nav {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  transition: background 0.2s, transform 0.15s;
+  transition: background 0.3s ease, transform 0.3s ease;
   border-radius: 0;
 }
 
 .btn-primary:hover {
   background: var(--gold-light);
-  transform: translateY(-1px);
+  transform: translateY(-3px);
 }
 
 .btn-ghost {
     background: transparent;
-    color: var(--gold-light);
+    color: rgba(42, 20, 0, 0.7);
     padding: 0.85rem 2.2rem;
     font-family: 'Raleway', sans-serif;
     font-size: 0.8rem;
@@ -213,12 +213,13 @@ nav {
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
-    transition: border-color 0.2s, color 0.2s;
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .btn-ghost:hover {
     border-color: rgba(42, 20, 0, 0.9);
     color: rgba(42, 20, 0, 0.9);
+    transform: translateY(-3px);
 }
 
 /* ---- REVEAL ANIMATION ---- */
