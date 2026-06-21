@@ -157,13 +157,6 @@ nav {
   margin-bottom: 0.8rem;
 }
 
-.badge-line {
-  width: 28px;
-  height: 1.5px;
-  background: var(--gold);
-  display: inline-block;
-}
-
 .section-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2rem, 4vw, 3rem);
