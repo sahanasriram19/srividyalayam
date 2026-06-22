@@ -42,13 +42,12 @@
     height: 320px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .reason-icon {
     font-size: 2.2rem;
     display: block;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 }
 
 .reason-title {
@@ -57,7 +56,13 @@
     font-weight: 600;
     color: var(--dark);
     margin-bottom: 0.75rem;
-    margin-top: 0;
+}
+
+.reason-desc {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-top: auto;
 }
 
 .reason-card:hover {
@@ -73,11 +78,6 @@
     background: linear-gradient(to right, var(--crimson), var(--gold));
 }
 
-.reason-desc {
-    font-size: 0.92rem;
-    line-height: 1.8;
-    color: var(--muted);
-}
 
 /* STATS */
 #stats {
