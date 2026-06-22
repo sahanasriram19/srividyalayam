@@ -42,6 +42,7 @@
     height: 320px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .reason-icon {
