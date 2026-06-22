@@ -36,16 +36,19 @@
 .reason-card {
     background: white;
     border: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 1.5rem 2rem 2.5rem 2rem;
+    padding: 2.5rem 2rem;
     position: relative;
     transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .reason-icon {
     font-size: 2.2rem;
     display: block;
-    margin-top: 0.5rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 .reason-card:hover {
