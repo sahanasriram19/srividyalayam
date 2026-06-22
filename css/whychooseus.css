@@ -36,9 +36,16 @@
 .reason-card {
     background: white;
     border: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 2rem 2rem 2rem;
     position: relative;
     transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reason-icon {
+    font-size: 2.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    display: block;
 }
 
 .reason-card:hover {
@@ -54,11 +61,6 @@
     background: linear-gradient(to right, var(--crimson), var(--gold));
 }
 
-.reason-icon {
-    font-size: 2.2rem;
-    margin-bottom: 1.8rem;
-    display: block;
-}
 
 .reason-title {
     font-family: 'Cormorant Garamond', serif;
