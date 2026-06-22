@@ -47,7 +47,7 @@
 .reason-icon {
     font-size: 2.2rem;
     display: block;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .reason-title {
@@ -55,14 +55,14 @@
     font-size: 1.4rem;
     font-weight: 600;
     color: var(--dark);
-    margin-bottom: 0;
+    margin-bottom: 0.75rem;
 }
 
 .reason-desc {
     font-size: 0.92rem;
     line-height: 1.8;
     color: var(--muted);
-    margin-top: auto;
+    margin-top: 0;
 }
 
 .reason-card:hover {
