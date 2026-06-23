@@ -186,6 +186,11 @@
     display: block;
 }
 
+.schedule-card i {
+    display: block;
+    margin-bottom: 1.2rem;
+}
+
 .schedule-card-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.3rem;
