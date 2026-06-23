@@ -42,6 +42,10 @@
     height: 340px;
 }
 
+.reason-card:nth-child(-n+3) .reason-title {
+    margin-top: 1.0rem;
+}
+
 .reason-card:nth-child(n+4) .reason-title {
     margin-top: 1.0rem;
 }
