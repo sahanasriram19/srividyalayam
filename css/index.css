@@ -153,9 +153,15 @@
 
 .about-grid {
     display: grid;
-    grid-template-columns: 450px 1fr;
-    gap: 5rem;
+    grid-template-columns: 550px 1fr;
+    gap: 3rem;
     align-items: center;
+}
+
+.about-visual {
+    position: relative;
+    padding-bottom: 2rem;
+    max-width: 550px;
 }
 
 .about-frame {
@@ -182,12 +188,6 @@
     font-size: 7rem;
     color: rgba(201, 168, 76, 0.2);
     font-family: serif;
-}
-
-.about-visual {
-    position: relative;
-    padding-bottom: 2rem;
-    max-width: 450px;
 }
 
 .about-divider {
