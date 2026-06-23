@@ -30,6 +30,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+    align-items: stretch;
 }
 
 .reason-card {
@@ -38,6 +39,7 @@
     padding: 2.5rem 2rem;
     position: relative;
     transition: transform 0.2s, box-shadow 0.2s;
+    height: 340px;
 }
 
 .reason-card:hover {
