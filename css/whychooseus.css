@@ -30,7 +30,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
-    align-items: start;
 }
 
 .reason-card {
@@ -39,35 +38,6 @@
     padding: 2.5rem 2rem;
     position: relative;
     transition: transform 0.2s, box-shadow 0.2s;
-    height: 340px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.reason-icon {
-    font-size: 2.2rem;
-    display: block;
-    height: 2.2rem;
-    margin-bottom: 2rem;
-    flex-shrink: 0;
-}
-
-.reason-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin-bottom: 1rem;
-    flex-shrink: 0;
-}
-
-.reason-desc {
-    font-size: 0.92rem;
-    line-height: 1.8;
-    color: var(--muted);
-    margin-top: 0;
-    overflow: hidden;
 }
 
 .reason-card:hover {
@@ -83,6 +53,25 @@
     background: linear-gradient(to right, var(--crimson), var(--gold));
 }
 
+.reason-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.reason-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+}
+
+.reason-desc {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--muted);
+}
 
 /* STATS */
 #stats {
