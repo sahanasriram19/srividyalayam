@@ -1,6 +1,5 @@
 /* =============================================
    SRIVIDYALAYAM — whychooseus.html styles
-   (shared styles are in style.css)
    ============================================= */
 
 /* INTRO */
@@ -49,7 +48,7 @@
     font-size: 2.2rem;
     display: block;
     height: 2.2rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 2rem;
     flex-shrink: 0;
 }
 
