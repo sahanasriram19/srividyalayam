@@ -43,7 +43,7 @@
 }
 
 .reason-card:nth-child(n+4) .reason-title {
-    margin-top: 1.5rem;
+    margin-top: 1.0rem;
 }
 
 .reason-card:hover {
