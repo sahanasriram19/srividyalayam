@@ -41,6 +41,10 @@
     margin-top: 0;
 }
 
+.hero-btns .btn-primary {
+    margin-left: 1rem;
+}
+
 .hero-btns .btn-primary,
 .hero-btns .btn-ghost {
     min-width: 200px;
