@@ -22,9 +22,8 @@
     align-items: flex-end;
     justify-content: center;
     text-align: center;
-    padding: 6rem 2rem 8rem;
+    padding: 6rem 2rem 3rem;
 }
-
 .hero-content {
     position: relative;
     z-index: 2;
