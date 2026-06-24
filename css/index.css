@@ -328,14 +328,14 @@ footer {
     .videos-layout { max-width: 100%; }
     .video-single .video-item { width: 100%; }
 
-    #hero {
-        min-height: 100vw;
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-        padding: 4rem 1.5rem 3rem;
-        align-items: flex-end;
-    }
+   #hero {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 4rem 1.5rem 3rem;
+    align-items: flex-end;
+}
 
     .hero-bg,
     .hero-overlay {
