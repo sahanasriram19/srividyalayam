@@ -36,35 +36,6 @@
     display: none;
 }
 
-.hero-ornament {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(201, 168, 76, 0.15);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 2;
-}
-
-.hero-ornament:nth-child(3) {
-    width: 400px;
-    height: 400px;
-    border-color: rgba(201, 168, 76, 0.2);
-}
-
-.hero-ornament:nth-child(4) {
-    width: 620px;
-    height: 620px;
-    border-color: rgba(201, 168, 76, 0.12);
-}
-
-.hero-ornament:nth-child(5) {
-    width: 840px;
-    height: 840px;
-    border-color: rgba(201, 168, 76, 0.06);
-}
-
 .hero-content {
     position: relative;
     z-index: 2;
@@ -75,35 +46,18 @@
     align-items: center;
 }
 
-.hero-divider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.2rem;
-    justify-content: center;
-}
-
-.hero-divider span {
-    font-size: 1.4rem;
-    color: var(--gold);
-}
-
-.hero-line {
-    height: 1px;
-    width: 60px;
-    background: linear-gradient(to right, transparent, var(--gold));
-}
-
-.hero-line.right {
-    background: linear-gradient(to left, transparent, var(--gold));
-}
-
 .hero-btns {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 2.5rem;
+    margin-top: 6rem;
+}
+
+.hero-btns .btn-primary,
+.hero-btns .btn-ghost {
+    min-width: 200px;
+    text-align: center;
 }
 
 .hero-discover {
@@ -370,29 +324,7 @@ footer {
     .videos-grid { grid-template-columns: 1fr; }
     .videos-layout { max-width: 100%; }
     .video-single .video-item { width: 100%; }
-}
 
-@media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .about-visual {
-        max-width: 100%;
-        padding-bottom: 3rem;
-    }
-
-    .gallery-carousel {
-        max-width: 100%;
-        aspect-ratio: 4/3;
-    }
-
-    .videos-grid { grid-template-columns: 1fr; }
-    .videos-layout { max-width: 100%; }
-    .video-single .video-item { width: 100%; }
-
-    /* Fix for iOS Safari - switch fixed to absolute on mobile */
     .hero-bg,
     .hero-overlay {
         position: absolute !important;
