@@ -62,13 +62,12 @@
     display: none;
 }
 
-
 .hero-discover {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.4rem;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     color: rgba(245, 233, 200, 0.7);
     font-size: 0.75rem;
     font-weight: 600;
