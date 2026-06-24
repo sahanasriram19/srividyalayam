@@ -19,7 +19,7 @@
     min-height: 100vh;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     text-align: center;
     padding: 6rem 2rem 4rem;
