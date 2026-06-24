@@ -526,4 +526,12 @@ footer {
     padding: 10rem 2rem 6rem !important;
 }
 
+@media (max-width: 768px) {
+    .btn-primary,
+    .btn-ghost {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.72rem;
+    }
+}
+
 }
