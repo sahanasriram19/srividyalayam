@@ -24,6 +24,7 @@
     text-align: center;
     padding: 6rem 2rem 3rem;
 }
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -327,26 +328,19 @@ footer {
     .videos-layout { max-width: 100%; }
     .video-single .video-item { width: 100%; }
 
+    #hero {
+        min-height: 100vw;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        padding: 4rem 1.5rem 3rem;
+        align-items: flex-end;
+    }
+
     .hero-bg,
     .hero-overlay {
         position: absolute !important;
         z-index: 0;
-    }
-
-    #hero {
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-    }
-}
-
-@media (max-width: 768px) {
-    #hero {
-        padding: 6rem 2rem 3rem;
-        align-items: flex-end;
-    }
-
-    .hero-bg {
         background-position: center center !important;
         background-size: cover !important;
     }
@@ -361,12 +355,15 @@ footer {
     .hero-btns .btn-primary,
     .hero-btns .btn-ghost {
         min-width: 0;
-        width: 80%;
+        width: 75%;
         text-align: center;
         margin-left: 0 !important;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.72rem;
     }
 
     .hero-discover {
-        margin-top: 1.5rem;
+        margin-top: 1rem;
+        font-size: 0.65rem;
     }
 }
