@@ -128,7 +128,7 @@
 }
 
 .hero-discover-arrow { font-size: 1.2rem; }
-.hero-discover:hover { color: rgba(42, 20, 0, 0.9); }
+.hero-discover:hover { color: var(--gold-light); }
 
 @keyframes bobble {
     0%, 100% { opacity: 0.4; transform: translateY(0); }
