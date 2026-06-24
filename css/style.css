@@ -415,26 +415,29 @@ footer {
   margin-bottom: 1rem;
 }
 
-.footer-links {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  list-style: none;
-  margin-bottom: 1.5rem;
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
 }
 
-.footer-links a {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(201, 168, 76, 0.5);
-  text-decoration: none;
-  transition: color 0.2s;
+.footer-social-link {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(201, 168, 76, 0.6);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: border-color 0.3s ease, color 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: var(--gold);
+.footer-social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
 }
 
 .footer-divider {
