@@ -285,30 +285,146 @@
     padding: 2.5rem 1rem;
 }
 
-/* RESPONSIVE */
+/* =============================================
+   CLASSES — MOBILE FIXES
+   ============================================= */
+
 @media (max-width: 768px) {
+
+    #classes,
+    #schedule,
+    #enrol {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    /* Class blocks */
     .class-block {
-        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        overflow: hidden;
     }
 
     .class-block.reverse {
         direction: ltr;
     }
 
+    .class-block.reverse > * {
+        direction: ltr;
+    }
+
     .class-visual {
-        min-height: 200px;
+        width: 100%;
+        min-width: 0;
+        min-height: 220px;
     }
 
     .class-info {
-        padding: 2rem;
+        width: 100%;
+        min-width: 0;
+        padding: 2rem 1.25rem;
     }
 
+    .class-name {
+        font-size: 1.8rem;
+    }
+
+    .class-desc {
+        overflow-wrap: break-word;
+    }
+
+    /* Level icons */
+    .level-icons {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .level-icon-item {
+        width: 75px;
+        flex-shrink: 0;
+    }
+
+    /* Schedule */
     .schedule-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
     }
 
+    .schedule-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    /* Enrolment */
     .enrol-wrap {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 2.5rem;
+    }
+
+    .enrol-intro,
+    .enrol-form {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .enrol-form {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .steps li {
+        min-width: 0;
+    }
+
+    .step-text {
+        min-width: 0;
+        overflow-wrap: break-word;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    #classes,
+    #schedule,
+    #enrol {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .class-info {
+        padding: 1.5rem 1rem;
+    }
+
+    .class-visual {
+        min-height: 190px;
+    }
+
+    .class-visual-icon {
+        font-size: 5rem;
+    }
+
+    .class-name {
+        font-size: 1.6rem;
+    }
+
+    .level-icons {
+        gap: 0.75rem;
+    }
+
+    .level-icon-item {
+        width: 70px;
+    }
+
+    .schedule-card {
+        padding: 1.25rem;
+    }
+
+    .enrol-form {
+        padding: 1.25rem 1rem;
     }
 }
