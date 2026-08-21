@@ -180,121 +180,47 @@
     padding: 2.5rem;
 }
 
-/* =============================================
-   FOUNDER — MOBILE FIXES
-   ============================================= */
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
 
     #founder-story,
     #contact {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
+        padding: 4rem 1.5rem;
     }
 
-    /* Founder */
     .founder-grid {
-        width: 100%;
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
         gap: 2.5rem;
     }
 
     .founder-photo-wrap {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .founder-photo {
-        width: 100%;
         max-width: 100%;
     }
 
     .founder-quote-card {
-        width: 100%;
         max-width: 100%;
+        padding: 1.5rem;
     }
 
-    .founder-body {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .founder-body p {
-        overflow-wrap: break-word;
-    }
-
-    /* Highlights */
     .founder-highlights {
-        width: 100%;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.75rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .highlight-item {
-        min-width: 0;
-        padding: 1rem;
+        padding: 1.2rem;
     }
 
-    .highlight-label {
-        overflow-wrap: break-word;
-    }
-
-    /* Contact */
     .contact-grid {
-        width: 100%;
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
         gap: 2.5rem;
     }
 
-    .contact-details {
-        width: 100%;
+    .contact-form-wrap {
+        padding: 2rem 1.5rem;
     }
 
     .contact-details li {
-        min-width: 0;
-    }
-
-    .contact-details li > div {
-        min-width: 0;
-        overflow-wrap: break-word;
-    }
-
-    .contact-form-wrap {
-        width: 100%;
-        max-width: 100%;
-        padding: 1.5rem 1.25rem;
-    }
-}
-
-
-@media (max-width: 480px) {
-
-    #founder-story,
-    #contact {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .founder-highlights {
-        gap: 0.5rem;
-    }
-
-    .highlight-item {
-        padding: 0.85rem 0.65rem;
-    }
-
-    .highlight-num {
-        font-size: 1.7rem;
-    }
-
-    .highlight-label {
-        font-size: 0.58rem;
-        letter-spacing: 0.08em;
-    }
-
-    .contact-form-wrap {
-        padding: 1.25rem 1rem;
+        gap: 0.8rem;
     }
 }
