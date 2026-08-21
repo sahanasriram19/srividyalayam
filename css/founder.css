@@ -182,45 +182,21 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-
-    #founder-story,
-    #contact {
-        padding: 4rem 1.5rem;
-    }
-
     .founder-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-
-    .founder-photo-wrap {
-        max-width: 100%;
+        gap: 3rem;
     }
 
     .founder-quote-card {
         max-width: 100%;
-        padding: 1.5rem;
     }
 
     .founder-highlights {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .highlight-item {
-        padding: 1.2rem;
+        grid-template-columns: 1fr 1fr;
     }
 
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
-    }
-
-    .contact-form-wrap {
-        padding: 2rem 1.5rem;
-    }
-
-    .contact-details li {
-        gap: 0.8rem;
     }
 }
