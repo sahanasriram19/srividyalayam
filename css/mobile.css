@@ -290,38 +290,6 @@
 
 @media (max-width: 768px) {
 
-  #classes,
-  #schedule,
-  #enrol {
-    padding: 4rem 1.5rem;
-  }
-
-  .classes-intro {
-    max-width: 100%;
-    margin-bottom: 2.5rem;
-  }
-
-  .class-block {
-    grid-template-columns: 1fr;
-    margin-bottom: 2rem;
-  }
-
-  .class-block.reverse {
-    direction: ltr;
-  }
-
-  .class-visual {
-    min-height: 200px;
-  }
-
-  .class-info {
-    padding: 2rem 1.5rem;
-  }
-
-  .class-name {
-    font-size: 1.7rem;
-  }
-
 
   /* ---- CLASS LEVEL ICONS ---- */
 
