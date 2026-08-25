@@ -1,0 +1,505 @@
+/* =============================================
+   SRIVIDYALAYAM — Mobile / Responsive Styles
+   All mobile-only rules live here for easy editing.
+   ============================================= */
+
+
+/* =================================================
+   SHARED / GLOBAL MOBILE
+   ================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---- GLOBAL MOBILE SAFETY ---- */
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  .section-inner {
+    width: 100%;
+    max-width: 1100px;
+    min-width: 0;
+  }
+
+
+  /* ---- NAV ---- */
+
+  nav {
+    height: 70px;
+    padding: 0 1rem;
+  }
+
+  .nav-logo img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--crimson-deep);
+    flex-direction: column;
+    padding: 0;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.35s ease,
+      padding 0.35s ease;
+  }
+
+  .nav-links.open {
+    max-height: 400px;
+    opacity: 1;
+    padding: 1rem 0;
+  }
+
+  .nav-links a {
+    padding: 0.85rem 2rem;
+  }
+
+  .nav-links a.active::after {
+    display: none;
+  }
+
+  .nav-links .nav-cta {
+    margin: 0.5rem 2rem 0 !important;
+    padding: 0.65rem 1.2rem !important;
+    text-align: center !important;
+    border-radius: 2px !important;
+    display: block !important;
+    width: auto !important;
+  }
+
+
+  /* ---- BUTTONS ---- */
+
+  .btn-primary,
+  .btn-ghost {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.72rem;
+  }
+
+
+  /* ---- FORMS ---- */
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    max-width: 100%;
+  }
+
+
+  /* ---- PAGE HERO ---- */
+
+  .page-hero {
+    width: 100%;
+    min-height: auto;
+    padding: 10rem 1.25rem 6rem !important;
+  }
+
+  .page-hero-title {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .page-hero-sub {
+    max-width: 100%;
+  }
+
+  .page-hero::before {
+    width: 300px;
+    height: 300px;
+  }
+
+
+  /* ---- FOOTER ---- */
+
+  footer {
+    padding: 2.5rem 1rem;
+  }
+
+  .footer-social {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* =================================================
+   SMALL PHONES
+   ================================================= */
+
+@media (max-width: 480px) {
+
+  nav {
+    padding: 0 0.75rem;
+  }
+
+  .nav-logo img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .page-hero {
+    padding: 9rem 1rem 5rem !important;
+  }
+
+  .page-hero-title {
+    font-size: 2.25rem;
+  }
+
+  .form-success {
+    padding: 1.5rem 0.5rem;
+  }
+}
+
+
+/* =================================================
+   HOMEPAGE
+   ================================================= */
+
+@media (max-width: 768px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-visual {
+    max-width: 100%;
+    padding-bottom: 3rem;
+  }
+
+  .gallery-carousel {
+    max-width: 100%;
+    aspect-ratio: 4/3;
+  }
+
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .videos-layout {
+    max-width: 100%;
+  }
+
+  .video-single .video-item {
+    width: 100%;
+  }
+
+
+  /* ---- HOMEPAGE HERO ---- */
+
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 4rem 1.5rem 3rem;
+    align-items: flex-end;
+  }
+
+  .hero-bg,
+  .hero-overlay {
+    position: absolute !important;
+    z-index: 0;
+    background-position: center center !important;
+  }
+
+  /*
+     Keep the full hero image visible on mobile
+     instead of zooming/cropping it.
+  */
+  .hero-bg {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-color: var(--crimson-deep);
+  }
+
+  /*
+     Dark overlay makes the hero look better on mobile
+     while keeping the image visible.
+  */
+  .hero-overlay {
+    display: block !important;
+    inset: 0;
+    background: rgba(15, 0, 5, 0.32) !important;
+  }
+
+
+  /* ---- HERO BUTTONS ---- */
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .hero-btns .btn-primary,
+  .hero-btns .btn-ghost {
+    width: auto;
+    min-width: 0;
+    text-align: center;
+    margin-left: 0 !important;
+    padding: 0.55rem 1.05rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.11em;
+  }
+
+  .hero-discover {
+    margin-top: 1rem;
+    font-size: 0.62rem;
+  }
+}
+
+
+/* =================================================
+   CLASSES PAGE
+   ================================================= */
+
+@media (max-width: 768px) {
+
+  #classes,
+  #schedule,
+  #enrol {
+    padding: 4rem 1.5rem;
+  }
+
+  .classes-intro {
+    max-width: 100%;
+    margin-bottom: 2.5rem;
+  }
+
+  .class-block {
+    grid-template-columns: 1fr;
+    margin-bottom: 2rem;
+  }
+
+  .class-block.reverse {
+    direction: ltr;
+  }
+
+  .class-visual {
+    min-height: 200px;
+  }
+
+  .class-info {
+    padding: 2rem 1.5rem;
+  }
+
+  .class-name {
+    font-size: 1.7rem;
+  }
+
+
+  /* ---- CLASS LEVEL ICONS ---- */
+
+  .level-icons {
+    flex-wrap: nowrap !important;
+    gap: 0.45rem !important;
+    justify-content: space-between !important;
+    width: 100%;
+  }
+
+  .level-icon-item {
+    flex: 1 1 0;
+    min-width: 0;
+    gap: 0.25rem;
+  }
+
+  .level-icon-item i {
+    font-size: 1rem !important;
+    height: 1.1rem;
+  }
+
+  .level-icon-item span {
+    font-size: 0.5rem !important;
+    letter-spacing: 0.035em;
+    white-space: nowrap;
+  }
+
+
+  /* ---- SCHEDULE ---- */
+
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-card {
+    padding: 1.8rem 1.5rem;
+  }
+
+
+  /* ---- ENROLMENT ---- */
+
+  .enrol-wrap {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .enrol-form {
+    padding: 2rem 1.5rem;
+  }
+
+  .steps li {
+    gap: 0.8rem;
+  }
+}
+
+
+/* =================================================
+   FOUNDER PAGE
+   ================================================= */
+
+@media (max-width: 768px) {
+
+  .founder-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .founder-quote-card {
+    max-width: 100%;
+  }
+
+  .founder-highlights {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+
+/* =================================================
+   WHY CHOOSE US PAGE
+   ================================================= */
+
+@media (max-width: 768px) {
+
+  #intro,
+  #reasons,
+  #stats,
+  #testimonials,
+  #cta {
+    padding: 4rem 1.5rem;
+  }
+
+  .intro-wrap,
+  .cta-wrap {
+    max-width: 100%;
+  }
+
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .reason-card {
+    height: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 1rem;
+  }
+
+  .testimonial-card {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    padding: 1.8rem 1.5rem;
+  }
+
+  .testimonial-track {
+    gap: 1rem;
+  }
+
+  .testimonial-carousel {
+    gap: 0.5rem;
+  }
+
+  .cta-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-btns .btn-primary,
+  .cta-btns .btn-ghost {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* =================================================
+   MOBILE TYPOGRAPHY
+   ================================================= */
+
+@media (max-width: 768px) {
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .page-hero-title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .about-text p,
+  .founder-body p,
+  .contact-info-text,
+  .contact-details li,
+  .classes-intro,
+  .enrol-intro p,
+  .step-text,
+  .cta-text,
+  .schedule-card-text {
+    font-size: 0.88rem;
+  }
+
+  .hero-discover {
+    font-size: 0.62rem;
+  }
+}
