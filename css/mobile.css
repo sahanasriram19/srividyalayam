@@ -240,13 +240,12 @@
      Keep the full hero image visible on mobile
      instead of zooming/cropping it.
   */
-  .hero-bg {
-    background-size: contain !important;
+    .hero-bg {
+    background-image: url("../images/hero-mobile.png") !important;
+    background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
-    background-color: var(--crimson-deep);
-  }
-
+    }
   /*
      Dark overlay makes the hero look better on mobile
      while keeping the image visible.
