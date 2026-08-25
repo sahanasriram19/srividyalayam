@@ -283,69 +283,6 @@
   }
 }
 
-
-/* =================================================
-   CLASSES PAGE
-   ================================================= */
-
-@media (max-width: 768px) {
-
-
-  /* ---- CLASS LEVEL ICONS ---- */
-
-  .level-icons {
-    flex-wrap: nowrap !important;
-    gap: 0.45rem !important;
-    justify-content: space-between !important;
-    width: 100%;
-  }
-
-  .level-icon-item {
-    flex: 1 1 0;
-    min-width: 0;
-    gap: 0.25rem;
-  }
-
-  .level-icon-item i {
-    font-size: 1rem !important;
-    height: 1.1rem;
-  }
-
-  .level-icon-item span {
-    font-size: 0.5rem !important;
-    letter-spacing: 0.035em;
-    white-space: nowrap;
-  }
-
-
-  /* ---- SCHEDULE ---- */
-
-  .schedule-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .schedule-card {
-    padding: 1.8rem 1.5rem;
-  }
-
-
-  /* ---- ENROLMENT ---- */
-
-  .enrol-wrap {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .enrol-form {
-    padding: 2rem 1.5rem;
-  }
-
-  .steps li {
-    gap: 0.8rem;
-  }
-}
-
-
 /* =================================================
    FOUNDER PAGE
    ================================================= */
