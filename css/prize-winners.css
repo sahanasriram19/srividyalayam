@@ -8,6 +8,11 @@
   column-count: 3;
   column-gap: 1.5rem;
 }
+
+.winners-intro {
+  margin-bottom: 3rem;
+}
+
 .winner-card {
   break-inside: avoid;
   margin: 0 0 1.5rem;
