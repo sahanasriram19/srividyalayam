@@ -1,0 +1,162 @@
+/* =========================================================
+   GALLERY PAGE
+   ========================================================= */
+
+.gallery-page-hero {
+  padding-bottom: 8rem !important;
+}
+
+.gallery-page {
+  background: var(--cream);
+  padding: 5rem 2rem 7rem;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-intro {
+  max-width: 700px;
+  margin-bottom: 3.5rem;
+}
+
+.gallery-intro p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: .92rem;
+}
+
+
+/* =========================================================
+   MASONRY GALLERY
+   ========================================================= */
+
+.gallery-masonry {
+  column-count: 2;
+  column-gap: 1.8rem;
+}
+
+.gallery-card {
+  break-inside: avoid;
+  margin: 0 0 1.8rem;
+  overflow: hidden;
+  background: var(--gold-pale);
+  border: 1px solid rgba(107, 0, 32, .12);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(26, 10, 0, .07);
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(26, 10, 0, .14);
+}
+
+.gallery-card-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.gallery-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  border-radius: 16px;
+  transition: transform .6s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.035);
+}
+
+
+/* Tablet */
+@media (max-width: 768px) {
+
+  .gallery-card:hover {
+    transform: none;
+  }
+
+  .gallery-card:hover img {
+    transform: none;
+  }
+
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .gallery-card {
+    margin-bottom: 1.25rem;
+    border-radius: 14px;
+  }
+
+  .gallery-card-image,
+  .gallery-card-image img {
+    border-radius: 14px;
+  }
+
+}
+
+
+/* Small phones */
+@media (max-width: 380px) {
+
+  .gallery-card {
+    margin-bottom: 1rem;
+    border-radius: 12px;
+  }
+
+  .gallery-card-image,
+  .gallery-card-image img {
+    border-radius: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .gallery-masonry {
+    column-count: 2;
+    column-gap: 1.2rem;
+  }
+
+  .gallery-card {
+    margin-bottom: 1.2rem;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .gallery-page {
+    padding: 3.5rem 1rem 5rem;
+  }
+
+  .gallery-masonry {
+    column-count: 1;
+  }
+
+  .gallery-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .gallery-card {
+    margin-bottom: 1rem;
+  }
+
+}
+
