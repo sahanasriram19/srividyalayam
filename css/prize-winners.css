@@ -29,12 +29,21 @@
 }
 
 .winner-image-placeholder {
-  min-height: 260px;
+  height: 260px;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
   background:
     radial-gradient(circle at 20% 20%, rgba(201,168,76,.20), transparent 35%),
     linear-gradient(145deg, var(--crimson-deep), var(--crimson));
-  display: flex; align-items: center; justify-content: center;
-  padding: 2rem;
+}
+
+.winner-image-placeholder > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .winner-placeholder-inner {
