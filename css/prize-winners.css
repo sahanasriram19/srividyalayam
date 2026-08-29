@@ -120,6 +120,49 @@
   line-height: 1.75; 
 }
 
+/* FEATURED BIGGER CARDS */
+.winners-featured {
+  margin-top: 3rem;
+}
+
+.winners-featured-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.winners-featured-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.winners-featured-bottom .winner-card-large {
+  width: 50%;
+}
+
+.winner-card-large .winner-image-placeholder {
+  min-height: 400px;
+}
+
+.winner-card-large .winner-placeholder-inner {
+  min-height: 350px;
+}
+
+.winner-card-large .winner-details h2 {
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .winners-featured-top {
+    grid-template-columns: 1fr;
+  }
+
+  .winners-featured-bottom .winner-card-large {
+    width: 100%;
+  }
+}
+
 @media (max-width: 900px) { 
   .winners-masonry { column-count: 2; } 
 }
