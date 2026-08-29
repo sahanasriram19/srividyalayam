@@ -153,6 +153,17 @@
   font-size: 2rem;
 }
 
+.winner-uploaded-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.winner-card-large .winner-image-placeholder {
+  min-height: 400px;
+}
+
 @media (max-width: 768px) {
   .winners-featured-top {
     grid-template-columns: 1fr;
