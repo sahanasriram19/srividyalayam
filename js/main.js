@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Active nav link based on current page ---
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.classList.contains('nav-cta')) return; // skip the enrol button
-    const href = link.getAttribute('href').split('#')[0]; // strip any #anchor
+    if (link.classList.contains('nav-cta')) return;
+    const href = link.getAttribute('href').split('#')[0];
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       link.classList.add('active');
     }
   });
 
-  // --- Cross-page anchor scroll (e.g. classes.html#enrol) ---
+  // --- Cross-page anchor scroll ---
   if (window.location.hash) {
     const target = document.querySelector(window.location.hash);
     if (target) {
@@ -24,21 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-// --- Mobile hamburger toggle ---
-const hamburger = document.querySelector('.nav-hamburger');
-const navLinks = document.querySelector('.nav-links');
-if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
+  // --- Mobile hamburger toggle ---
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
     });
-  });
-}
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+  }
 
-  // --- Scroll-reveal (lightweight, no library needed) ---
+  // --- Scroll-reveal ---
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
@@ -52,6 +52,57 @@ if (hamburger && navLinks) {
     revealEls.forEach(el => observer.observe(el));
   } else {
     revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  // --- Lightbox ---
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    const lightboxImg = document.getElementById('lightbox-img');
+    const imgs = Array.from(document.querySelectorAll('.gallery-card-image img'));
+    let current = 0;
+
+    function openLightbox(index) {
+      current = index;
+      lightboxImg.src = imgs[current].src;
+      lightboxImg.alt = imgs[current].alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    imgs.forEach((img, i) => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => openLightbox(i));
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+
+    document.getElementById('lightbox-prev').addEventListener('click', () => {
+      current = (current - 1 + imgs.length) % imgs.length;
+      lightboxImg.src = imgs[current].src;
+      lightboxImg.alt = imgs[current].alt;
+    });
+
+    document.getElementById('lightbox-next').addEventListener('click', () => {
+      current = (current + 1) % imgs.length;
+      lightboxImg.src = imgs[current].src;
+      lightboxImg.alt = imgs[current].alt;
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
+      if (e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
+      if (e.key === 'Escape') closeLightbox();
+    });
   }
 
 });
@@ -117,7 +168,7 @@ if (statNums.length) {
 const track = document.querySelector('.testimonial-track');
 if (track) {
   const cards = track.querySelectorAll('.testimonial-card');
-  const cardWidth = () => cards[0].offsetWidth + 32; // 32 = gap
+  const cardWidth = () => cards[0].offsetWidth + 32;
   let tIndex = 0;
   const maxIndex = cards.length - 3;
 
