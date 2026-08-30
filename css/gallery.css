@@ -11,7 +11,7 @@
 
 .gallery-intro {
   max-width: 700px;
-  margin: 0 auto 3.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .gallery-intro p {
@@ -25,10 +25,26 @@
    MASONRY GALLERY
    ========================================================= */
 
+/* =========================================================
+   FULL-WIDTH MASONRY GALLERY
+   Extends beyond the normal website content width
+   ========================================================= */
+
 .gallery-masonry {
-  width: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
+  width: 100vw;
+  max-width: none;
+
+  /*
+   * Pull the gallery outside the normal .section-inner
+   * so it reaches all the way toward both sides of
+   * the browser window.
+   */
+  margin-left: calc(50% - 50vw);
+
+  padding-left: 2vw;
+  padding-right: 2vw;
+
+  box-sizing: border-box;
 
   column-count: 4;
   column-gap: 1.4rem;
@@ -36,16 +52,12 @@
 
 .gallery-card {
   break-inside: avoid;
-  margin: 0 0 1.4rem;
-
+  margin: 0 0 1.8rem;
   overflow: hidden;
-
   background: var(--gold-pale);
   border: 1px solid rgba(107, 0, 32, .12);
   border-radius: 16px;
-
   box-shadow: 0 8px 25px rgba(26, 10, 0, .07);
-
   transition:
     transform .35s ease,
     box-shadow .35s ease;
@@ -67,9 +79,7 @@
   height: auto;
   display: block;
   max-width: 100%;
-
   border-radius: 16px;
-
   transition: transform .6s ease;
 }
 
@@ -77,11 +87,7 @@
   transform: scale(1.035);
 }
 
-
-/* =========================================================
-   LIGHTBOX
-   ========================================================= */
-
+/* LIGHTBOX */
 .lightbox {
   display: none;
   position: fixed;
@@ -107,22 +113,16 @@
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-
   background: none;
   border: 1px solid rgba(201, 168, 76, 0.5);
-
   color: var(--gold-light);
-
   width: 44px;
   height: 44px;
-
   font-size: 1.2rem;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: border-color 0.2s, color 0.2s;
 }
 
@@ -136,39 +136,27 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
   background: none;
   border: 1px solid rgba(201, 168, 76, 0.5);
-
   color: var(--gold-light);
-
   width: 44px;
   height: 44px;
-
   font-size: 1.2rem;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: border-color 0.2s, color 0.2s;
 }
 
-.lightbox-prev {
-  left: 1.5rem;
-}
-
-.lightbox-next {
-  right: 1.5rem;
-}
+.lightbox-prev { left: 1.5rem; }
+.lightbox-next { right: 1.5rem; }
 
 .lightbox-prev:hover,
 .lightbox-next:hover {
   border-color: var(--gold);
   color: var(--gold);
 }
-
 
 /* =========================================================
    LARGE LAPTOPS
@@ -190,34 +178,16 @@
 
 @media (max-width: 900px) {
 
-  .gallery-page {
-    padding: 4.5rem 1.5rem 6rem;
-  }
-
   .gallery-masonry {
     column-count: 2;
     column-gap: 1.2rem;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .gallery-card {
     margin-bottom: 1.2rem;
-  }
-
-}
-
-
-/* =========================================================
-   TOUCH DEVICES
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  .gallery-card:hover {
-    transform: none;
-  }
-
-  .gallery-card:hover img {
-    transform: none;
   }
 
 }
@@ -229,27 +199,16 @@
 
 @media (max-width: 600px) {
 
-  .gallery-page {
-    padding: 3.5rem 1rem 5rem;
-  }
-
-  .gallery-intro {
-    margin-bottom: 2.5rem;
-  }
-
   .gallery-masonry {
     column-count: 1;
     column-gap: 0;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .gallery-card {
     margin-bottom: 1.25rem;
-    border-radius: 14px;
-  }
-
-  .gallery-card-image,
-  .gallery-card-image img {
-    border-radius: 14px;
   }
 
 }
@@ -261,19 +220,13 @@
 
 @media (max-width: 380px) {
 
-  .gallery-page {
+  .gallery-masonry {
     padding-left: .75rem;
     padding-right: .75rem;
   }
 
   .gallery-card {
     margin-bottom: 1rem;
-    border-radius: 12px;
-  }
-
-  .gallery-card-image,
-  .gallery-card-image img {
-    border-radius: 12px;
   }
 
 }
