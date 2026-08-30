@@ -269,6 +269,86 @@
     flex-wrap: wrap;
 }
 
+/* =========================================================
+   WHY US INTRO — TEXT + IMAGE
+   ========================================================= */
+
+.intro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 450px);
+  align-items: start;
+  gap: 5rem;
+}
+
+.intro-wrap {
+  max-width: 700px;
+}
+
+.intro-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+
+  border: 1px solid rgba(107, 0, 32, .12);
+
+  box-shadow: 0 12px 35px rgba(26, 10, 0, .10);
+}
+
+.intro-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+
+  border-radius: 16px;
+
+  transition: transform .5s ease;
+}
+
+.intro-image:hover img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .intro-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 380px);
+    gap: 3rem;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .intro-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .intro-wrap {
+    max-width: 100%;
+  }
+
+  .intro-image {
+    max-width: 100%;
+  }
+
+  .intro-image:hover img {
+    transform: none;
+  }
+
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
 
