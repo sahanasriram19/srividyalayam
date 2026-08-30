@@ -287,7 +287,6 @@
 .intro-image {
   width: 100%;
   overflow: hidden;
-  border-radius: 16px;
 
   border: 1px solid rgba(107, 0, 32, .12);
 
@@ -299,8 +298,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-
-  border-radius: 16px;
 
   transition: transform .5s ease;
 }
