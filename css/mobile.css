@@ -402,13 +402,19 @@
 @media (max-width: 768px) {
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 1.8rem !important;
   }
 
   .page-hero-title {
-    font-size: clamp(2rem, 9vw, 2.8rem);
+    font-size: clamp(2rem, 9vw, 2.8rem) !important;
   }
 
+  /* ---- GLOBAL BODY TEXT ---- */
+  section p,
+  main p,
+  section li,
+  main li,
+  .page-hero-sub,
   .about-text p,
   .founder-body p,
   .contact-info-text,
@@ -417,25 +423,42 @@
   .enrol-intro p,
   .step-text,
   .cta-text,
-  .schedule-card-text {
-    font-size: 0.88rem;
+  .schedule-card-text,
+  .intro-text,
+  .reason-desc,
+  .testimonial-text,
+  .winner-description,
+  .gallery-card-caption,
+  .video-caption,
+  .form-sub,
+  .form-note {
+    font-size: 0.88rem !important;
+    line-height: 1.75 !important;
   }
 
-  .hero-discover {
-    font-size: 0.62rem;
+  /* ---- LABELS / SMALL TEXT ---- */
+  .section-badge,
+  .winner-year,
+  .winner-award,
+  .testimonial-role,
+  .class-sub,
+  .highlight-label,
+  .stat-label,
+  .form-group label,
+  .page-hero-label {
+    font-size: 0.68rem !important;
   }
 
-  /* ---- GLOBAL BODY TEXT NORMALIZATION ----
-     Catches any paragraph/list text on any page that isn't
-     already covered by a specific class above, and matches
-     it to the Founder page's 0.88rem body size. Page/section
-     titles (h1-h6, .section-title, .page-hero-title) are
-     untouched since this only targets <p> and <li> tags. */
-  section p,
-  main p,
-  .page-hero-sub,
-  section li,
-  main li {
-    font-size: 0.88rem;
+  /* ---- HEADINGS ---- */
+  h2.section-title {
+    font-size: 1.8rem !important;
+  }
+
+  h2, .winner-details h2, .class-name {
+    font-size: 1.4rem !important;
+  }
+
+  h3, .reason-title, .schedule-card-title {
+    font-size: 1.1rem !important;
   }
 }
