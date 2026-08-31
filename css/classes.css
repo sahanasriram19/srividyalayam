@@ -354,3 +354,27 @@
         gap: 0.8rem;
     }
 }
+
+/* CLASS BOX TEXT — MATCH SITE TYPOGRAPHY */
+
+.class-desc {
+    font-size: 0.9rem;
+    line-height: 1.75;
+}
+
+.class-features li {
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .class-desc {
+        font-size: 0.88rem !important;
+        line-height: 1.75 !important;
+    }
+
+    .class-features li {
+        font-size: 0.88rem !important;
+        line-height: 1.75 !important;
+    }
+}
