@@ -54,8 +54,17 @@
 
 .hero-bg {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(160deg, #8B5A00 0%, #C07800 40%, #E09010 60%, #C07800 100%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        160deg,
+        #8B5A00 0%,
+        #C07800 40%,
+        #E09010 60%,
+        #C07800 100%
+    );
     z-index: -2;
 }
 
@@ -87,41 +96,43 @@
 }
 
 .hero-portrait {
-  position: absolute;
-  top: 10vh;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid rgba(201, 168, 76, 0.7);
-  box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.15), 0 8px 32px rgba(0,0,0,0.4);
-  z-index: 3;
-  background: var(--crimson-deep);
+    position: absolute;
+    top: 10vh;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(201, 168, 76, 0.7);
+    box-shadow:
+        0 0 0 6px rgba(201, 168, 76, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+    z-index: 3;
+    background: var(--crimson-deep);
 }
 
 .hero-portrait-left {
-  left: 20%;
+    left: 20%;
 }
 
 .hero-portrait-right {
-  right: 16%;
+    right: 16%;
 }
 
 .hero-portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 15%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
 }
 
 .hero-portrait-left img {
-  object-position: 40% 65%;
-  transform: scale(1.55);
-  transform-origin: 40% 65%;
+    object-position: 40% 65%;
+    transform: scale(1.55);
+    transform-origin: 40% 65%;
 }
 
 .hero-portrait-right img {
-  object-position: 70% 15%;
+    object-position: 70% 15%;
 }
 
 .hero-bg,
@@ -129,11 +140,20 @@
     z-index: -1;
 }
 
-.hero-discover-arrow { font-size: 1.2rem; }
+.hero-discover-arrow {
+    font-size: 1.2rem;
+}
 
 @keyframes bobble {
-    0%, 100% { opacity: 0.4; transform: translateY(0); }
-    50%       { opacity: 1;   transform: translateY(6px); }
+    0%, 100% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(6px);
+    }
 }
 
 /* ABOUT */
@@ -160,7 +180,11 @@
 .about-frame {
     width: 100%;
     aspect-ratio: 3/2;
-    background: linear-gradient(135deg, var(--crimson-deep), var(--crimson));
+    background: linear-gradient(
+        135deg,
+        var(--crimson-deep),
+        var(--crimson)
+    );
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,7 +221,9 @@
     margin-bottom: 1.1rem;
 }
 
-.about-text p strong { color: var(--text); }
+.about-text p strong {
+    color: var(--text);
+}
 
 /* GALLERY */
 #gallery {
@@ -236,7 +262,9 @@
     transition: opacity 1.2s ease-in-out;
 }
 
-.gallery-slide.active { opacity: 1; }
+.gallery-slide.active {
+    opacity: 1;
+}
 
 .gallery-slide img {
     width: 100%;
@@ -247,7 +275,9 @@
 
 .gallery-caption {
     position: absolute;
-    bottom: 0; left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: rgba(15, 0, 5, 0.55);
     color: var(--gold-light);
     font-family: 'Cormorant Garamond', serif;
@@ -258,7 +288,9 @@
     text-align: center;
 }
 
-.gallery-dots { display: none; }
+.gallery-dots {
+    display: none;
+}
 
 /* VIDEOS */
 #videos {
@@ -337,71 +369,12 @@
     transition: background 0.2s;
 }
 
-.yt-btn:hover { background: var(--gold-light); }
+.yt-btn:hover {
+    background: var(--gold-light);
+}
 
 /* FOOTER */
 footer {
     position: relative;
     z-index: 1;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .about-visual {
-        max-width: 100%;
-        padding-bottom: 3rem;
-    }
-
-    .gallery-carousel {
-        max-width: 100%;
-        aspect-ratio: 4/3;
-    }
-
-    .videos-grid { grid-template-columns: 1fr; }
-    .videos-layout { max-width: 100%; }
-    .video-single .video-item { width: 100%; }
-
-   #hero {
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    padding: 4rem 1.5rem 3rem;
-    align-items: flex-end;
-}
-
-    .hero-bg,
-    .hero-overlay {
-        position: absolute !important;
-        z-index: 0;
-        background-position: center center !important;
-        background-size: cover !important;
-    }
-
-    .hero-btns {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        width: 100%;
-    }
-
-    .hero-btns .btn-primary,
-    .hero-btns .btn-ghost {
-        min-width: 0;
-        width: 75%;
-        text-align: center;
-        margin-left: 0 !important;
-        padding: 0.7rem 1.5rem;
-        font-size: 0.72rem;
-    }
-
-    .hero-discover {
-        margin-top: 1rem;
-        font-size: 0.65rem;
-    }
 }

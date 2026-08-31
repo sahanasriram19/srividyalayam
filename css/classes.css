@@ -161,7 +161,11 @@
     text-align: center;
 }
 
-/* SCHEDULE */
+
+/* =============================================
+   SCHEDULE
+   ============================================= */
+
 #schedule {
     background: var(--crimson-deep);
     padding: 5rem 2rem;
@@ -217,7 +221,11 @@
     color: var(--gold-light);
 }
 
-/* ENROLMENT */
+
+/* =============================================
+   ENROLMENT
+   ============================================= */
+
 #enrol {
     background: var(--cream);
     padding: 6rem 2rem;
@@ -283,98 +291,4 @@
 .form-success {
     line-height: 1.7;
     padding: 2.5rem 1rem;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-
-    #classes,
-    #schedule,
-    #enrol {
-        padding: 4rem 1.5rem;
-    }
-
-    .classes-intro {
-        max-width: 100%;
-        margin-bottom: 2.5rem;
-        font-size: 0.88rem !important;
-        line-height: 1.75 !important;
-    }
-
-    .class-block {
-        grid-template-columns: 1fr;
-        margin-bottom: 2rem;
-        font-size: 0.88rem !important;
-        line-height: 1.75 !important;
-    }
-
-    .class-block.reverse {
-        direction: ltr;
-    }
-
-    .class-visual {
-        min-height: 200px;
-    }
-
-    .class-info {
-        padding: 2rem 1.5rem;
-        font-size: 0.88rem !important;
-        line-height: 1.75 !important;
-    }
-
-    .class-name {
-        font-size: 1.7rem;
-    }
-
-    .level-icons {
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-    }
-
-    .schedule-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .schedule-card {
-        padding: 1.8rem 1.5rem;
-    }
-
-    .enrol-wrap {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-
-    .enrol-form {
-        padding: 2rem 1.5rem;
-        font-size: 0.88rem !important;
-    }
-
-    .steps li {
-        gap: 0.8rem;
-    }
-}
-
-/* CLASS BOX TEXT — MATCH SITE TYPOGRAPHY */
-
-.class-desc {
-    font-size: 0.9rem;
-    line-height: 1.75;
-}
-
-.class-features li {
-    font-size: 0.85rem;
-    line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-    .class-desc {
-        font-size: 0.88rem !important;
-        line-height: 1.75 !important;
-    }
-
-    .class-features li {
-        font-size: 0.88rem !important;
-        line-height: 1.75 !important;
-    }
 }

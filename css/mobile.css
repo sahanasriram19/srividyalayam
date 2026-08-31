@@ -1,463 +1,330 @@
-/* =============================================
-   SRIVIDYALAYAM — Mobile / Responsive Styles
-   All mobile-only rules live here for easy editing.
-   ============================================= */
+/* =========================================================
+   SRIVIDYALAYAM — MOBILE / RESPONSIVE STYLES
+   ========================================================= */
 
 
-/* =================================================
-   SHARED / GLOBAL MOBILE
-   ================================================= */
+/* =========================================================
+   TABLETS / SMALL LAPTOPS — 1200px
+   ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
 
-  /* ---- GLOBAL MOBILE SAFETY ---- */
-
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  img,
-  video,
-  iframe {
-    max-width: 100%;
-  }
-
-  .section-inner {
-    width: 100%;
-    max-width: 1100px;
-    min-width: 0;
-  }
-
-
-  /* ---- NAV ---- */
-
-  nav {
-    height: 70px;
-    padding: 0 1rem;
-  }
-
-  .nav-logo img {
-    width: 46px;
-    height: 46px;
-  }
-
-  .nav-hamburger {
-    display: flex;
-  }
-
-  .nav-links {
-    display: flex;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: var(--crimson-deep);
-    flex-direction: column;
-    padding: 0;
-    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition:
-      max-height 0.35s ease,
-      opacity 0.35s ease,
-      padding 0.35s ease;
-  }
-
-  .nav-links.open {
-    max-height: 400px;
-    opacity: 1;
-    padding: 1rem 0;
-  }
-
-  .nav-links a {
-    padding: 0.85rem 2rem;
-  }
-
-  .nav-links a.active::after {
-    display: none;
-  }
-
-  .nav-links .nav-cta {
-    margin: 0.5rem 2rem 0 !important;
-    padding: 0.65rem 1.2rem !important;
-    text-align: center !important;
-    border-radius: 2px !important;
-    display: block !important;
-    width: auto !important;
-  }
-
-
-  /* ---- BUTTONS ---- */
-
-  .btn-primary,
-  .btn-ghost {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.72rem;
-  }
-
-
-  /* ---- FORMS ---- */
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    max-width: 100%;
-  }
-
-
-  /* ---- PAGE HERO ---- */
-
-  .page-hero {
-    width: 100%;
-    min-height: auto;
-    padding: 10rem 1.25rem 6rem !important;
-  }
-
-  .page-hero-title {
-    font-size: clamp(2.2rem, 10vw, 3.2rem);
-    max-width: 100%;
-    overflow-wrap: break-word;
-  }
-
-  .page-hero-sub {
-    max-width: 100%;
-  }
-
-  .page-hero::before {
-    width: 300px;
-    height: 300px;
-  }
-
-
-  /* ---- FOOTER ---- */
-
-  footer {
-    padding: 2.5rem 1rem;
-  }
-
-  .footer-social {
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-}
-
-
-/* =================================================
-   SMALL PHONES
-   ================================================= */
-
-@media (max-width: 480px) {
-
-  nav {
-    padding: 0 0.75rem;
-  }
-
-  .nav-logo img {
-    width: 42px;
-    height: 42px;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .page-hero {
-    padding: 9rem 1rem 5rem !important;
-  }
-
-  .page-hero-title {
-    font-size: 2.25rem;
-  }
-
-  .form-success {
-    padding: 1.5rem 0.5rem;
-  }
-}
-
-
-/* =================================================
-   HOMEPAGE
-   ================================================= */
-
-@media (max-width: 768px) {
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .about-visual {
-    max-width: 100%;
-    padding-bottom: 3rem;
-  }
-
-  .gallery-carousel {
-    max-width: 100%;
-    aspect-ratio: 4/3;
-  }
-
-  .videos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .videos-layout {
-    max-width: 100%;
-  }
-
-  .video-single .video-item {
-    width: 100%;
-  }
-
-
-  /* ---- HOMEPAGE HERO ---- */
-
-  #hero {
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    padding: 4rem 1.5rem 3rem;
-    align-items: flex-end;
-  }
-
-  .hero-bg,
-  .hero-overlay {
-    position: absolute !important;
-    z-index: 0;
-    background-position: center center !important;
-  }
-
-  /*
-     Keep the full hero image visible on mobile
-     instead of zooming/cropping it.
-  */
-    .hero-bg {
-    background-image: url("../images/hero-mobile.png") !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
+    .gallery-masonry {
+        column-count: 3;
+        column-gap: 1.3rem;
     }
-  /*
-     Dark overlay makes the hero look better on mobile
-     while keeping the image visible.
-  */
-  .hero-overlay {
-    display: block !important;
-    inset: 0;
-    background: rgba(15, 0, 5, 0.32) !important;
-  }
 
-
-  /* ---- HERO BUTTONS ---- */
-
-  .hero-btns {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .hero-btns .btn-primary,
-  .hero-btns .btn-ghost {
-    width: auto;
-    min-width: 0;
-    text-align: center;
-    margin-left: 0 !important;
-    padding: 0.55rem 1.05rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.11em;
-  }
-
-  .hero-discover {
-    margin-top: 1rem;
-    font-size: 0.62rem;
-  }
-
-  /* ---- HERO PORTRAITS (mobile only) ---- */
-
-  .hero-portrait {
-    width: 110px;
-    height: 110px;
-    top: 14%;
-  }
-
-  .hero-portrait-right {
-    right: 4%;
-  }
-
-  .hero-portrait-left {
-    left: 4%;
-  }
 }
 
 
-/* =================================================
-   FOUNDER PAGE
-   ================================================= */
+/* =========================================================
+   TABLETS — 900px
+   ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
-  .founder-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+    /* WHY CHOOSE US */
+    .intro-layout {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(250px, 380px);
+        gap: 3rem;
+    }
 
-  .founder-quote-card {
-    max-width: 100%;
-  }
+    /* GALLERY PAGE */
+    .gallery-masonry {
+        column-count: 2;
+        column-gap: 1.2rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 
-  .founder-highlights {
-    grid-template-columns: 1fr 1fr;
-  }
+    .gallery-card {
+        margin-bottom: 1.2rem;
+    }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
+    /* WINNERS */
+    .winners-masonry {
+        column-count: 2;
+    }
+
 }
 
 
-/* =================================================
-   WHY CHOOSE US PAGE
-   ================================================= */
+/* =========================================================
+   TABLETS / MOBILE — 768px
+   ========================================================= */
 
 @media (max-width: 768px) {
 
-  #intro,
-  #reasons,
-  #stats,
-  #testimonials,
-  #cta {
-    padding: 4rem 1.5rem;
-    font-size: 0.88rem;
-  }
+    /* =========================
+       ABOUT
+       ========================= */
 
-  .intro-wrap,
-  .cta-wrap {
-    max-width: 100%;
-  }
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 
-  .reasons-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+    .about-visual {
+        max-width: 100%;
+        padding-bottom: 3rem;
+    }
 
-  .reason-card {
-    height: auto;
-    padding: 2rem 1.5rem;
-  }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
+    /* =========================
+       GALLERY CAROUSEL
+       ========================= */
 
-  .stat-item {
-    border-right: none;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    padding: 1rem;
-  }
+    .gallery-carousel {
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
+    }
 
-  .testimonial-card {
-    min-width: 100%;
-    max-width: 100%;
-    min-height: auto;
-    padding: 1.8rem 1.5rem;
-  }
 
-  .testimonial-track {
-    gap: 1rem;
-  }
+    /* =========================
+       VIDEOS
+       ========================= */
 
-  .testimonial-carousel {
-    gap: 0.5rem;
-  }
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
 
-  .cta-btns {
-    flex-direction: column;
-    width: 100%;
-  }
+    .videos-layout {
+        max-width: 100%;
+    }
 
-  .cta-btns .btn-primary,
-  .cta-btns .btn-ghost {
-    width: 100%;
-    text-align: center;
-  }
+    .video-single .video-item {
+        width: 100%;
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
+    #hero {
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        padding: 4rem 1.5rem 3rem;
+        align-items: flex-end;
+    }
+
+    .hero-bg,
+    .hero-overlay {
+        position: absolute !important;
+        z-index: 0;
+        background-position: center center !important;
+        background-size: cover !important;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 0;
+        width: 75%;
+        text-align: center;
+        margin-left: 0 !important;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.72rem;
+    }
+
+    .hero-discover {
+        margin-top: 1rem;
+        font-size: 0.65rem;
+    }
+
+
+    /* =========================
+       FOUNDER
+       ========================= */
+
+    .founder-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .founder-quote-card {
+        max-width: 100%;
+    }
+
+    .founder-highlights {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* =========================
+       CONTACT
+       ========================= */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+
+    /* =========================
+       WHY CHOOSE US
+       ========================= */
+
+    #intro,
+    #reasons,
+    #stats,
+    #testimonials,
+    #cta {
+        padding: 4rem 1.5rem;
+    }
+
+    .intro-wrap,
+    .cta-wrap {
+        max-width: 100%;
+    }
+
+    .reasons-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .reason-card {
+        height: auto;
+        padding: 2rem 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(201,168,76,0.2);
+        padding: 1rem;
+    }
+
+    .testimonial-card {
+        min-width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        padding: 1.8rem 1.5rem;
+    }
+
+    .testimonial-track {
+        gap: 1rem;
+    }
+
+    .testimonial-carousel {
+        gap: 0.5rem;
+    }
+
+    .cta-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-btns .btn-primary,
+    .cta-btns .btn-ghost {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* =========================
+       WINNERS
+       ========================= */
+
+    .winners-featured-top {
+        grid-template-columns: 1fr;
+    }
+
+    .winners-featured-bottom .winner-card-large {
+        width: 100%;
+    }
+
 }
 
 
-/* =================================================
-   MOBILE TYPOGRAPHY
-   ================================================= */
+/* =========================================================
+   MOBILE — 700px
+   ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
 
-  .section-title {
-    font-size: 1.8rem !important;
-  }
+    .intro-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
 
-  .page-hero-title {
-    font-size: clamp(2rem, 9vw, 2.8rem) !important;
-  }
+    .intro-wrap {
+        max-width: 100%;
+    }
 
-  /* ---- GLOBAL BODY TEXT ---- */
-  section p,
-  main p,
-  section li,
-  main li,
-  .page-hero-sub,
-  .about-text p,
-  .founder-body p,
-  .contact-info-text,
-  .contact-details li,
-  .classes-intro,
-  .enrol-intro p,
-  .step-text,
-  .cta-text,
-  .schedule-card-text,
-  .intro-text,
-  .reason-desc,
-  .testimonial-text,
-  .winner-description,
-  .gallery-card-caption,
-  .video-caption,
-  .form-sub,
-  .form-note {
-    font-size: 0.88rem !important;
-    line-height: 1.75 !important;
-  }
+    .intro-image {
+        max-width: 100%;
+    }
 
-  /* ---- LABELS / SMALL TEXT ---- */
-  .section-badge,
-  .winner-award,
-  .testimonial-role,
-  .class-sub,
-  .highlight-label,
-  .stat-label,
-  .form-group label,
-  .page-hero-label {
-    font-size: 0.68rem !important;
-  }
+    .intro-image:hover img {
+        transform: none;
+    }
 
-  /* ---- HEADINGS ---- */
-  h2.section-title {
-    font-size: 1.8rem !important;
-  }
+}
 
-  h2, .winner-details h2, .class-name {
-    font-size: 1.4rem !important;
-  }
 
-  h3, .reason-title, .schedule-card-title {
-    font-size: 1.1rem !important;
-  }
+/* =========================================================
+   MOBILE — 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* GALLERY */
+    .gallery-masonry {
+        column-count: 1;
+        column-gap: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .gallery-card {
+        margin-bottom: 1.25rem;
+    }
+
+
+    /* WINNERS */
+    .winners-page {
+        padding: 3.5rem 1rem 5rem;
+    }
+
+    .winners-masonry {
+        column-count: 1;
+    }
+
+    .winner-image-placeholder {
+        min-height: 300px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES — 380px
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .gallery-masonry {
+        padding-left: .75rem;
+        padding-right: .75rem;
+    }
+
+    .gallery-card {
+        margin-bottom: 1rem;
+    }
+
 }

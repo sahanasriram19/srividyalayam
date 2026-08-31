@@ -21,7 +21,11 @@
 .founder-photo {
     width: 100%;
     aspect-ratio: 3/4;
-    background: linear-gradient(140deg, var(--crimson-deep), var(--crimson));
+    background: linear-gradient(
+        140deg,
+        var(--crimson-deep),
+        var(--crimson)
+    );
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,7 +48,8 @@
 }
 
 /* To add a real photo replace the icon with:
-   <img src="images/founder.jpg" alt="Founder" style="width:100%;height:100%;object-fit:cover;"> */
+   <img src="images/founder.jpg" alt="Founder" style="width:100%;height:100%;object-fit:cover;">
+*/
 
 .founder-quote-card {
     background: var(--crimson);
@@ -141,7 +146,9 @@
     margin-bottom: 2rem;
 }
 
-.contact-details { list-style: none; }
+.contact-details {
+    list-style: none;
+}
 
 .contact-details li {
     display: flex;
@@ -178,25 +185,4 @@
     background: white;
     border: 1px solid rgba(107, 0, 32, 0.1);
     padding: 2.5rem;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .founder-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .founder-quote-card {
-        max-width: 100%;
-    }
-
-    .founder-highlights {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
 }
