@@ -281,13 +281,20 @@
     margin-top: 1rem;
     font-size: 0.62rem;
   }
-  
+
+  /* ---- HERO PORTRAITS (mobile only) ---- */
+
   .hero-portrait {
-    width: 80px;
-    height: 80px;
-    top: 8%;
+    width: 110px;
+    height: 110px;
+    top: 14%;
+  }
+
+  .hero-portrait-right {
+    right: 8%;
+  }
 }
-}
+
 
 /* =================================================
    FOUNDER PAGE
