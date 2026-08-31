@@ -122,8 +122,6 @@
 
 .hero-portrait-right img {
   object-position: 70% 15%;
-  transform: scale(0.92);
-  transform-origin: 70% 15%;
 }
 
 .hero-bg,
