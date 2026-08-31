@@ -88,9 +88,9 @@
 
 .hero-portrait {
   position: absolute;
-  top: 15%;
-  width: 220px;
-  height: 220px;
+  top: 30%;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid rgba(201, 168, 76, 0.7);
@@ -99,11 +99,11 @@
 }
 
 .hero-portrait-left {
-  left: 12%;
+  left: 18%;
 }
 
 .hero-portrait-right {
-  right: 12%;
+  right: 18%;
 }
 
 .hero-portrait img {
