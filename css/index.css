@@ -114,9 +114,9 @@
 }
 
 .hero-portrait-left img {
-  object-position: center 35%;
+  object-position: center 65%;
   transform: scale(1.35);
-  transform-origin: center 35%;
+  transform-origin: center 65%;
 }
 
 .hero-portrait-right img {
