@@ -96,6 +96,7 @@
   border: 3px solid rgba(201, 168, 76, 0.7);
   box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.15), 0 8px 32px rgba(0,0,0,0.4);
   z-index: 3;
+  background: var(--crimson-deep);
 }
 
 .hero-portrait-left {
@@ -114,13 +115,15 @@
 }
 
 .hero-portrait-left img {
-  object-position: center 65%;
+  object-position: 55% 65%;
   transform: scale(1.35);
-  transform-origin: center 65%;
+  transform-origin: 55% 65%;
 }
 
 .hero-portrait-right img {
   object-position: 70% 15%;
+  transform: scale(0.92);
+  transform-origin: 70% 15%;
 }
 
 .hero-bg,
