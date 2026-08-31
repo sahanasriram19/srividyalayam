@@ -465,25 +465,35 @@
         padding: 1rem;
     }
 
-    .testimonial-card {
-        min-width: 100%;
-        max-width: 100%;
-        min-height: auto;
-        padding: 1.8rem 1.5rem;
+    .testimonial-carousel {
+        gap: 0.25rem;
+        width: 100%;
+    }
+
+    .testimonial-track-wrap {
+        width: calc(100% - 76px);
+        flex: 0 0 calc(100% - 76px);
+        overflow: hidden;
     }
 
     .testimonial-track {
         gap: 0;
     }
 
-    .testimonial-carousel {
-        gap: 0.35rem;
+    .testimonial-card {
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+        min-height: auto;
+        padding: 1.8rem 1.5rem;
+        box-sizing: border-box;
     }
 
     .testimonial-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        font-size: 0.9rem;
     }
 
     .cta-btns {
