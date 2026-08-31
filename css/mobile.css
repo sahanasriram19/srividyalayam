@@ -328,3 +328,26 @@
     }
 
 }
+
+/* =========================================================
+   MOBILE — FONT SIZE CONSISTENCY
+   Match the founder page's information text
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* General information/body text */
+    .about-text p,
+    .founder-body p,
+    .contact-info-text,
+    .contact-details li,
+    .intro-text,
+    .reason-desc,
+    .cta-text,
+    .gallery-intro p,
+    .winner-description {
+        font-size: 0.88rem;
+        line-height: 1.85;
+    }
+
+}
