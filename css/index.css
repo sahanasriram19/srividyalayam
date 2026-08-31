@@ -103,7 +103,7 @@
 }
 
 .hero-portrait-right {
-  right: 20%;
+  right: 12%;
 }
 
 .hero-portrait img {
@@ -111,6 +111,10 @@
   height: 100%;
   object-fit: cover;
   object-position: center 15%;
+}
+
+.hero-portrait-left img {
+  object-position: center 5%;
 }
 
 .hero-bg,
