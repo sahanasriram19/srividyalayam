@@ -304,6 +304,8 @@
     .class-block {
         grid-template-columns: 1fr;
         margin-bottom: 2rem;
+        font-size: 0.88rem !important;
+        line-height: 1.75 !important;
     }
 
     .class-block.reverse {
