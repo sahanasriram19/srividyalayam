@@ -281,12 +281,12 @@
     margin-top: 1rem;
     font-size: 0.62rem;
   }
+  
+  .hero-portrait {
+    width: 80px;
+    height: 80px;
+    top: 8%;
 }
-
-.hero-portrait {
-  width: 80px;
-  height: 80px;
-  top: 8%;
 }
 
 /* =================================================
