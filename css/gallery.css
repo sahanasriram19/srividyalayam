@@ -1,1 +1,260 @@
-/* ========================================================= GALLERY PAGE ========================================================= */ .gallery-page { background: var(--cream); padding: 5rem 2rem 7rem; position: relative; z-index: 1; } .gallery-intro { max-width: 700px; margin-bottom: 3.5rem; } .gallery-intro p { color: var(--muted); line-height: 1.8; font-size: .92rem; } /* ========================================================= MASONRY GALLERY ========================================================= */ /* ========================================================= FULL-WIDTH MASONRY GALLERY Extends beyond the normal website content width ========================================================= */ .gallery-masonry { width: 100vw; max-width: none; /* * Pull the gallery outside the normal .section-inner * so it reaches all the way toward both sides of * the browser window. */ margin-left: calc(50% - 50vw); padding-left: 2vw; padding-right: 2vw; box-sizing: border-box; column-count: 4; column-gap: 1.4rem; } .gallery-card { break-inside: avoid; margin: 0 0 1.8rem; overflow: hidden; background: var(--gold-pale); border: 1px solid rgba(107, 0, 32, .12); border-radius: 16px; box-shadow: 0 8px 25px rgba(26, 10, 0, .07); transition: transform .35s ease, box-shadow .35s ease; } .gallery-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(26, 10, 0, .14); } .gallery-card-image { width: 100%; overflow: hidden; border-radius: 16px; } .gallery-card-image img { width: 100%; height: auto; display: block; max-width: 100%; border-radius: 16px; transition: transform .6s ease; } .gallery-card:hover img { transform: scale(1.035); } /* LIGHTBOX */ .lightbox { display: none; position: fixed; inset: 0; background: rgba(10, 0, 5, 0.95); z-index: 1000; align-items: center; justify-content: center; } .lightbox.active { display: flex; } .lightbox-img { max-width: 90vw; max-height: 90vh; object-fit: contain; border: 1px solid rgba(201, 168, 76, 0.3); } .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: 1px solid rgba(201, 168, 76, 0.5); color: var(--gold-light); width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; } .lightbox-close:hover { border-color: var(--gold); color: var(--gold); } .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: 1px solid rgba(201, 168, 76, 0.5); color: var(--gold-light); width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; } .lightbox-prev { left: 1.5rem; } .lightbox-next { right: 1.5rem; } .lightbox-prev:hover, .lightbox-next:hover { border-color: var(--gold); color: var(--gold); } /* ========================================================= LARGE LAPTOPS ========================================================= */ @media (max-width: 1200px) { .gallery-masonry { column-count: 3; column-gap: 1.3rem; } } /* ========================================================= TABLETS ========================================================= */ @media (max-width: 900px) { .gallery-masonry { column-count: 2; column-gap: 1.2rem; padding-left: 1.5rem; padding-right: 1.5rem; } .gallery-card { margin-bottom: 1.2rem; } } /* ========================================================= MOBILE ========================================================= */ @media (max-width: 600px) { .gallery-masonry { column-count: 1; column-gap: 0; padding-left: 1rem; padding-right: 1rem; } .gallery-card { margin-bottom: 1.25rem; } } /* ========================================================= SMALL PHONES ========================================================= */ @media (max-width: 380px) { .gallery-masonry { padding-left: .75rem; padding-right: .75rem; } .gallery-card { margin-bottom: 1rem; } }
+/* =========================================================
+   GALLERY PAGE
+   ========================================================= */
+
+.gallery-page {
+    background: var(--cream);
+    padding: 5rem 2rem 7rem;
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-intro {
+    max-width: 700px;
+    margin-bottom: 3.5rem;
+}
+
+.gallery-intro p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 0.92rem;
+}
+
+
+/* =========================================================
+   MASONRY GALLERY
+
+   Full-width masonry gallery extends beyond the normal
+   website content width.
+   ========================================================= */
+
+.gallery-masonry {
+    width: 100vw;
+    max-width: none;
+
+    /*
+     * Pull the gallery outside the normal .section-inner
+     * so it reaches all the way toward both sides of
+     * the browser window.
+     */
+
+    margin-left: calc(50% - 50vw);
+
+    padding-left: 2vw;
+    padding-right: 2vw;
+
+    box-sizing: border-box;
+
+    column-count: 4;
+    column-gap: 1.4rem;
+}
+
+.gallery-card {
+    break-inside: avoid;
+    margin: 0 0 1.8rem;
+    overflow: hidden;
+
+    background: var(--gold-pale);
+    border: 1px solid rgba(107, 0, 32, 0.12);
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(26, 10, 0, 0.07);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(26, 10, 0, 0.14);
+}
+
+.gallery-card-image {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.gallery-card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+    border-radius: 16px;
+
+    transition: transform 0.6s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.035);
+}
+
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+.lightbox {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(10, 0, 5, 0.95);
+
+    z-index: 1000;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+
+    background: none;
+    border: 1px solid rgba(201, 168, 76, 0.5);
+
+    color: var(--gold-light);
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        border-color 0.2s,
+        color 0.2s;
+}
+
+.lightbox-close:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: none;
+    border: 1px solid rgba(201, 168, 76, 0.5);
+
+    color: var(--gold-light);
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        border-color 0.2s,
+        color 0.2s;
+}
+
+.lightbox-prev {
+    left: 1.5rem;
+}
+
+.lightbox-next {
+    right: 1.5rem;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   LARGE LAPTOPS
+   ========================================================= */
+
+@media (max-width: 1200px) {
+    .gallery-masonry {
+        column-count: 3;
+        column-gap: 1.3rem;
+    }
+}
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .gallery-masonry {
+        column-count: 2;
+        column-gap: 1.2rem;
+
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .gallery-card {
+        margin-bottom: 1.2rem;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+    .gallery-masonry {
+        column-count: 1;
+        column-gap: 0;
+
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .gallery-card {
+        margin-bottom: 1.25rem;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+    .gallery-masonry {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .gallery-card {
+        margin-bottom: 1rem;
+    }
+}

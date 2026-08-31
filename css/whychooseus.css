@@ -1,1 +1,582 @@
-/* ============================================= SRIVIDYALAYAM — whychooseus.html styles ============================================= */ /* INTRO */ #intro { background: white; padding: 6rem 2rem; } .intro-wrap { max-width: 700px; } .intro-text { font-size: 1.05rem; line-height: 1.9; color: var(--muted); margin-top: 1rem; } /* REASONS */ #reasons { background: var(--cream); padding: 6rem 2rem; } .reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; align-items: stretch; } .reason-card { background: white; border: 1px solid rgba(201, 168, 76, 0.2); padding: 2.5rem 2rem; position: relative; transition: transform 0.2s, box-shadow 0.2s; height: 340px; } .reason-card:nth-child(-n+3) .reason-title { margin-top: 1.0rem; } .reason-card:nth-child(n+4) .reason-title { margin-top: 1.0rem; } .reason-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(139, 0, 0, 0.08); } .reason-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(to right, var(--crimson), var(--gold)); } .reason-icon { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; } .reason-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--dark); margin-bottom: 0.75rem; } .reason-desc { font-size: 0.92rem; line-height: 1.8; color: var(--muted); } /* STATS */ #stats { background: var(--crimson-deep); padding: 5rem 2rem; } .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; } .stat-item { border-right: 1px solid rgba(201, 168, 76, 0.2); padding: 1rem; } .stat-item:last-child { border-right: none; } .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 600; color: var(--gold-light); display: block; line-height: 1; } .stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201, 168, 76, 0.6); margin-top: 0.5rem; display: block; } /* TESTIMONIALS */ #testimonials { background: white; padding: 6rem 2rem; } .testimonial-carousel { position: relative; display: flex; align-items: center; gap: 1rem; margin-top: 3rem; } .testimonial-track-wrap { overflow: hidden; flex: 1; min-width: 0; } .testimonial-track { display: flex; gap: 2rem; transition: transform 0.5s ease; align-items: flex-start; } .testimonial-card { background: var(--cream); border: 1px solid rgba(201, 168, 76, 0.25); padding: 2rem 1.8rem; min-width: calc((100% - 4rem) / 3); max-width: calc((100% - 4rem) / 3); min-height: 320px; flex-shrink: 0; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; } .testimonial-arrow { background: var(--crimson); color: var(--gold-light); border: none; width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; flex-shrink: 0; } .testimonial-arrow:hover { background: var(--crimson-deep); } .testimonial-quote { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold); line-height: 1; margin-bottom: -0.5rem; display: block; } .testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; line-height: 1.75; color: var(--text); margin-bottom: 0.5rem; max-height: 8.4em; overflow: hidden; transition: max-height 0.4s ease; } .testimonial-text.expanded { max-height: 1000px; } .testimonial-readmore { background: none; border: none; color: var(--crimson); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; padding: 0; margin-top: 0.5rem; margin-bottom: 1rem; align-self: flex-start; } .testimonial-readmore:hover { color: var(--crimson-deep); } .testimonial-author { display: flex; flex-direction: column; gap: 0.2rem; padding-top: 1rem; border-top: 1px solid rgba(201, 168, 76, 0.25); } .testimonial-name { font-size: 0.88rem; font-weight: 700; color: var(--crimson); letter-spacing: 0.05em; } .testimonial-role { font-size: 0.75rem; color: var(--muted); font-style: italic; } /* CTA */ #cta { background: var(--cream); padding: 6rem 2rem; } .cta-wrap { max-width: 650px; } .cta-text { font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 2rem; margin-top: 1rem; } .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; } /* ========================================================= WHY US INTRO — TEXT + IMAGE ========================================================= */ .intro-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 450px); align-items: start; gap: 5rem; } .intro-wrap { max-width: 700px; } .intro-image { width: 100%; overflow: hidden; border-radius: 16px; border: 1px solid rgba(107, 0, 32, .12); box-shadow: 0 12px 35px rgba(26, 10, 0, .10); } .intro-image img { display: block; width: 100%; height: auto; max-width: 100%; border-radius: 16px; transition: transform .5s ease; } .intro-image:hover img { transform: scale(1.025); } /* ========================================================= TABLET ========================================================= */ @media (max-width: 900px) { .intro-layout { grid-template-columns: minmax(0, 1fr) minmax(250px, 380px); gap: 3rem; } } /* ========================================================= MOBILE ========================================================= */ @media (max-width: 700px) { .intro-layout { grid-template-columns: 1fr; gap: 2.5rem; } .intro-wrap { max-width: 100%; } .intro-image { max-width: 100%; } .intro-image:hover img { transform: none; } } /* RESPONSIVE */ @media (max-width: 768px) { #intro, #reasons, #stats, #testimonials, #cta { padding: 4rem 1.5rem; } .intro-wrap, .cta-wrap { max-width: 100%; } .reasons-grid { grid-template-columns: 1fr; gap: 1.5rem; } .reason-card { height: auto; padding: 2rem 1.5rem; } .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } .stat-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1rem; } .testimonial-card { min-width: 100%; max-width: 100%; min-height: auto; padding: 1.8rem 1.5rem; } .testimonial-track { gap: 1rem; } .testimonial-carousel { gap: 0.5rem; } .cta-btns { flex-direction: column; width: 100%; } .cta-btns .btn-primary, .cta-btns .btn-ghost { width: 100%; text-align: center; } }
+/* =========================================================
+   SRIVIDYALAYAM — whychooseus.html styles
+   ========================================================= */
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+#intro {
+    background: white;
+
+    padding: 6rem 2rem;
+}
+
+.intro-wrap {
+    max-width: 700px;
+}
+
+.intro-text {
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+
+    color: var(--muted);
+
+    margin-top: 1rem;
+}
+
+
+/* =========================================================
+   WHY US INTRO — TEXT + IMAGE
+   ========================================================= */
+
+.intro-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(300px, 450px);
+
+    align-items: start;
+
+    gap: 5rem;
+}
+
+.intro-wrap {
+    max-width: 700px;
+}
+
+.intro-image {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(107, 0, 32, 0.12);
+
+    box-shadow: 0 12px 35px rgba(26, 10, 0, 0.10);
+}
+
+.intro-image img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    max-width: 100%;
+
+    border-radius: 16px;
+
+    transition: transform 0.5s ease;
+}
+
+.intro-image:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =========================================================
+   REASONS
+   ========================================================= */
+
+#reasons {
+    background: var(--cream);
+
+    padding: 6rem 2rem;
+}
+
+.reasons-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2rem;
+
+    margin-top: 3rem;
+
+    align-items: stretch;
+}
+
+.reason-card {
+    background: white;
+
+    border: 1px solid rgba(201, 168, 76, 0.2);
+
+    padding: 2.5rem 2rem;
+
+    position: relative;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+    height: 340px;
+}
+
+.reason-card:nth-child(-n + 3) .reason-title {
+    margin-top: 1rem;
+}
+
+.reason-card:nth-child(n + 4) .reason-title {
+    margin-top: 1rem;
+}
+
+.reason-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 40px rgba(139, 0, 0, 0.08);
+}
+
+.reason-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        to right,
+        var(--crimson),
+        var(--gold)
+    );
+}
+
+.reason-icon {
+    font-size: 2.2rem;
+
+    margin-bottom: 1.2rem;
+
+    display: block;
+}
+
+.reason-title {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.4rem;
+
+    font-weight: 600;
+
+    color: var(--dark);
+
+    margin-bottom: 0.75rem;
+}
+
+.reason-desc {
+    font-size: 0.92rem;
+
+    line-height: 1.8;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+#stats {
+    background: var(--crimson-deep);
+
+    padding: 5rem 2rem;
+}
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 2rem;
+
+    text-align: center;
+}
+
+.stat-item {
+    border-right: 1px solid rgba(201, 168, 76, 0.2);
+
+    padding: 1rem;
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-num {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 3.5rem;
+
+    font-weight: 600;
+
+    color: var(--gold-light);
+
+    display: block;
+
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    color: rgba(201, 168, 76, 0.6);
+
+    margin-top: 0.5rem;
+
+    display: block;
+}
+
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+
+#testimonials {
+    background: white;
+
+    padding: 6rem 2rem;
+}
+
+.testimonial-carousel {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-top: 3rem;
+}
+
+.testimonial-track-wrap {
+    overflow: hidden;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+.testimonial-track {
+    display: flex;
+
+    gap: 2rem;
+
+    transition: transform 0.5s ease;
+
+    align-items: flex-start;
+}
+
+.testimonial-card {
+    background: var(--cream);
+
+    border: 1px solid rgba(201, 168, 76, 0.25);
+
+    padding: 2rem 1.8rem;
+
+    min-width: calc((100% - 4rem) / 3);
+
+    max-width: calc((100% - 4rem) / 3);
+
+    min-height: 320px;
+
+    flex-shrink: 0;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.testimonial-arrow {
+    background: var(--crimson);
+
+    color: var(--gold-light);
+
+    border: none;
+
+    width: 44px;
+    height: 44px;
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    transition: background 0.2s;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.testimonial-arrow:hover {
+    background: var(--crimson-deep);
+}
+
+.testimonial-quote {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 2.8rem;
+
+    color: var(--gold);
+
+    line-height: 1;
+
+    margin-bottom: -0.5rem;
+
+    display: block;
+}
+
+.testimonial-text {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.15rem;
+
+    font-style: italic;
+
+    line-height: 1.75;
+
+    color: var(--text);
+
+    margin-bottom: 0.5rem;
+
+    max-height: 8.4em;
+
+    overflow: hidden;
+
+    transition: max-height 0.4s ease;
+}
+
+.testimonial-text.expanded {
+    max-height: 1000px;
+}
+
+.testimonial-readmore {
+    background: none;
+
+    border: none;
+
+    color: var(--crimson);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    margin-top: 0.5rem;
+
+    margin-bottom: 1rem;
+
+    align-self: flex-start;
+}
+
+.testimonial-readmore:hover {
+    color: var(--crimson-deep);
+}
+
+.testimonial-author {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.2rem;
+
+    padding-top: 1rem;
+
+    border-top: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+.testimonial-name {
+    font-size: 0.88rem;
+
+    font-weight: 700;
+
+    color: var(--crimson);
+
+    letter-spacing: 0.05em;
+}
+
+.testimonial-role {
+    font-size: 0.75rem;
+
+    color: var(--muted);
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+#cta {
+    background: var(--cream);
+
+    padding: 6rem 2rem;
+}
+
+.cta-wrap {
+    max-width: 650px;
+}
+
+.cta-text {
+    font-size: 1rem;
+
+    line-height: 1.85;
+
+    color: var(--muted);
+
+    margin-bottom: 2rem;
+
+    margin-top: 1rem;
+}
+
+.cta-btns {
+    display: flex;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .intro-layout {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(250px, 380px);
+
+        gap: 3rem;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — INTRO
+   ========================================================= */
+
+@media (max-width: 700px) {
+    .intro-layout {
+        grid-template-columns: 1fr;
+
+        gap: 2.5rem;
+    }
+
+    .intro-wrap {
+        max-width: 100%;
+    }
+
+    .intro-image {
+        max-width: 100%;
+    }
+
+    .intro-image:hover img {
+        transform: none;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — ALL SECTIONS
+   ========================================================= */
+
+@media (max-width: 768px) {
+    #intro,
+    #reasons,
+    #stats,
+    #testimonials,
+    #cta {
+        padding: 4rem 1.5rem;
+    }
+
+    .intro-wrap,
+    .cta-wrap {
+        max-width: 100%;
+    }
+
+    .reasons-grid {
+        grid-template-columns: 1fr;
+
+        gap: 1.5rem;
+    }
+
+    .reason-card {
+        height: auto;
+
+        padding: 2rem 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 1rem;
+    }
+
+    .stat-item {
+        border-right: none;
+
+        border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+
+        padding: 1rem;
+    }
+
+    .testimonial-card {
+        min-width: 100%;
+
+        max-width: 100%;
+
+        min-height: auto;
+
+        padding: 1.8rem 1.5rem;
+    }
+
+    .testimonial-track {
+        gap: 1rem;
+    }
+
+    .testimonial-carousel {
+        gap: 0.5rem;
+    }
+
+    .cta-btns {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .cta-btns .btn-primary,
+    .cta-btns .btn-ghost {
+        width: 100%;
+
+        text-align: center;
+    }
+}
