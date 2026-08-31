@@ -293,6 +293,10 @@
   .hero-portrait-right {
     right: 8%;
   }
+
+  .hero-portrait-left {
+    left: 4%;
+  }
 }
 
 
