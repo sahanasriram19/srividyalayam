@@ -87,10 +87,10 @@
 }
 
 .hero-portrait {
-  position: fixed;
-  top: 25vh;
-  width: 250px;
-  height: 250px;
+  position: absolute;
+  top: 32vh;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid rgba(201, 168, 76, 0.7);
