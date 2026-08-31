@@ -525,58 +525,54 @@
 
     .reasons-grid {
         grid-template-columns: 1fr;
-
         gap: 1.5rem;
     }
 
     .reason-card {
         height: auto;
-
         padding: 2rem 1.5rem;
     }
 
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
-
         gap: 1rem;
     }
 
     .stat-item {
         border-right: none;
-
         border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-
         padding: 1rem;
     }
 
     .testimonial-card {
         min-width: 100%;
-
         max-width: 100%;
-
         min-height: auto;
-
         padding: 1.8rem 1.5rem;
     }
 
     .testimonial-track {
-        gap: 1rem;
+        gap: 0;
     }
 
     .testimonial-carousel {
-        gap: 0.5rem;
+        gap: 0.35rem;
+    }
+
+    .testimonial-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
     }
 
     .cta-btns {
         flex-direction: column;
-
         width: 100%;
     }
 
     .cta-btns .btn-primary,
     .cta-btns .btn-ghost {
         width: 100%;
-
         text-align: center;
     }
 }

@@ -431,67 +431,71 @@
    ================================================= */
 
 @media (max-width: 768px) {
+    #intro,
+    #reasons,
+    #stats,
+    #testimonials,
+    #cta {
+        padding: 4rem 1.5rem;
+    }
 
-  #intro,
-  #reasons,
-  #stats,
-  #testimonials,
-  #cta {
-    padding: 4rem 1.5rem;
-    font-size: 0.88rem;
-  }
+    .intro-wrap,
+    .cta-wrap {
+        max-width: 100%;
+    }
 
-  .intro-wrap,
-  .cta-wrap {
-    max-width: 100%;
-  }
+    .reasons-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 
-  .reasons-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+    .reason-card {
+        height: auto;
+        padding: 2rem 1.5rem;
+    }
 
-  .reason-card {
-    height: auto;
-    padding: 2rem 1.5rem;
-  }
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
+    .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+        padding: 1rem;
+    }
 
-  .stat-item {
-    border-right: none;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    padding: 1rem;
-  }
+    .testimonial-card {
+        min-width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        padding: 1.8rem 1.5rem;
+    }
 
-  .testimonial-card {
-    min-width: 100%;
-    max-width: 100%;
-    min-height: auto;
-    padding: 1.8rem 1.5rem;
-  }
+    .testimonial-track {
+        gap: 0;
+    }
 
-  .testimonial-track {
-    gap: 1rem;
-  }
+    .testimonial-carousel {
+        gap: 0.35rem;
+    }
 
-  .testimonial-carousel {
-    gap: 0.5rem;
-  }
+    .testimonial-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
 
-  .cta-btns {
-    flex-direction: column;
-    width: 100%;
-  }
+    .cta-btns {
+        flex-direction: column;
+        width: 100%;
+    }
 
-  .cta-btns .btn-primary,
-  .cta-btns .btn-ghost {
-    width: 100%;
-    text-align: center;
-  }
+    .cta-btns .btn-primary,
+    .cta-btns .btn-ghost {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 
