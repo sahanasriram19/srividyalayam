@@ -103,7 +103,7 @@
 }
 
 .hero-portrait-right {
-  right: 12%;
+  right: 16%;
 }
 
 .hero-portrait img {
@@ -114,7 +114,7 @@
 }
 
 .hero-portrait-left img {
-  object-position: center 5%;
+  object-position: center 0%;
 }
 
 .hero-bg,
