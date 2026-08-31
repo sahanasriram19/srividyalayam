@@ -87,15 +87,15 @@
 }
 
 .hero-portrait {
-  position: absolute;
-  top: 25%;
+  position: fixed;
+  top: 25vh;
   width: 250px;
   height: 250px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid rgba(201, 168, 76, 0.7);
   box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.15), 0 8px 32px rgba(0,0,0,0.4);
-  z-index: 2;
+  z-index: 3;
 }
 
 .hero-portrait-left {
