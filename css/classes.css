@@ -297,6 +297,8 @@
     .classes-intro {
         max-width: 100%;
         margin-bottom: 2.5rem;
+        font-size: 0.88rem !important;
+        line-height: 1.75 !important;
     }
 
     .class-block {
@@ -314,6 +316,8 @@
 
     .class-info {
         padding: 2rem 1.5rem;
+        font-size: 0.88rem !important;
+        line-height: 1.75 !important;
     }
 
     .class-name {
@@ -341,6 +345,7 @@
 
     .enrol-form {
         padding: 2rem 1.5rem;
+        font-size: 0.88rem !important;
     }
 
     .steps li {
