@@ -423,4 +423,18 @@
   .hero-discover {
     font-size: 0.62rem;
   }
+
+  /* ---- GLOBAL BODY TEXT NORMALIZATION ----
+     Catches any paragraph/list text on any page that isn't
+     already covered by a specific class above, and matches
+     it to the Founder page's 0.88rem body size. Page/section
+     titles (h1-h6, .section-title, .page-hero-title) are
+     untouched since this only targets <p> and <li> tags. */
+  section p,
+  main p,
+  .page-hero-sub,
+  section li,
+  main li {
+    font-size: 0.88rem;
+  }
 }
