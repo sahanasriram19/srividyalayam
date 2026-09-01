@@ -465,37 +465,6 @@
         padding: 1rem;
     }
 
-    .testimonial-carousel {
-        gap: 0.25rem;
-        width: 100%;
-    }
-
-    .testimonial-track-wrap {
-        width: calc(100% - 76px);
-        flex: 0 0 calc(100% - 76px);
-        overflow: hidden;
-    }
-
-    .testimonial-track {
-        gap: 0;
-    }
-
-    .testimonial-card {
-        min-width: 100%;
-        max-width: 100%;
-        width: 100%;
-        min-height: auto;
-        padding: 1.8rem 1.5rem;
-        box-sizing: border-box;
-    }
-
-    .testimonial-arrow {
-        width: 34px;
-        height: 34px;
-        min-width: 34px;
-        font-size: 0.9rem;
-    }
-
     .cta-btns {
         flex-direction: column;
         width: 100%;
@@ -508,6 +477,50 @@
     }
 }
 
+/* =================================================
+   MOBILE — TESTIMONIALS
+   ================================================= */
+
+@media (max-width: 768px) {
+
+  .testimonial-carousel {
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .testimonial-track-wrap {
+    width: calc(100% - 76px);
+    flex: 0 0 calc(100% - 76px);
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .testimonial-track {
+    gap: 0;
+  }
+
+  .testimonial-card {
+    /*
+     * Keep each testimonial exactly inside the space
+     * between the two arrows.
+     */
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    min-height: auto;
+    padding: 1.8rem 1.5rem;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+
+  .testimonial-arrow {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+  }
+}
 
 /* =================================================
    MOBILE TYPOGRAPHY
