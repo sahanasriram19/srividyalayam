@@ -166,16 +166,65 @@ if (statNums.length) {
 
 // --- Testimonial slider ---
 const track = document.querySelector('.testimonial-track');
-if (track) {
-  const cards = track.querySelectorAll('.testimonial-card');
-  const cardWidth = () => cards[0].offsetWidth + 32;
-  let tIndex = 0;
-  const maxIndex = cards.length - 3;
 
-  window.slideTestimonials = function (dir) {
-    tIndex = Math.max(0, Math.min(tIndex + dir, maxIndex));
-    track.style.transform = `translateX(-${tIndex * cardWidth()}px)`;
+if (track) {
+  const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+  let tIndex = 0;
+
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+  function getCardWidth() {
+    if (!cards.length) return 0;
+
+    /*
+     * Desktop:
+     * 3 cards are visible and the track has a 2rem (32px) gap.
+     *
+     * Mobile:
+     * 1 card is visible and the track gap is 0,
+     * so we move by the exact card width only.
+     */
+    return cards[0].offsetWidth + (isMobile() ? 0 : 32);
+  }
+
+  function getMaxIndex() {
+    /*
+     * Desktop = show 3 cards at a time.
+     * Mobile = show 1 card at a time.
+     */
+    return isMobile()
+      ? cards.length - 1
+      : cards.length - 3;
+  }
+
+  function updateTestimonials() {
+    const maxIndex = Math.max(0, getMaxIndex());
+
+    tIndex = Math.max(0, Math.min(tIndex, maxIndex));
+
+    track.style.transform =
+      `translateX(-${tIndex * getCardWidth()}px)`;
+  }
+
+  window.slideTestimonials = function(dir) {
+    const maxIndex = Math.max(0, getMaxIndex());
+
+    tIndex = Math.max(
+      0,
+      Math.min(tIndex + dir, maxIndex)
+    );
+
+    track.style.transform =
+      `translateX(-${tIndex * getCardWidth()}px)`;
   };
+
+  /*
+   * Recalculate the position if the phone is rotated,
+   * the browser is resized, or the layout changes.
+   */
+  window.addEventListener('resize', updateTestimonials);
 }
 
 // --- Testimonial read more ---
