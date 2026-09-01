@@ -50,14 +50,21 @@
 
 .intro-image {
     width: 100%;
-
     overflow: hidden;
-
-    border-radius: 16px;
-
     border: 1px solid rgba(107, 0, 32, 0.12);
-
     box-shadow: 0 12px 35px rgba(26, 10, 0, 0.10);
+    position: relative;
+}
+
+/* Golden decorative frame — same style as Founder page */
+.intro-image::before {
+    content: '';
+    position: absolute;
+    inset: 14px;
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 10px;
 }
 
 .intro-image img {
@@ -68,8 +75,6 @@
     height: auto;
 
     max-width: 100%;
-
-    border-radius: 16px;
 
     transition: transform 0.5s ease;
 }
