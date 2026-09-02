@@ -9,7 +9,8 @@
 
   /* ---- NAV (all pages) ---- */
   nav {
-    padding: 0 1.75rem;
+    padding: 0.5rem 1.75rem; /* Shrunk top/bottom padding to 0.5rem to make it thinner */
+    height: auto !important; /* Forces the container to shrink to its new padding */
   }
 
   .nav-links {
@@ -18,13 +19,13 @@
 
   .nav-links a {
     font-size: 0.68rem;
-    padding: 0.5rem 0.65rem;
+    padding: 0.35rem 0.65rem; /* Slightly reduced link padding to assist thickness */
   }
 
   .nav-cta {
-    padding: 0.5rem 0.9rem !important;
+    padding: 0.4rem 0.9rem !important; /* Slightly reduced button height */
   }
-
+  
   /* ---- PAGE HERO (founder / classes / why-us) ---- */
   .page-hero {
     padding: 11rem 2rem 7rem !important;
@@ -52,7 +53,7 @@
   /* 1. Nudges the main hero buttons down */
   .hero-btns {
     gap: 2rem;
-    transform: translateY(12px); 
+    transform: translateY(8px); 
   }
 
   /* 2. Scaled-down primary and ghost buttons */
