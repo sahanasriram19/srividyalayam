@@ -55,7 +55,7 @@
 
   .hero-btns .btn-primary,
   .hero-btns .btn-ghost {
-    min-width: 130px;
+    min-width: 160px;
     padding: 0.65rem 1.6rem;
     font-size: 0.72rem;
   }
@@ -191,9 +191,6 @@
 
     .hero-bg{
     background-image: url("../images/hero-tablet.png") !important;
-    background-size: 220%; /* Zooms the image to 120% of its original size */
-    background-position: center; /* Keeps the zoom focused on the center */
-    background-repeat: no-repeat;
   }
 
   .hero-portrait {
