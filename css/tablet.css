@@ -69,7 +69,6 @@
     font-size: 0.68rem !important;
     padding: 0.5rem 1.2rem !important;
     min-width: 130px !important;
-    margin-top: -10px !important; /* Negative margin pulls it closer to the hero buttons */
   }
 
   /* About section — fixed 550px image column is too
