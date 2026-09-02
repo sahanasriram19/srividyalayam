@@ -191,6 +191,7 @@
 
     .hero-bg{
     background-image: url("../images/hero-tablet.png") !important;
+    zoom: 1.2 !important;
   }
 
   .hero-portrait {
