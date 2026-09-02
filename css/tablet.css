@@ -25,7 +25,7 @@
   .nav-cta {
     padding: 0.4rem 0.9rem !important; /* Slightly reduced button height */
   }
-  
+
   /* ---- PAGE HERO (founder / classes / why-us) ---- */
   .page-hero {
     padding: 11rem 2rem 7rem !important;
@@ -53,7 +53,7 @@
   /* 1. Nudges the main hero buttons down */
   .hero-btns {
     gap: 2rem;
-    transform: translateY(8px); 
+    transform: translateY(2px); 
   }
 
   /* 2. Scaled-down primary and ghost buttons */
