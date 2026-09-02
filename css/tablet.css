@@ -53,7 +53,7 @@
   /* 1. Nudges the main hero buttons down */
   .hero-btns {
     gap: 2rem;
-    transform: translateY(0px); 
+    transform: translateY(-2px); 
   }
 
   /* 2. Scaled-down primary and ghost buttons */
