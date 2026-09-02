@@ -51,11 +51,11 @@
 
   .hero-btns {
     gap: 2rem;
+    margin-top: 25px;
   }
 
   .hero-btns .btn-primary,
   .hero-btns .btn-ghost {
-    margin-top:30px;
     min-width: 170px;
     padding: 0.65rem 1.6rem;
     font-size: 0.72rem;
