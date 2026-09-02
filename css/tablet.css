@@ -55,7 +55,7 @@
 
   .hero-btns .btn-primary,
   .hero-btns .btn-ghost {
-    min-width: 200px;
+    min-width: 180px;
     padding: 0.55rem 1.5rem;
     font-size: 0.72rem;
   }
