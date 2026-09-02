@@ -146,3 +146,107 @@
     max-width: calc((100% - 2rem) / 2);
   }
 }
+
+
+/* =================================================
+   TABLET — PORTRAIT ORIENTATION ONLY
+   Portrait tablets (e.g. iPad portrait, ~768–834px
+   wide) are narrower than landscape tablets even
+   though they share the same width range above, so
+   a few things need extra room taken away here.
+   ================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+
+  /* ---- NAV ---- */
+  nav {
+    padding: 0 1.25rem;
+  }
+
+  .nav-links a {
+    font-size: 0.62rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+
+  /* =================================================
+     HOMEPAGE
+     ================================================= */
+
+  /* Narrower portrait width means less room either
+     side, so pull the portraits in further and size
+     them down slightly */
+  .hero-portrait {
+    width: 150px;
+    height: 150px;
+    top: 13vh;
+  }
+
+  .hero-portrait-left {
+    left: 5%;
+  }
+
+  .hero-portrait-right {
+    right: 5%;
+  }
+
+  .hero-btns {
+    gap: 1.25rem;
+  }
+
+  /* About section — stack like mobile since the
+     narrower portrait width doesn't fit a 320px
+     image column comfortably alongside text */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-visual {
+    max-width: 100%;
+  }
+
+
+  /* =================================================
+     FOUNDER PAGE
+     ================================================= */
+
+  .founder-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .founder-quote-card {
+    max-width: 100%;
+  }
+
+
+  /* =================================================
+     CLASSES PAGE
+     ================================================= */
+
+  .class-block {
+    grid-template-columns: 1fr;
+  }
+
+  .class-block.reverse {
+    direction: ltr;
+  }
+
+
+  /* =================================================
+     WHY CHOOSE US PAGE
+     ================================================= */
+
+  .intro-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Portrait width is tight for 2 testimonials
+     side-by-side — go back to 1 at a time */
+  .testimonial-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
