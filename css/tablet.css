@@ -206,12 +206,12 @@
     gap: 1.5rem;
   }
 
-  .hero-btns .btn-primary,
-  .hero-btns .btn-ghost {
-    min-width: 160px;
-    padding: 0.65rem 1.6rem;
-    font-size: 0.72rem;
-  }
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 130px;
+        padding: 0.55rem 1.2rem;
+        font-size: 0.65rem;
+    }
 
   /* Match the landscape two-column About layout
      instead of stacking */
