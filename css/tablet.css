@@ -1,0 +1,140 @@
+/* =============================================
+   SRIVIDYALAYAM — Tablet Responsive Styles
+   Targets 769px–1024px (between mobile and desktop)
+   Add via: <link rel="stylesheet" href="css/tablet.css" />
+   ============================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* ---- NAV (all pages) ---- */
+  nav {
+    padding: 0 1.75rem;
+  }
+
+  .nav-links {
+    gap: 0.1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.68rem;
+    padding: 0.5rem 0.65rem;
+  }
+
+  .nav-cta {
+    padding: 0.5rem 0.9rem !important;
+  }
+
+  /* ---- PAGE HERO (founder / classes / why-us) ---- */
+  .page-hero {
+    padding: 11rem 2rem 7rem !important;
+  }
+
+
+  /* =================================================
+     HOMEPAGE
+     ================================================= */
+
+  /* Hero portraits — smaller & tucked in so they don't
+     crowd the logo at tablet width */
+  .hero-portrait {
+    width: 170px;
+    height: 170px;
+    top: 9vh;
+  }
+
+  .hero-portrait-left {
+    left: 6%;
+  }
+
+  .hero-portrait-right {
+    right: 6%;
+  }
+
+  .hero-btns {
+    gap: 2rem;
+  }
+
+  /* About section — fixed 550px image column is too
+     wide at tablet size */
+  .about-grid {
+    grid-template-columns: 320px 1fr;
+    gap: 2rem;
+  }
+
+  .about-visual {
+    max-width: 320px;
+  }
+
+
+  /* =================================================
+     FOUNDER PAGE
+     ================================================= */
+
+  .founder-grid {
+    grid-template-columns: 300px 1fr;
+    gap: 2.5rem;
+  }
+
+  .founder-quote-card {
+    max-width: 300px;
+  }
+
+  .contact-grid {
+    gap: 2.5rem;
+  }
+
+
+  /* =================================================
+     CLASSES PAGE
+     ================================================= */
+
+  .class-info {
+    padding: 2.25rem;
+  }
+
+  /* 3-column schedule is too tight at tablet width */
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .enrol-wrap {
+    gap: 2.5rem;
+  }
+
+
+  /* =================================================
+     WHY CHOOSE US PAGE
+     ================================================= */
+
+  /* 3-column reasons is too tight at tablet width */
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .reason-card {
+    height: auto;
+    min-height: 300px;
+  }
+
+  /* 4-column stats is too tight at tablet width */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .stat-item:nth-child(even) {
+    border-right: none;
+  }
+
+  /* 3 testimonials side-by-side is too cramped at
+     tablet width — show 2 instead */
+  .testimonial-card {
+    min-width: calc((100% - 2rem) / 2);
+    max-width: calc((100% - 2rem) / 2);
+  }
+}
