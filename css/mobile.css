@@ -285,9 +285,9 @@
   /* ---- HERO PORTRAITS ---- */
 
   .hero-portrait {
-    width: 110px;
-    height: 110px;
-    top: 14%;
+    width: 80px;
+    height: 80px;
+    top: 6vh;
   }
 
   .hero-portrait-right {
