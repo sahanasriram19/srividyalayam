@@ -188,6 +188,11 @@
   /* Slightly smaller than the landscape size below —
      portrait still has less horizontal room than the
      circles were previously taking up */
+
+    .hero-bg{
+    background-image: url("../images/hero-tablet.jpg") !important;
+  }
+
   .hero-portrait {
     width: 150px;
     height: 150px;
