@@ -172,40 +172,33 @@ if (track) {
   const wrap = track.parentElement; // .testimonial-track-wrap
   let tIndex = 0;
 
-  function isMobile() {
-    return window.innerWidth <= 768;
-  }
-
   function getCardWidth() {
     if (!cards.length) return 0;
 
-    /*
-     * Desktop / tablet:
-     * multiple cards are visible and the track has a
-     * 2rem (32px) gap between them.
-     *
-     * Mobile:
-     * 1 card is visible and the track gap is 0,
-     * so we move by the exact card width only.
-     */
-    return cards[0].offsetWidth + (isMobile() ? 0 : 32);
+    const cardWidth = cards[0].offsetWidth;
+
+    // Read the actual gap from CSS instead of assuming 32px.
+    const trackStyle = window.getComputedStyle(track);
+    const gap = parseFloat(trackStyle.columnGap || trackStyle.gap) || 0;
+
+    return cardWidth + gap;
   }
 
   function getVisibleCount() {
-    /*
-     * Instead of hardcoding "3 on desktop, 1 on mobile",
-     * work out how many cards are actually visible by
-     * comparing the wrapper's rendered width to the
-     * width of one card + gap. This keeps the slider in
-     * sync automatically no matter what the CSS shows at
-     * a given breakpoint (3 on desktop, 2 on tablet, 1 on
-     * mobile, or anything else in future), instead of the
-     * two of them silently falling out of sync.
-     */
     if (!wrap || !cards.length) return 1;
+
     const step = getCardWidth();
     if (!step) return 1;
-    return Math.max(1, Math.round(wrap.offsetWidth / step));
+
+    /*
+     * Work out how many complete cards fit inside
+     * the viewing window.
+     *
+     * Portrait tablets = 2 cards
+     * Phones = 1 card
+     * Desktop = 3 cards
+     */
+    return Math.max(1, Math.floor(wrap.offsetWidth / step + 0.01));
   }
 
   function getMaxIndex() {
@@ -234,8 +227,8 @@ if (track) {
   };
 
   /*
-   * Recalculate the position if the phone is rotated,
-   * the browser is resized, or the layout changes.
+   * Recalculate the position if the browser is resized
+   * or the device is rotated.
    */
   window.addEventListener('resize', updateTestimonials);
 }
