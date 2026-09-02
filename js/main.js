@@ -169,6 +169,7 @@ const track = document.querySelector('.testimonial-track');
 
 if (track) {
   const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+  const wrap = track.parentElement; // .testimonial-track-wrap
   let tIndex = 0;
 
   function isMobile() {
@@ -179,8 +180,9 @@ if (track) {
     if (!cards.length) return 0;
 
     /*
-     * Desktop:
-     * 3 cards are visible and the track has a 2rem (32px) gap.
+     * Desktop / tablet:
+     * multiple cards are visible and the track has a
+     * 2rem (32px) gap between them.
      *
      * Mobile:
      * 1 card is visible and the track gap is 0,
@@ -189,18 +191,29 @@ if (track) {
     return cards[0].offsetWidth + (isMobile() ? 0 : 32);
   }
 
-  function getMaxIndex() {
+  function getVisibleCount() {
     /*
-     * Desktop = show 3 cards at a time.
-     * Mobile = show 1 card at a time.
+     * Instead of hardcoding "3 on desktop, 1 on mobile",
+     * work out how many cards are actually visible by
+     * comparing the wrapper's rendered width to the
+     * width of one card + gap. This keeps the slider in
+     * sync automatically no matter what the CSS shows at
+     * a given breakpoint (3 on desktop, 2 on tablet, 1 on
+     * mobile, or anything else in future), instead of the
+     * two of them silently falling out of sync.
      */
-    return isMobile()
-      ? cards.length - 1
-      : cards.length - 3;
+    if (!wrap || !cards.length) return 1;
+    const step = getCardWidth();
+    if (!step) return 1;
+    return Math.max(1, Math.round(wrap.offsetWidth / step));
+  }
+
+  function getMaxIndex() {
+    return Math.max(0, cards.length - getVisibleCount());
   }
 
   function updateTestimonials() {
-    const maxIndex = Math.max(0, getMaxIndex());
+    const maxIndex = getMaxIndex();
 
     tIndex = Math.max(0, Math.min(tIndex, maxIndex));
 
@@ -209,7 +222,7 @@ if (track) {
   }
 
   window.slideTestimonials = function(dir) {
-    const maxIndex = Math.max(0, getMaxIndex());
+    const maxIndex = getMaxIndex();
 
     tIndex = Math.max(
       0,
