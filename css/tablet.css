@@ -191,7 +191,9 @@
 
     .hero-bg{
     background-image: url("../images/hero-tablet.png") !important;
-    zoom: 2.2 !important;
+    background-size: 120%; /* Zooms the image to 120% of its original size */
+    background-position: center; /* Keeps the zoom focused on the center */
+    background-repeat: no-repeat;
   }
 
   .hero-portrait {
