@@ -154,6 +154,18 @@
    column "horizontal" layouts as the landscape block
    above, instead of collapsing to single-column/
    stacked "mobile" layouts.
+
+   Why the range starts at 768px (not 769px): many
+   tablets are exactly 768px wide in portrait (e.g.
+   iPad, iPad mini). Since mobile.css's phone rules
+   trigger at "max-width: 768px", a portrait tablet
+   at exactly 768px was falling into the phone/mobile
+   layout entirely, skipping the tablet rules above.
+   This block starts at 768px specifically to reclaim
+   that width for tablets, and re-applies the two-
+   column layouts to beat mobile.css's stacking rules
+   (this file loads after mobile.css, so equal-
+   specificity selectors here win the cascade).
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
@@ -173,11 +185,12 @@
      HOMEPAGE
      ================================================= */
 
-  /* Slightly bigger than landscape since portrait
-     tablets have more vertical room to work with */
+  /* Slightly smaller than the landscape size below —
+     portrait still has less horizontal room than the
+     circles were previously taking up */
   .hero-portrait {
-    width: 190px;
-    height: 190px;
+    width: 150px;
+    height: 150px;
     top: 12vh;
   }
 
@@ -243,24 +256,15 @@
 
   /* =================================================
      CLASSES PAGE
-     ================================================= */
+     ================================================= 
+     Reverted — the stacked (mobile-style) class-block
+     layout looked better on portrait tablets than the
+     side-by-side version, so no override here; this
+     lets mobile.css's stacking rules apply as before.
+  */
 
   .class-info {
     padding: 2.25rem;
-  }
-
-  /* Keep the alternating image/text layout instead
-     of stacking */
-  .class-block {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .class-block.reverse {
-    direction: rtl;
-  }
-
-  .class-block.reverse > * {
-    direction: ltr;
   }
 
   .schedule-grid {
@@ -299,7 +303,23 @@
     border-right: none;
   }
 
+  /* Testimonials — constrain the viewing window and
+     card width tightly enough that only 2 full cards
+     are ever visible, with no sliver of a 3rd peeking
+     in from the side */
+  .testimonial-track-wrap {
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .testimonial-track {
+    gap: 2rem;
+  }
+
   .testimonial-card {
+    flex: 0 0 calc((100% - 2rem) / 2);
     min-width: calc((100% - 2rem) / 2);
     max-width: calc((100% - 2rem) / 2);
   }
@@ -309,10 +329,16 @@
      PRIZE WINNERS PAGE
      ================================================= */
 
-  /* Keep the multi-column masonry instead of the
-     single-column mobile stack */
+  /* !important here as a safety net: prize-winners.css
+     has its own breakpoints, and if tablet.css happens
+     to be linked before it in the HTML <head>, that
+     file's rules would otherwise win the cascade tie.
+     Double-check tablet.css is linked AFTER
+     css/prize-winners.css in every page's <head> so
+     load order doesn't cause this same problem
+     elsewhere. */
   .winners-masonry {
-    column-count: 2;
-    column-gap: 1.5rem;
+    column-count: 2 !important;
+    column-gap: 1.5rem !important;
   }
 }
