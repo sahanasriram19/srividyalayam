@@ -59,7 +59,7 @@
   /* 2. Scaled-down primary and ghost buttons */
   .hero-btns .btn-primary,
   .hero-btns .btn-ghost {
-    min-width: 140px;       
+    min-width: 160px;       
     padding: 0.55rem 1.3rem; 
     font-size: 0.68rem;      
   }
