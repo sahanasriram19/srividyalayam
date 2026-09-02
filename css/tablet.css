@@ -31,7 +31,7 @@
   }
 
 
-   /* =================================================
+ /* =================================================
      HOMEPAGE
      ================================================= */
 
@@ -49,20 +49,28 @@
     right: 8%;
   }
 
-  /* 1. Added margin-top here to push the button block down */
+  /* 1. Nudges the main hero buttons down */
   .hero-btns {
     gap: 2rem;
-    margin-top: 30px; 
+    transform: translateY(25px); 
   }
 
-  /* 2. Reduced min-width, padding, and font-size to make them smaller */
+  /* 2. Scaled-down primary and ghost buttons */
   .hero-btns .btn-primary,
   .hero-btns .btn-ghost {
-    min-width: 140px;       /* Shrunk from 170px */
-    padding: 0.55rem 1.3rem; /* Shrunk from 0.65rem 1.6rem */
-    font-size: 0.68rem;      /* Shrunk from 0.72rem */
+    min-width: 140px;       
+    padding: 0.55rem 1.3rem; 
+    font-size: 0.68rem;      
   }
   
+  /* 3. Scales down the Discover More button and narrows the gap */
+  .hero-discover {
+    font-size: 0.68rem !important;
+    padding: 0.5rem 1.2rem !important;
+    min-width: 130px !important;
+    margin-top: -10px !important; /* Negative margin pulls it closer to the hero buttons */
+  }
+
   /* About section — fixed 550px image column is too
      wide at tablet size */
   .about-grid {
