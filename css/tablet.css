@@ -338,7 +338,7 @@
      load order doesn't cause this same problem
      elsewhere. */
   .winners-masonry {
-    column-count: 2 !important;
+    column-count: 3 !important;
     column-gap: 1.5rem !important;
   }
 }
