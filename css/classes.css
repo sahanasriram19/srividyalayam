@@ -129,10 +129,11 @@
 
 .level-icons {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: nowrap;
     margin-top: 1.5rem;
     align-items: flex-start;
+    justify-content: center;
 }
 
 .level-icon-item {
