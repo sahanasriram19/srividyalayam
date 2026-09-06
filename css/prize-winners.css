@@ -7,6 +7,11 @@
     padding: 5rem 2rem 7rem;
 }
 
+
+/* =========================================================
+   SMALL WINNER CARDS
+   ========================================================= */
+
 .winners-masonry {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -19,11 +24,12 @@
 
 .winner-card {
     break-inside: avoid;
-    margin: 0 0 1.5rem;
+    margin: 0;
     background: #fffdf8;
     border: 1px solid rgba(107, 0, 32, 0.12);
     box-shadow: 0 8px 28px rgba(26, 10, 0, 0.07);
     overflow: hidden;
+
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -34,8 +40,14 @@
     box-shadow: 0 16px 38px rgba(26, 10, 0, 0.13);
 }
 
+
+/* =========================================================
+   WINNER IMAGE
+   ========================================================= */
+
 .winner-image-placeholder {
     height: 260px;
+
     background:
         radial-gradient(
             circle at 20% 20%,
@@ -47,62 +59,85 @@
             var(--crimson-deep),
             var(--crimson)
         );
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 2rem;
+
     overflow: hidden;
     position: relative;
 }
 
 .winner-image-placeholder .winner-uploaded-img {
     position: absolute;
+
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     z-index: 1;
 }
 
 .winner-placeholder-inner {
     width: 100%;
     min-height: 210px;
+
     border: 1px dashed rgba(245, 233, 200, 0.55);
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     overflow: hidden;
 }
 
 .winner-placeholder-inner img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     display: block;
 }
 
 .winner-placeholder-inner i {
     font-size: 2.5rem;
+
     color: var(--gold-light);
+
     margin-bottom: 0.7rem;
 }
 
 .winner-placeholder-inner span {
     font-family: "Cormorant Garamond", serif;
+
     font-size: 1.35rem;
     font-style: italic;
 }
 
 .winner-placeholder-inner small {
     font-size: 0.62rem;
+
     letter-spacing: 0.1em;
     text-transform: uppercase;
+
     color: rgba(245, 233, 200, 0.55);
+
     margin-top: 0.35rem;
 }
+
+
+/* =========================================================
+   WINNER DETAILS
+   ========================================================= */
 
 .winner-details {
     padding: 1.25rem 1.3rem 1.45rem;
@@ -110,16 +145,21 @@
 
 .winner-details h2 {
     font-family: "Cormorant Garamond", serif;
+
     font-size: 1.65rem;
     font-weight: 600;
+
     color: var(--dark);
+
     margin: 0.35rem 0 0.15rem;
 }
 
 .winner-award {
     color: var(--crimson);
+
     font-size: 0.78rem;
     font-weight: 700;
+
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
@@ -127,99 +167,175 @@
 .winner-divider {
     width: 38px;
     height: 2px;
+
     background: var(--gold);
+
     margin: 1rem 0 0.85rem;
 }
 
 .winner-description {
     color: var(--muted);
+
     font-size: 0.82rem;
     line-height: 1.75;
 }
 
 
 /* =========================================================
-   FEATURED BIGGER CARDS
+   FEATURED BIGGER CARDS — 2 x 2 GRID
    ========================================================= */
 
 .winners-featured {
     margin-top: 3rem;
-}
 
-.winners-featured-top {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 1.5rem;
-    margin-bottom: 1.5rem;
 }
 
+
+/* Remove the old top/bottom layout behaviour */
+
+.winners-featured-top,
 .winners-featured-bottom {
-    display: flex;
-    justify-content: center;
+    display: contents;
 }
 
-.winners-featured-bottom .winner-card-large {
-    width: 50%;
+
+/* Every featured card fills its grid cell */
+
+.winner-card-large {
+    width: 100%;
 }
+
+
+/* Bigger images for featured cards */
 
 .winner-card-large .winner-image-placeholder {
     min-height: 400px;
+    height: 400px;
 }
 
 .winner-card-large .winner-placeholder-inner {
     min-height: 350px;
 }
 
+.winner-card-large .winner-details {
+    padding: 1.5rem 1.6rem 1.7rem;
+}
+
 .winner-card-large .winner-details h2 {
     font-size: 2rem;
 }
 
+
+/* Uploaded images */
+
 .winner-uploaded-img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
    ========================================================= */
 
 @media (max-width: 900px) {
+
+    /* Small cards become 2 columns */
+
     .winners-masonry {
-        column-count: 2;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* Featured cards remain 2 x 2 */
+
+    .winners-featured {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .winner-card-large .winner-image-placeholder {
+        min-height: 340px;
+        height: 340px;
+    }
+
+    .winner-card-large .winner-details h2 {
+        font-size: 1.8rem;
     }
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 768px) {
-    .winners-featured-top {
+
+    /* Featured cards stack on phones */
+
+    .winners-featured {
         grid-template-columns: 1fr;
     }
 
-    .winners-featured-bottom .winner-card-large {
+    .winner-card-large {
         width: 100%;
+    }
+
+    .winner-card-large .winner-image-placeholder {
+        min-height: 300px;
+        height: 300px;
+    }
+
+    .winner-card-large .winner-placeholder-inner {
+        min-height: 250px;
+    }
+
+    .winner-card-large .winner-details h2 {
+        font-size: 1.7rem;
     }
 }
 
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
 @media (max-width: 600px) {
+
     .winners-page {
         padding: 3.5rem 1rem 5rem;
     }
 
+
+    /* Small cards become one column */
+
     .winners-masonry {
-        column-count: 1;
+        grid-template-columns: 1fr;
     }
+
+
+    /* Featured cards remain one column */
+
+    .winners-featured {
+        grid-template-columns: 1fr;
+    }
+
 
     .winner-image-placeholder {
         min-height: 300px;
+        height: 300px;
     }
-}
 
-@media (max-width: 900px) { 
-    .winners-masonry { grid-template-columns: repeat(2, 1fr); } 
-}
-
-@media (max-width: 600px) {
-    .winners-masonry { grid-template-columns: 1fr; }
+    .winner-card-large .winner-image-placeholder {
+        min-height: 280px;
+        height: 280px;
+    }
 }
