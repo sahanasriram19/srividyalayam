@@ -177,7 +177,7 @@ if (track) {
 
     const cardWidth = cards[0].offsetWidth;
 
-    // Read the actual gap from CSS instead of assuming 32px.
+    // Get the actual CSS gap
     const trackStyle = window.getComputedStyle(track);
     const gap = parseFloat(trackStyle.columnGap || trackStyle.gap) || 0;
 
@@ -190,28 +190,50 @@ if (track) {
     const step = getCardWidth();
     if (!step) return 1;
 
-    /*
-     * Work out how many complete cards fit inside
-     * the viewing window.
-     *
-     * Portrait tablets = 2 cards
-     * Phones = 1 card
-     * Desktop = 3 cards
-     */
-    return Math.max(1, Math.floor(wrap.offsetWidth / step + 0.01));
+    return Math.max(
+      1,
+      Math.floor(wrap.offsetWidth / step + 0.01)
+    );
   }
 
   function getMaxIndex() {
     return Math.max(0, cards.length - getVisibleCount());
   }
 
+  function getFinalTranslate() {
+    if (!wrap) return 0;
+
+    /*
+     * At the very end, don't move by another full card step.
+     * Instead, move only as far as necessary for the final
+     * card(s) to sit flush inside the viewing window.
+     */
+    return Math.max(
+      0,
+      track.scrollWidth - wrap.clientWidth
+    );
+  }
+
+  function getTranslate() {
+    const maxIndex = getMaxIndex();
+
+    if (tIndex >= maxIndex) {
+      return getFinalTranslate();
+    }
+
+    return tIndex * getCardWidth();
+  }
+
   function updateTestimonials() {
     const maxIndex = getMaxIndex();
 
-    tIndex = Math.max(0, Math.min(tIndex, maxIndex));
+    tIndex = Math.max(
+      0,
+      Math.min(tIndex, maxIndex)
+    );
 
     track.style.transform =
-      `translateX(-${tIndex * getCardWidth()}px)`;
+      `translateX(-${getTranslate()}px)`;
   }
 
   window.slideTestimonials = function(dir) {
@@ -223,19 +245,24 @@ if (track) {
     );
 
     track.style.transform =
-      `translateX(-${tIndex * getCardWidth()}px)`;
+      `translateX(-${getTranslate()}px)`;
   };
 
-  /*
-   * Recalculate the position if the browser is resized
-   * or the device is rotated.
-   */
+  // Recalculate when screen size/orientation changes
   window.addEventListener('resize', updateTestimonials);
+
+  // Initial position
+  updateTestimonials();
 }
 
 // --- Testimonial read more ---
 window.toggleTestimonial = function(btn) {
   const text = btn.previousElementSibling;
+
   text.classList.toggle('expanded');
-  btn.textContent = text.classList.contains('expanded') ? 'Read less' : 'Read more';
+
+  btn.textContent =
+    text.classList.contains('expanded')
+      ? 'Read less'
+      : 'Read more';
 };
