@@ -1,3 +1,4 @@
+```css
 /* =========================================================
    SRIVIDYALAYAM — index.html styles
    ========================================================= */
@@ -53,18 +54,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    /*
+       Keeps the content from becoming too wide on
+       smaller laptop screens.
+    */
+    padding-left: clamp(0rem, 8vw, 8rem);
+    padding-right: clamp(0rem, 8vw, 8rem);
+
+    box-sizing: border-box;
 }
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
 
 .hero-btns {
     display: flex;
 
-    gap: 4rem;
+    gap: clamp(1.25rem, 4vw, 4rem);
 
     justify-content: center;
+
+    align-items: center;
 
     flex-wrap: wrap;
 
     margin-top: 0;
+
+    width: 100%;
+
+    box-sizing: border-box;
 }
 
 .hero-btns .btn-primary {
@@ -74,7 +95,19 @@
 .hero-btns .btn-primary,
 .hero-btns .btn-ghost {
     min-width: 200px;
+
     text-align: center;
+
+    box-sizing: border-box;
+
+    white-space: nowrap;
+
+    transition:
+        width 0.25s ease,
+        min-width 0.25s ease,
+        padding 0.25s ease,
+        font-size 0.25s ease,
+        transform 0.25s ease;
 }
 
 
@@ -123,6 +156,8 @@
     flex-direction: column;
     align-items: center;
 
+    justify-content: center;
+
     gap: 0.4rem;
 
     margin-top: 1.5rem;
@@ -139,13 +174,16 @@
 
     width: 100%;
 
+    max-width: 240px;
+
     text-align: center;
 
     z-index: 2;
 
     transition:
         color 0.3s ease,
-        transform 0.3s ease;
+        transform 0.3s ease,
+        font-size 0.25s ease;
 }
 
 .hero-discover:hover {
@@ -156,6 +194,10 @@
 
 .hero-discover-arrow {
     font-size: 1.2rem;
+
+    line-height: 1;
+
+    transition: font-size 0.25s ease;
 }
 
 
@@ -168,16 +210,11 @@
 
     /*
        Responsive vertical position.
-       Prevents the portrait from becoming too high/low
-       on different laptop sizes.
     */
     top: clamp(80px, 12vh, 140px);
 
     /*
-       Responsive size:
-       minimum 140px
-       scales with viewport
-       maximum 260px
+       Responsive portrait size.
     */
     width: clamp(140px, 17vw, 260px);
     height: clamp(140px, 17vw, 260px);
@@ -196,20 +233,8 @@
 
     background: var(--crimson-deep);
 
-    /*
-       Prevents the portraits from affecting the
-       width of the hero content.
-    */
     flex-shrink: 0;
 }
-
-
-/*
-   Desktop positioning.
-
-   clamp() keeps the portraits from becoming
-   too close or too far away as the screen changes.
-*/
 
 .hero-portrait-left {
     left: clamp(30px, 12vw, 280px);
@@ -276,6 +301,7 @@
     padding: 6rem 2rem;
 
     position: relative;
+
     z-index: 1;
 }
 
@@ -283,8 +309,8 @@
     display: grid;
 
     /*
-       Instead of a fixed 550px column, both columns
-       can shrink naturally.
+       Removed the fixed 550px column.
+       Both sides can now shrink naturally.
     */
     grid-template-columns:
         minmax(0, 1fr)
@@ -295,6 +321,7 @@
     align-items: center;
 
     max-width: 1400px;
+
     margin: 0 auto;
 }
 
@@ -322,7 +349,9 @@
     );
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     position: relative;
@@ -363,6 +392,8 @@
 
 .about-text {
     min-width: 0;
+
+    max-width: 800px;
 }
 
 .about-text p {
@@ -402,6 +433,7 @@
     font-style: italic;
 
     margin-top: 0.5rem;
+
     margin-bottom: 3rem;
 }
 
@@ -410,9 +442,6 @@
 
     width: 100%;
 
-    /*
-       Allows the gallery to shrink properly on laptops.
-    */
     max-width: 1000px;
 
     aspect-ratio: 16 / 9;
@@ -432,7 +461,9 @@
     inset: 0;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     opacity: 0;
@@ -636,7 +667,7 @@ footer {
     }
 
     /*
-       Smaller portraits for laptop screens.
+       PORTRAITS
     */
 
     .hero-portrait {
@@ -656,8 +687,58 @@ footer {
 
 
     /*
-       Give the main sections a little less
-       horizontal padding.
+       HERO CONTENT
+
+       This is the first major button adjustment.
+       The buttons become smaller before mobile.
+    */
+
+    .hero-content {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .hero-btns {
+        gap: 1.75rem;
+
+        max-width: 650px;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 175px;
+
+        padding:
+            0.7rem
+            1.5rem;
+
+        font-size: 0.72rem;
+    }
+
+    .hero-btns .btn-primary {
+        margin-left: 0.5rem;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        margin-top: 1.25rem;
+
+        font-size: 0.7rem;
+
+        max-width: 200px;
+    }
+
+    .hero-discover-arrow {
+        font-size: 1.05rem;
+    }
+
+
+    /*
+       SECTIONS
     */
 
     #about,
@@ -667,11 +748,6 @@ footer {
         padding-right: 1.5rem;
     }
 
-
-    /*
-       Prevent About section from becoming too cramped.
-    */
-
     .about-grid {
         gap: 2.5rem;
     }
@@ -679,11 +755,15 @@ footer {
 
 
 /* =========================================================
-   SMALL LAPTOP / TABLET
+   SMALL LAPTOP
    1100px AND BELOW
    ========================================================= */
 
 @media (max-width: 1100px) {
+
+    /*
+       PORTRAITS
+    */
 
     .hero-portrait {
         width: 175px;
@@ -702,21 +782,64 @@ footer {
 
 
     /*
-       Make hero buttons slightly smaller.
+       HERO CONTENT
     */
 
-    .hero-btns {
-        gap: 2.5rem;
-    }
-
-    .hero-btns .btn-primary,
-    .hero-btns .btn-ghost {
-        min-width: 175px;
+    .hero-content {
+        padding-left: 3vw;
+        padding-right: 3vw;
     }
 
 
     /*
-       About section gets slightly tighter.
+       ENROL + MEET FOUNDER
+
+       Smaller width, smaller padding and smaller gap.
+    */
+
+    .hero-btns {
+        gap: 1.25rem;
+
+        max-width: 600px;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 155px;
+
+        padding:
+            0.65rem
+            1.25rem;
+
+        font-size: 0.68rem;
+
+        letter-spacing: 0.1em;
+    }
+
+    .hero-btns .btn-primary {
+        margin-left: 0;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        margin-top: 1rem;
+
+        font-size: 0.65rem;
+
+        letter-spacing: 0.16em;
+    }
+
+    .hero-discover-arrow {
+        font-size: 1rem;
+    }
+
+
+    /*
+       ABOUT
     */
 
     .about-grid {
@@ -737,45 +860,87 @@ footer {
 @media (max-width: 1024px) {
 
     /*
-       Portraits become smaller so they don't collide
-       with the hero text.
+       PORTRAITS
     */
 
     .hero-portrait {
-        width: 160px;
-        height: 160px;
+        width: 150px;
+        height: 150px;
 
         top: 80px;
     }
 
     .hero-portrait-left {
-        left: 2.5%;
+        left: 2%;
     }
 
     .hero-portrait-right {
-        right: 2.5%;
-    }
-
-
-    .hero-btns {
-        gap: 2rem;
-
-        margin-bottom: 1rem;
-    }
-
-    .hero-btns .btn-primary,
-    .hero-btns .btn-ghost {
-        min-width: 150px;
-
-        font-size: 0.68rem;
-
-        padding: 0.6rem 1.2rem;
+        right: 2%;
     }
 
 
     /*
-       Stack About columns earlier.
-       This is important for smaller laptops.
+       HERO CONTENT
+
+       Reduce horizontal room used by content.
+    */
+
+    .hero-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+
+    /*
+       ENROL + MEET FOUNDER
+
+       These are now significantly smaller than desktop.
+    */
+
+    .hero-btns {
+        gap: 1rem;
+
+        max-width: 540px;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 140px;
+
+        padding:
+            0.6rem
+            1rem;
+
+        font-size: 0.64rem;
+
+        letter-spacing: 0.08em;
+    }
+
+
+    /*
+       DISCOVER MORE
+
+       Keep it compact so it doesn't push the hero
+       content too far down.
+    */
+
+    .hero-discover {
+        margin-top: 0.85rem;
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.14em;
+
+        max-width: 180px;
+    }
+
+    .hero-discover-arrow {
+        font-size: 0.95rem;
+    }
+
+
+    /*
+       ABOUT STACKS EARLIER
     */
 
     .about-grid {
@@ -800,7 +965,7 @@ footer {
 
 
     /*
-       Keep gallery from becoming too wide.
+       GALLERY
     */
 
     .gallery-carousel {
@@ -809,12 +974,95 @@ footer {
 
 
     /*
-       Videos remain side-by-side but have
-       enough room to shrink.
+       VIDEOS
     */
 
     .videos-layout {
         max-width: 850px;
+    }
+}
+
+
+/* =========================================================
+   900px AND BELOW
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    /*
+       PORTRAITS
+    */
+
+    .hero-portrait {
+        width: 130px;
+        height: 130px;
+
+        top: 70px;
+    }
+
+    .hero-portrait-left {
+        left: 15px;
+    }
+
+    .hero-portrait-right {
+        right: 15px;
+    }
+
+
+    /*
+       HERO BUTTONS
+
+       At this width, make the buttons stack vertically.
+       This prevents them from becoming tiny or colliding.
+    */
+
+    .hero-btns {
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 0.75rem;
+
+        width: 100%;
+
+        max-width: 340px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        width: 100%;
+
+        min-width: 0;
+
+        max-width: 320px;
+
+        padding:
+            0.7rem
+            1.25rem;
+
+        font-size: 0.67rem;
+
+        margin-left: 0 !important;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        width: 100%;
+
+        max-width: 220px;
+
+        margin-top: 0.9rem;
+
+        font-size: 0.62rem;
     }
 }
 
@@ -825,6 +1073,10 @@ footer {
    ========================================================= */
 
 @media (max-width: 768px) {
+
+    /*
+       HERO
+    */
 
     #hero {
         min-height: 100vh;
@@ -837,7 +1089,7 @@ footer {
 
         padding:
             4rem
-            1.5rem
+            1.25rem
             3rem;
 
         align-items: flex-end;
@@ -845,7 +1097,7 @@ footer {
 
 
     /*
-       Mobile hero background.
+       MOBILE HERO BACKGROUND
     */
 
     .hero-bg,
@@ -861,7 +1113,19 @@ footer {
 
 
     /*
-       Smaller mobile portraits.
+       HERO CONTENT
+    */
+
+    .hero-content {
+        padding-left: 0;
+        padding-right: 0;
+
+        width: 100%;
+    }
+
+
+    /*
+       MOBILE PORTRAITS
     */
 
     .hero-portrait {
@@ -881,7 +1145,9 @@ footer {
 
 
     /*
-       Stack hero buttons.
+       ENROL + MEET FOUNDER
+
+       Full-width mobile buttons.
     */
 
     .hero-btns {
@@ -889,16 +1155,21 @@ footer {
 
         align-items: center;
 
-        gap: 1rem;
+        gap: 0.8rem;
 
         width: 100%;
+
+        max-width: 360px;
+
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-btns .btn-primary,
     .hero-btns .btn-ghost {
         min-width: 0;
 
-        width: 75%;
+        width: 85%;
 
         max-width: 320px;
 
@@ -906,21 +1177,37 @@ footer {
 
         margin-left: 0 !important;
 
-        padding: 0.7rem 1.5rem;
+        padding:
+            0.7rem
+            1.5rem;
 
-        font-size: 0.72rem;
-    }
+        font-size: 0.7rem;
 
-
-    .hero-discover {
-        margin-top: 1rem;
-
-        font-size: 0.65rem;
+        letter-spacing: 0.1em;
     }
 
 
     /*
-       About
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        margin-top: 1rem;
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.15em;
+
+        max-width: 220px;
+    }
+
+    .hero-discover-arrow {
+        font-size: 1rem;
+    }
+
+
+    /*
+       ABOUT
     */
 
     #about {
@@ -947,7 +1234,7 @@ footer {
 
 
     /*
-       Gallery
+       GALLERY
     */
 
     #gallery {
@@ -972,7 +1259,7 @@ footer {
 
 
     /*
-       Videos
+       VIDEOS
     */
 
     #videos {
@@ -1004,6 +1291,10 @@ footer {
 
 @media (max-width: 480px) {
 
+    /*
+       HERO
+    */
+
     #hero {
         padding:
             3rem
@@ -1013,7 +1304,7 @@ footer {
 
 
     /*
-       Smaller portraits.
+       PORTRAITS
     */
 
     .hero-portrait {
@@ -1039,8 +1330,7 @@ footer {
 
 
     /*
-       Reduce the image zoom on the left portrait
-       so the face isn't excessively cropped.
+       LEFT PORTRAIT IMAGE
     */
 
     .hero-portrait-left img {
@@ -1051,21 +1341,52 @@ footer {
 
 
     /*
-       Hero buttons use almost the entire width.
+       ENROL + MEET FOUNDER
     */
+
+    .hero-btns {
+        gap: 0.65rem;
+
+        max-width: 320px;
+    }
 
     .hero-btns .btn-primary,
     .hero-btns .btn-ghost {
         width: 90%;
 
+        max-width: 300px;
+
         padding:
             0.65rem
             1rem;
+
+        font-size: 0.63rem;
+
+        letter-spacing: 0.08em;
     }
 
 
     /*
-       Smaller section spacing.
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        margin-top: 0.8rem;
+
+        font-size: 0.57rem;
+
+        letter-spacing: 0.12em;
+
+        max-width: 200px;
+    }
+
+    .hero-discover-arrow {
+        font-size: 0.9rem;
+    }
+
+
+    /*
+       SECTION SPACING
     */
 
     #about,
@@ -1078,7 +1399,7 @@ footer {
 
 
     /*
-       Gallery
+       GALLERY
     */
 
     .gallery-carousel {
@@ -1095,7 +1416,7 @@ footer {
 
 
     /*
-       Video captions.
+       VIDEO CAPTIONS
     */
 
     .video-caption {
@@ -1110,6 +1431,10 @@ footer {
    ========================================================= */
 
 @media (max-width: 360px) {
+
+    /*
+       PORTRAITS
+    */
 
     .hero-portrait {
         width: 70px;
@@ -1126,14 +1451,41 @@ footer {
         right: 8px;
     }
 
+
+    /*
+       HERO BUTTONS
+    */
+
+    .hero-btns {
+        gap: 0.55rem;
+    }
+
     .hero-btns .btn-primary,
     .hero-btns .btn-ghost {
         width: 95%;
 
-        font-size: 0.65rem;
+        max-width: 290px;
+
+        padding:
+            0.6rem
+            0.8rem;
+
+        font-size: 0.59rem;
     }
 
+
+    /*
+       DISCOVER MORE
+    */
+
     .hero-discover {
-        font-size: 0.58rem;
+        font-size: 0.52rem;
+
+        letter-spacing: 0.1em;
+    }
+
+    .hero-discover-arrow {
+        font-size: 0.82rem;
     }
 }
+```
