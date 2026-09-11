@@ -39,6 +39,8 @@
     text-align: center;
 
     padding: 6rem 2rem 3rem;
+
+    overflow: hidden;
 }
 
 .hero-content {
@@ -46,6 +48,7 @@
     z-index: 2;
 
     width: 100%;
+    max-width: 1400px;
 
     display: flex;
     flex-direction: column;
@@ -74,6 +77,11 @@
     text-align: center;
 }
 
+
+/* =========================================================
+   HERO BACKGROUND
+   ========================================================= */
+
 .hero-bg {
     position: fixed;
 
@@ -91,6 +99,7 @@
     );
 
     z-index: -2;
+
     margin-top: 20px;
 }
 
@@ -102,6 +111,11 @@
 .hero-overlay {
     z-index: -1;
 }
+
+
+/* =========================================================
+   HERO DISCOVER
+   ========================================================= */
 
 .hero-discover {
     display: flex;
@@ -144,13 +158,29 @@
     font-size: 1.2rem;
 }
 
+
+/* =========================================================
+   HERO PORTRAITS
+   ========================================================= */
+
 .hero-portrait {
     position: absolute;
 
-    top: 10vh;
+    /*
+       Responsive vertical position.
+       Prevents the portrait from becoming too high/low
+       on different laptop sizes.
+    */
+    top: clamp(80px, 12vh, 140px);
 
-    width: 260px;
-    height: 260px;
+    /*
+       Responsive size:
+       minimum 140px
+       scales with viewport
+       maximum 260px
+    */
+    width: clamp(140px, 17vw, 260px);
+    height: clamp(140px, 17vw, 260px);
 
     border-radius: 50%;
 
@@ -165,15 +195,34 @@
     z-index: 3;
 
     background: var(--crimson-deep);
+
+    /*
+       Prevents the portraits from affecting the
+       width of the hero content.
+    */
+    flex-shrink: 0;
 }
 
+
+/*
+   Desktop positioning.
+
+   clamp() keeps the portraits from becoming
+   too close or too far away as the screen changes.
+*/
+
 .hero-portrait-left {
-    left: 20%;
+    left: clamp(30px, 12vw, 280px);
 }
 
 .hero-portrait-right {
-    right: 18%;
+    right: clamp(30px, 12vw, 280px);
 }
+
+
+/* =========================================================
+   HERO PORTRAIT IMAGES
+   ========================================================= */
 
 .hero-portrait img {
     width: 100%;
@@ -182,6 +231,8 @@
     object-fit: cover;
 
     object-position: center 15%;
+
+    display: block;
 }
 
 .hero-portrait-left img {
@@ -195,6 +246,11 @@
 .hero-portrait-right img {
     object-position: 70% 15%;
 }
+
+
+/* =========================================================
+   BOBBLE ANIMATION
+   ========================================================= */
 
 @keyframes bobble {
     0%,
@@ -226,11 +282,20 @@
 .about-grid {
     display: grid;
 
-    grid-template-columns: 550px 1fr;
+    /*
+       Instead of a fixed 550px column, both columns
+       can shrink naturally.
+    */
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
-    gap: 3rem;
+    gap: clamp(2rem, 4vw, 4rem);
 
     align-items: center;
+
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .about-visual {
@@ -239,6 +304,10 @@
     padding-bottom: 2rem;
 
     max-width: 550px;
+
+    width: 100%;
+
+    margin: 0 auto;
 }
 
 .about-frame {
@@ -276,7 +345,7 @@
 }
 
 .about-frame-icon {
-    font-size: 7rem;
+    font-size: clamp(4rem, 7vw, 7rem);
 
     color: rgba(201, 168, 76, 0.2);
 
@@ -290,6 +359,10 @@
     background: var(--gold);
 
     margin: 1.5rem 0;
+}
+
+.about-text {
+    min-width: 0;
 }
 
 .about-text p {
@@ -337,6 +410,9 @@
 
     width: 100%;
 
+    /*
+       Allows the gallery to shrink properly on laptops.
+    */
     max-width: 1000px;
 
     aspect-ratio: 16 / 9;
@@ -427,6 +503,8 @@
 
     gap: 1.5rem;
 
+    width: 100%;
+
     max-width: 900px;
 
     margin: 3rem auto 0 auto;
@@ -435,7 +513,9 @@
 .videos-grid {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
     gap: 1.5rem;
 }
@@ -446,6 +526,8 @@
     flex-direction: column;
 
     align-items: center;
+
+    min-width: 0;
 }
 
 .video-wrap {
@@ -491,10 +573,14 @@
     display: flex;
 
     justify-content: center;
+
+    width: 100%;
 }
 
 .video-single .video-item {
     width: calc(50% - 0.75rem);
+
+    max-width: 450px;
 }
 
 .yt-btn {
@@ -532,15 +618,166 @@
 
 footer {
     position: relative;
+
     z-index: 1;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   LARGE LAPTOP
+   1280px AND BELOW
    ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
+
+    #hero {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /*
+       Smaller portraits for laptop screens.
+    */
+
+    .hero-portrait {
+        width: 200px;
+        height: 200px;
+
+        top: 100px;
+    }
+
+    .hero-portrait-left {
+        left: 5%;
+    }
+
+    .hero-portrait-right {
+        right: 5%;
+    }
+
+
+    /*
+       Give the main sections a little less
+       horizontal padding.
+    */
+
+    #about,
+    #gallery,
+    #videos {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+
+    /*
+       Prevent About section from becoming too cramped.
+    */
+
+    .about-grid {
+        gap: 2.5rem;
+    }
+}
+
+
+/* =========================================================
+   SMALL LAPTOP / TABLET
+   1100px AND BELOW
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .hero-portrait {
+        width: 175px;
+        height: 175px;
+
+        top: 90px;
+    }
+
+    .hero-portrait-left {
+        left: 3%;
+    }
+
+    .hero-portrait-right {
+        right: 3%;
+    }
+
+
+    /*
+       Make hero buttons slightly smaller.
+    */
+
+    .hero-btns {
+        gap: 2.5rem;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 175px;
+    }
+
+
+    /*
+       About section gets slightly tighter.
+    */
+
+    .about-grid {
+        gap: 2rem;
+    }
+
+    .about-text p {
+        font-size: 0.94rem;
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   1024px AND BELOW
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    /*
+       Portraits become smaller so they don't collide
+       with the hero text.
+    */
+
+    .hero-portrait {
+        width: 160px;
+        height: 160px;
+
+        top: 80px;
+    }
+
+    .hero-portrait-left {
+        left: 2.5%;
+    }
+
+    .hero-portrait-right {
+        right: 2.5%;
+    }
+
+
+    .hero-btns {
+        gap: 2rem;
+
+        margin-bottom: 1rem;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 150px;
+
+        font-size: 0.68rem;
+
+        padding: 0.6rem 1.2rem;
+    }
+
+
+    /*
+       Stack About columns earlier.
+       This is important for smaller laptops.
+    */
+
     .about-grid {
         grid-template-columns: 1fr;
 
@@ -548,28 +785,46 @@ footer {
     }
 
     .about-visual {
-        max-width: 100%;
+        max-width: 700px;
 
-        padding-bottom: 3rem;
+        margin: 0 auto;
+
+        padding-bottom: 1rem;
     }
+
+    .about-text {
+        max-width: 800px;
+
+        margin: 0 auto;
+    }
+
+
+    /*
+       Keep gallery from becoming too wide.
+    */
 
     .gallery-carousel {
-        max-width: 100%;
-
-        aspect-ratio: 4 / 3;
+        max-width: 900px;
     }
 
-    .videos-grid {
-        grid-template-columns: 1fr;
-    }
+
+    /*
+       Videos remain side-by-side but have
+       enough room to shrink.
+    */
 
     .videos-layout {
-        max-width: 100%;
+        max-width: 850px;
     }
+}
 
-    .video-single .video-item {
-        width: 100%;
-    }
+
+/* =========================================================
+   TABLET
+   768px AND BELOW
+   ========================================================= */
+
+@media (max-width: 768px) {
 
     #hero {
         min-height: 100vh;
@@ -580,10 +835,18 @@ footer {
 
         overflow: hidden;
 
-        padding: 4rem 1.5rem 3rem;
+        padding:
+            4rem
+            1.5rem
+            3rem;
 
         align-items: flex-end;
     }
+
+
+    /*
+       Mobile hero background.
+    */
 
     .hero-bg,
     .hero-overlay {
@@ -592,8 +855,34 @@ footer {
         z-index: 0;
 
         background-position: center center !important;
+
         background-size: cover !important;
     }
+
+
+    /*
+       Smaller mobile portraits.
+    */
+
+    .hero-portrait {
+        width: 110px;
+        height: 110px;
+
+        top: 60px;
+    }
+
+    .hero-portrait-left {
+        left: 20px;
+    }
+
+    .hero-portrait-right {
+        right: 20px;
+    }
+
+
+    /*
+       Stack hero buttons.
+    */
 
     .hero-btns {
         flex-direction: column;
@@ -611,6 +900,8 @@ footer {
 
         width: 75%;
 
+        max-width: 320px;
+
         text-align: center;
 
         margin-left: 0 !important;
@@ -620,53 +911,229 @@ footer {
         font-size: 0.72rem;
     }
 
+
     .hero-discover {
         margin-top: 1rem;
 
         font-size: 0.65rem;
     }
+
+
+    /*
+       About
+    */
+
+    #about {
+        padding:
+            4rem
+            1.25rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 3rem;
+    }
+
+    .about-visual {
+        max-width: 100%;
+
+        padding-bottom: 1rem;
+    }
+
+    .about-frame::before {
+        inset: 10px;
+    }
+
+
+    /*
+       Gallery
+    */
+
+    #gallery {
+        padding:
+            4rem
+            1.25rem;
+    }
+
+    .gallery-carousel {
+        max-width: 100%;
+
+        aspect-ratio: 4 / 3;
+    }
+
+    .gallery-caption {
+        font-size: 0.95rem;
+
+        padding:
+            0.7rem
+            1rem;
+    }
+
+
+    /*
+       Videos
+    */
+
+    #videos {
+        padding:
+            4rem
+            1.25rem;
+    }
+
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .videos-layout {
+        max-width: 100%;
+    }
+
+    .video-single .video-item {
+        width: 100%;
+
+        max-width: none;
+    }
 }
 
-@media (max-width: 1280px) {
-  .hero-portrait {
-    width: 200px;
-    height: 200px;
-    top: 18%;
-  }
 
-  .hero-portrait-left {
-    left: 12%;
-  }
+/* =========================================================
+   SMALL MOBILE
+   480px AND BELOW
+   ========================================================= */
 
-  .hero-portrait-right {
-    right: 12%;
-  }
+@media (max-width: 480px) {
+
+    #hero {
+        padding:
+            3rem
+            1rem
+            2.5rem;
+    }
+
+
+    /*
+       Smaller portraits.
+    */
+
+    .hero-portrait {
+        width: 85px;
+        height: 85px;
+
+        top: 45px;
+
+        border-width: 2px;
+
+        box-shadow:
+            0 0 0 4px rgba(201, 168, 76, 0.15),
+            0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-portrait-left {
+        left: 12px;
+    }
+
+    .hero-portrait-right {
+        right: 12px;
+    }
+
+
+    /*
+       Reduce the image zoom on the left portrait
+       so the face isn't excessively cropped.
+    */
+
+    .hero-portrait-left img {
+        transform: scale(1.4);
+
+        transform-origin: 40% 65%;
+    }
+
+
+    /*
+       Hero buttons use almost the entire width.
+    */
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        width: 90%;
+
+        padding:
+            0.65rem
+            1rem;
+    }
+
+
+    /*
+       Smaller section spacing.
+    */
+
+    #about,
+    #gallery,
+    #videos {
+        padding:
+            3.5rem
+            1rem;
+    }
+
+
+    /*
+       Gallery
+    */
+
+    .gallery-carousel {
+        aspect-ratio: 1 / 1;
+    }
+
+    .gallery-caption {
+        font-size: 0.85rem;
+
+        padding:
+            0.6rem
+            0.75rem;
+    }
+
+
+    /*
+       Video captions.
+    */
+
+    .video-caption {
+        font-size: 0.9rem;
+    }
 }
 
-@media (max-width: 1024px) {
-  .hero-portrait {
-    width: 160px;
-    height: 160px;
-    top: 15%;
-  }
 
-  .hero-portrait-left {
-    left: 8%;
-  }
+/* =========================================================
+   VERY SMALL PHONES
+   360px AND BELOW
+   ========================================================= */
 
-  .hero-portrait-right {
-    right: 8%;
-  }
+@media (max-width: 360px) {
 
-  .hero-btns {
-    gap: 2rem;
-    margin-bottom: 1rem;
-  }
+    .hero-portrait {
+        width: 70px;
+        height: 70px;
 
-  .hero-btns .btn-primary,
-  .hero-btns .btn-ghost {
-    min-width: 150px;
-    font-size: 0.68rem;
-    padding: 0.6rem 1.2rem;
-  }
+        top: 35px;
+    }
+
+    .hero-portrait-left {
+        left: 8px;
+    }
+
+    .hero-portrait-right {
+        right: 8px;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        width: 95%;
+
+        font-size: 0.65rem;
+    }
+
+    .hero-discover {
+        font-size: 0.58rem;
+    }
 }
