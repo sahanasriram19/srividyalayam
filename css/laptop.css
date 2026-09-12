@@ -1,0 +1,161 @@
+/* =============================================
+   SRIVIDYALAYAM — Laptop / Bigger Tablet Responsive Styles
+   Range: 1025px–1366px
+   (iPad Pro / Surface landscape, and smaller laptop
+   screens like 1280x800, 1366x768)
+
+   This is the gap between tablet.css (which stops at
+   1024px) and full desktop. Add via:
+   <link rel="stylesheet" href="css/laptop.css" />
+
+   IMPORTANT: this file must be linked AFTER tablet.css
+   so it wins the cascade in this width range.
+   ============================================= */
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+
+  /* ---- NAV (all pages) ---- */
+  nav {
+    padding: 0.75rem 2rem;
+  }
+
+  .nav-links {
+    gap: 0.4rem;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .nav-cta {
+    padding: 0.55rem 1.1rem !important;
+  }
+
+  /* ---- PAGE HERO (founder / classes / why-us) ---- */
+  .page-hero {
+    padding: 13rem 2rem 9rem !important;
+  }
+
+
+  /* =================================================
+     HOMEPAGE
+     ================================================= */
+
+  .hero-portrait {
+    width: 200px;
+    height: 200px;
+    top: 9vh;
+  }
+
+  .hero-portrait-left {
+    left: 5%;
+  }
+
+  .hero-portrait-right {
+    right: 5%;
+  }
+
+  /* Buttons: give them room to breathe below the portraits
+     instead of relying on the fluid clamp() values, which
+     don't shrink enough in this range to avoid overlap */
+  .hero-content {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+
+  .hero-btns {
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-btns .btn-primary,
+  .hero-btns .btn-ghost {
+    min-width: 165px;
+    padding: 0.65rem 1.4rem;
+    font-size: 0.72rem;
+  }
+
+  .hero-btns .btn-primary {
+    margin-left: 0.5rem;
+  }
+
+  .hero-discover {
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    max-width: 210px;
+  }
+
+  .hero-discover-arrow {
+    font-size: 1.05rem;
+  }
+
+  /* About section — the fixed 550px image column starts
+     crowding the text column at this width */
+  .about-grid {
+    grid-template-columns: 380px 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-visual {
+    max-width: 380px;
+  }
+
+
+  /* =================================================
+     FOUNDER PAGE
+     ================================================= */
+
+  .founder-grid {
+    grid-template-columns: 360px 1fr;
+    gap: 3.5rem;
+  }
+
+  .founder-quote-card {
+    max-width: 360px;
+  }
+
+  .contact-grid {
+    gap: 3rem;
+  }
+
+
+  /* =================================================
+     CLASSES PAGE
+     ================================================= */
+
+  .class-info {
+    padding: 2.5rem;
+  }
+
+  .enrol-wrap {
+    gap: 3rem;
+  }
+
+
+  /* =================================================
+     WHY CHOOSE US PAGE
+     ================================================= */
+
+  .reasons-grid {
+    gap: 1.75rem;
+  }
+
+  .stats-grid {
+    gap: 1.75rem;
+  }
+
+  .testimonial-card {
+    min-width: calc((100% - 4rem) / 3);
+    max-width: calc((100% - 4rem) / 3);
+  }
+
+
+  /* =================================================
+     GALLERY
+     ================================================= */
+
+  .gallery-carousel {
+    max-width: 1050px;
+  }
+}
