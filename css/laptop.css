@@ -14,6 +14,10 @@
 
 @media (min-width: 1025px) and (max-width: 1366px) {
 
+  #hero {
+  padding-bottom: 1.25rem;
+  }
+
   /* ---- NAV (all pages) ---- */
   nav {
     padding: 0.75rem 2rem;
@@ -157,5 +161,11 @@
 
   .gallery-carousel {
     max-width: 1050px;
+  }
+}
+
+@media (min-width: 1367px) and (max-width: 1600px) {
+  #hero {
+    padding-bottom: 1.25rem;
   }
 }
