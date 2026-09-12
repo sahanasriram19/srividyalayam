@@ -32,14 +32,12 @@
     min-height: 100dvh;
 
     position: relative;
-
     display: flex;
     align-items: flex-end;
     justify-content: center;
-
     text-align: center;
 
-    padding: 6rem 2rem 3rem;
+    padding: 6rem 2rem 1.25rem; /* was: 6rem 2rem 3rem — this is the actual lever that moves the button cluster down */
 
     overflow: hidden;
 }
