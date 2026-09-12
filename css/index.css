@@ -1,292 +1,1514 @@
 /* =========================================================
-   FINAL SMALL-LAPTOP HERO FIX
-   769px – 1280px
+   SRIVIDYALAYAM — index.html styles
    ========================================================= */
 
-@media (min-width: 769px) and (max-width: 1280px) {
 
-    /*
-       HERO
-       Give the bottom content more physical room.
-    */
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(28px);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+#hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 6rem 2rem 3rem;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1400px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-left: clamp(0rem, 8vw, 8rem);
+    padding-right: clamp(0rem, 8vw, 8rem);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-btns {
+    display: flex;
+
+    gap: clamp(1.25rem, 4vw, 4rem);
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    margin-top: 0;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+.hero-btns .btn-primary {
+    margin-left: 1.1rem;
+}
+
+.hero-btns .btn-primary,
+.hero-btns .btn-ghost {
+    min-width: 200px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    white-space: nowrap;
+
+    transition:
+        width 0.25s ease,
+        min-width 0.25s ease,
+        padding 0.25s ease,
+        font-size 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   HERO BACKGROUND
+   ========================================================= */
+
+.hero-bg {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: linear-gradient(
+        160deg,
+        #8B5A00 0%,
+        #C07800 40%,
+        #E09010 60%,
+        #C07800 100%
+    );
+
+    z-index: -2;
+
+    margin-top: 20px;
+}
+
+.hero-overlay {
+    display: none;
+}
+
+.hero-bg,
+.hero-overlay {
+    z-index: -1;
+}
+
+
+/* =========================================================
+   HERO DISCOVER
+   ========================================================= */
+
+.hero-discover {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.4rem;
+
+    margin-top: 1.5rem;
+
+    color: rgba(245, 233, 200, 0.7);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    width: 100%;
+
+    max-width: 240px;
+
+    text-align: center;
+
+    z-index: 2;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease,
+        font-size 0.25s ease;
+}
+
+.hero-discover:hover {
+    color: var(--gold-light);
+
+    transform: translateY(-3px);
+}
+
+.hero-discover-arrow {
+    font-size: 1.2rem;
+
+    line-height: 1;
+
+    transition: font-size 0.25s ease;
+}
+
+
+/* =========================================================
+   HERO PORTRAITS
+   ========================================================= */
+
+.hero-portrait {
+    position: absolute;
+
+    top: clamp(80px, 12vh, 140px);
+
+    width: clamp(140px, 17vw, 260px);
+    height: clamp(140px, 17vw, 260px);
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 3px solid rgba(201, 168, 76, 0.7);
+
+    box-shadow:
+        0 0 0 6px rgba(201, 168, 76, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+
+    z-index: 3;
+
+    background: var(--crimson-deep);
+
+    flex-shrink: 0;
+}
+
+.hero-portrait-left {
+    left: clamp(30px, 12vw, 280px);
+}
+
+.hero-portrait-right {
+    right: clamp(30px, 12vw, 280px);
+}
+
+
+/* =========================================================
+   HERO PORTRAIT IMAGES
+   ========================================================= */
+
+.hero-portrait img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center 15%;
+
+    display: block;
+}
+
+.hero-portrait-left img {
+    object-position: 40% 65%;
+
+    transform: scale(1.55);
+
+    transform-origin: 40% 65%;
+}
+
+.hero-portrait-right img {
+    object-position: 70% 15%;
+}
+
+
+/* =========================================================
+   BOBBLE ANIMATION
+   ========================================================= */
+
+@keyframes bobble {
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(6px);
+    }
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+#about {
+    background: white;
+
+    padding: 6rem 2rem;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: clamp(2rem, 4vw, 4rem);
+
+    align-items: center;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+.about-visual {
+    position: relative;
+
+    padding-bottom: 2rem;
+
+    max-width: 550px;
+
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+.about-frame {
+    width: 100%;
+
+    aspect-ratio: 3 / 2;
+
+    background: linear-gradient(
+        135deg,
+        var(--crimson-deep),
+        var(--crimson)
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.about-frame::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 14px;
+
+    border: 1px solid rgba(201, 168, 76, 0.4);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.about-frame-icon {
+    font-size: clamp(4rem, 7vw, 7rem);
+
+    color: rgba(201, 168, 76, 0.2);
+
+    font-family: serif;
+}
+
+.about-divider {
+    width: 48px;
+    height: 2px;
+
+    background: var(--gold);
+
+    margin: 1.5rem 0;
+}
+
+.about-text {
+    min-width: 0;
+
+    max-width: 800px;
+}
+
+.about-text p {
+    font-size: 0.97rem;
+
+    line-height: 1.85;
+
+    color: var(--muted);
+
+    margin-bottom: 1.1rem;
+}
+
+.about-text p strong {
+    color: var(--text);
+}
+
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+#gallery {
+    background: var(--cream);
+
+    padding: 6rem 2rem;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.gallery-note {
+    font-size: 0.88rem;
+
+    color: var(--muted);
+
+    font-style: italic;
+
+    margin-top: 0.5rem;
+
+    margin-bottom: 3rem;
+}
+
+.gallery-carousel {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    aspect-ratio: 16 / 9;
+
+    margin: 0 auto;
+
+    background: var(--gold-pale);
+
+    border: 1px solid rgba(201, 168, 76, 0.35);
+
+    overflow: hidden;
+}
+
+.gallery-slide {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    transition: opacity 1.2s ease-in-out;
+}
+
+.gallery-slide.active {
+    opacity: 1;
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.gallery-caption {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: rgba(15, 0, 5, 0.55);
+
+    color: var(--gold-light);
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.1rem;
+
+    font-style: italic;
+
+    letter-spacing: 0.04em;
+
+    padding: 0.85rem 1.5rem;
+
+    text-align: center;
+}
+
+.gallery-dots {
+    display: none;
+}
+
+
+/* =========================================================
+   VIDEOS
+   ========================================================= */
+
+#videos {
+    background: white;
+
+    padding: 6rem 2rem;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.videos-layout {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 3rem auto 0 auto;
+}
+
+.videos-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 1.5rem;
+}
+
+.video-item {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    min-width: 0;
+}
+
+.video-wrap {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    border: 1px solid rgba(201, 168, 76, 0.3);
+
+    overflow: hidden;
+}
+
+.video-wrap iframe {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+}
+
+.video-caption {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1rem;
+
+    font-style: italic;
+
+    color: var(--muted);
+
+    text-align: center;
+
+    padding: 0.75rem 0.5rem 0 0.5rem;
+
+    letter-spacing: 0.03em;
+}
+
+.video-single {
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+}
+
+.video-single .video-item {
+    width: calc(50% - 0.75rem);
+
+    max-width: 450px;
+}
+
+.yt-btn {
+    display: inline-block;
+
+    margin-top: 0.5rem;
+
+    background: var(--gold);
+
+    color: var(--crimson-deep);
+
+    font-family: "Raleway", sans-serif;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+
+    padding: 0.55rem 1.2rem;
+
+    transition: background 0.2s;
+}
+
+.yt-btn:hover {
+    background: var(--gold-light);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   LARGE LAPTOP
+   1280px AND BELOW
+   ========================================================= */
+
+@media (max-width: 1280px) {
 
     #hero {
-        min-height: 100vh;
-        padding-bottom: 5.5rem !important;
-        box-sizing: border-box;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /*
+       PORTRAITS
+    */
+
+    .hero-portrait {
+        width: 200px;
+        height: 200px;
+
+        top: 100px;
+    }
+
+    .hero-portrait-left {
+        left: 5%;
+    }
+
+    .hero-portrait-right {
+        right: 5%;
     }
 
 
     /*
        HERO CONTENT
-       Keep everything centered.
     */
 
     .hero-content {
-        width: 100% !important;
-        max-width: 1100px !important;
-
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-
-        box-sizing: border-box;
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
-
-
-    /*
-       HERO BUTTON ROW
-
-       Force the buttons to stay small and move DOWN.
-    */
 
     .hero-btns {
-        display: flex !important;
+        gap: 1.75rem;
 
-        flex-direction: row !important;
-
-        flex-wrap: nowrap !important;
-
-        align-items: center !important;
-
-        justify-content: center !important;
-
-        gap: 0.55rem !important;
-
-        width: 100% !important;
-
-        max-width: 340px !important;
-
-        margin-left: auto !important;
-        margin-right: auto !important;
-
-        /*
-           IMPORTANT:
-           Actually move the button row downward.
-        */
-        position: relative !important;
-
-        top: 2.8rem !important;
-
-        transform: none !important;
-
-        box-sizing: border-box;
+        max-width: 650px;
     }
-
-
-    /*
-       ENROL + MEET OUR FOUNDER
-
-       Force compact dimensions.
-    */
 
     .hero-btns .btn-primary,
     .hero-btns .btn-ghost {
+        min-width: 175px;
 
-        display: inline-flex !important;
+        padding:
+            0.7rem
+            1.5rem;
 
-        align-items: center !important;
+        font-size: 0.72rem;
+    }
 
-        justify-content: center !important;
-
-        width: 125px !important;
-
-        min-width: 125px !important;
-
-        max-width: 125px !important;
-
-        flex: 0 0 125px !important;
-
-        height: 34px !important;
-
-        min-height: 34px !important;
-
-        max-height: 34px !important;
-
-        padding: 0 !important;
-
-        margin: 0 !important;
-
-        font-size: 0.48rem !important;
-
-        line-height: 1 !important;
-
-        letter-spacing: 0.045em !important;
-
-        white-space: nowrap !important;
-
-        text-align: center !important;
-
-        box-sizing: border-box !important;
+    .hero-btns .btn-primary {
+        margin-left: 0.5rem;
     }
 
 
     /*
        DISCOVER MORE
-
-       Move it DOWN underneath the buttons.
     */
 
     .hero-discover {
+        margin-top: 1.25rem;
 
-        position: relative !important;
+        font-size: 0.7rem;
 
-        top: 2.8rem !important;
+        max-width: 200px;
+    }
 
-        margin-top: 1rem !important;
+    .hero-discover-arrow {
+        font-size: 1.05rem;
+    }
 
-        margin-left: auto !important;
-        margin-right: auto !important;
 
-        width: 180px !important;
+    /*
+       SECTIONS
+    */
 
-        max-width: 180px !important;
+    #about,
+    #gallery,
+    #videos {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 
-        font-size: 0.52rem !important;
+    .about-grid {
+        gap: 2.5rem;
+    }
+}
 
-        line-height: 1.2 !important;
 
-        letter-spacing: 0.1em !important;
+/* =========================================================
+   SMALL LAPTOP
+   1100px AND BELOW
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    /*
+       PORTRAITS
+    */
+
+    .hero-portrait {
+        width: 175px;
+        height: 175px;
+
+        top: 90px;
+    }
+
+    .hero-portrait-left {
+        left: 3%;
+    }
+
+    .hero-portrait-right {
+        right: 3%;
+    }
+
+
+    /*
+       HERO CONTENT
+    */
+
+    .hero-content {
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+
+
+    /*
+       ENROL + MEET FOUNDER
+    */
+
+    .hero-btns {
+        gap: 1.25rem;
+
+        max-width: 600px;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 155px;
+
+        padding:
+            0.65rem
+            1.25rem;
+
+        font-size: 0.68rem;
+
+        letter-spacing: 0.1em;
+    }
+
+    .hero-btns .btn-primary {
+        margin-left: 0;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        margin-top: 1rem;
+
+        font-size: 0.65rem;
+
+        letter-spacing: 0.16em;
+    }
+
+    .hero-discover-arrow {
+        font-size: 1rem;
+    }
+
+
+    /*
+       ABOUT
+    */
+
+    .about-grid {
+        gap: 2rem;
+    }
+
+    .about-text p {
+        font-size: 0.94rem;
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   1024px AND BELOW
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    /*
+       PORTRAITS
+    */
+
+    .hero-portrait {
+        width: 150px;
+        height: 150px;
+
+        top: 80px;
+    }
+
+    .hero-portrait-left {
+        left: 2%;
+    }
+
+    .hero-portrait-right {
+        right: 2%;
+    }
+
+
+    /*
+       HERO CONTENT
+    */
+
+    .hero-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+
+    /*
+       ENROL + MEET FOUNDER
+    */
+
+    .hero-btns {
+        gap: 1rem;
+
+        max-width: 540px;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 140px;
+
+        padding:
+            0.6rem
+            1rem;
+
+        font-size: 0.64rem;
+
+        letter-spacing: 0.08em;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        margin-top: 0.85rem;
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.14em;
+
+        max-width: 180px;
+    }
+
+    .hero-discover-arrow {
+        font-size: 0.95rem;
+    }
+
+
+    /*
+       ABOUT STACKS EARLIER
+    */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 3rem;
+    }
+
+    .about-visual {
+        max-width: 700px;
+
+        margin: 0 auto;
+
+        padding-bottom: 1rem;
+    }
+
+    .about-text {
+        max-width: 800px;
+
+        margin: 0 auto;
+    }
+
+
+    /*
+       GALLERY
+    */
+
+    .gallery-carousel {
+        max-width: 900px;
+    }
+
+
+    /*
+       VIDEOS
+    */
+
+    .videos-layout {
+        max-width: 850px;
+    }
+}
+
+
+/* =========================================================
+   900px AND BELOW
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    /*
+       PORTRAITS
+    */
+
+    .hero-portrait {
+        width: 130px;
+        height: 130px;
+
+        top: 70px;
+    }
+
+    .hero-portrait-left {
+        left: 15px;
+    }
+
+    .hero-portrait-right {
+        right: 15px;
+    }
+
+
+    /*
+       HERO BUTTONS
+
+       At this width, make the buttons stack vertically.
+    */
+
+    .hero-btns {
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 0.75rem;
+
+        width: 100%;
+
+        max-width: 340px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        width: 100%;
+
+        min-width: 0;
+
+        max-width: 320px;
+
+        padding:
+            0.7rem
+            1.25rem;
+
+        font-size: 0.67rem;
+
+        margin-left: 0 !important;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        width: 100%;
+
+        max-width: 220px;
+
+        margin-top: 0.9rem;
+
+        font-size: 0.62rem;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   768px AND BELOW
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /*
+       HERO
+    */
+
+    #hero {
+        min-height: 100vh;
+
+        position: relative;
+
+        z-index: 1;
+
+        overflow: hidden;
+
+        padding:
+            4rem
+            1.25rem
+            3rem;
+
+        align-items: flex-end;
+    }
+
+
+    /*
+       MOBILE HERO BACKGROUND
+    */
+
+    .hero-bg,
+    .hero-overlay {
+        position: absolute !important;
+
+        z-index: 0;
+
+        background-position: center center !important;
+
+        background-size: cover !important;
+    }
+
+
+    /*
+       HERO CONTENT
+    */
+
+    .hero-content {
+        padding-left: 0;
+        padding-right: 0;
+
+        width: 100%;
+    }
+
+
+    /*
+       MOBILE PORTRAITS
+    */
+
+    .hero-portrait {
+        width: 110px;
+        height: 110px;
+
+        top: 60px;
+    }
+
+    .hero-portrait-left {
+        left: 20px;
+    }
+
+    .hero-portrait-right {
+        right: 20px;
+    }
+
+
+    /*
+       ENROL + MEET FOUNDER
+    */
+
+    .hero-btns {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 0.8rem;
+
+        width: 100%;
+
+        max-width: 360px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 0;
+
+        width: 85%;
+
+        max-width: 320px;
+
+        text-align: center;
+
+        margin-left: 0 !important;
+
+        padding:
+            0.7rem
+            1.5rem;
+
+        font-size: 0.7rem;
+
+        letter-spacing: 0.1em;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        margin-top: 1rem;
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.15em;
+
+        max-width: 220px;
+    }
+
+    .hero-discover-arrow {
+        font-size: 1rem;
+    }
+
+
+    /*
+       ABOUT
+    */
+
+    #about {
+        padding:
+            4rem
+            1.25rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 3rem;
+    }
+
+    .about-visual {
+        max-width: 100%;
+
+        padding-bottom: 1rem;
+    }
+
+    .about-frame::before {
+        inset: 10px;
+    }
+
+
+    /*
+       GALLERY
+    */
+
+    #gallery {
+        padding:
+            4rem
+            1.25rem;
+    }
+
+    .gallery-carousel {
+        max-width: 100%;
+
+        aspect-ratio: 4 / 3;
+    }
+
+    .gallery-caption {
+        font-size: 0.95rem;
+
+        padding:
+            0.7rem
+            1rem;
+    }
+
+
+    /*
+       VIDEOS
+    */
+
+    #videos {
+        padding:
+            4rem
+            1.25rem;
+    }
+
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .videos-layout {
+        max-width: 100%;
+    }
+
+    .video-single .video-item {
+        width: 100%;
+
+        max-width: none;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   480px AND BELOW
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    /*
+       HERO
+    */
+
+    #hero {
+        padding:
+            3rem
+            1rem
+            2.5rem;
+    }
+
+
+    /*
+       PORTRAITS
+    */
+
+    .hero-portrait {
+        width: 85px;
+        height: 85px;
+
+        top: 45px;
+
+        border-width: 2px;
+
+        box-shadow:
+            0 0 0 4px rgba(201, 168, 76, 0.15),
+            0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-portrait-left {
+        left: 12px;
+    }
+
+    .hero-portrait-right {
+        right: 12px;
+    }
+
+
+    /*
+       LEFT PORTRAIT IMAGE
+    */
+
+    .hero-portrait-left img {
+        transform: scale(1.4);
+
+        transform-origin: 40% 65%;
+    }
+
+
+    /*
+       ENROL + MEET FOUNDER
+    */
+
+    .hero-btns {
+        gap: 0.65rem;
+
+        max-width: 320px;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        width: 90%;
+
+        max-width: 300px;
+
+        padding:
+            0.65rem
+            1rem;
+
+        font-size: 0.63rem;
+
+        letter-spacing: 0.08em;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        margin-top: 0.8rem;
+
+        font-size: 0.57rem;
+
+        letter-spacing: 0.12em;
+
+        max-width: 200px;
+    }
+
+    .hero-discover-arrow {
+        font-size: 0.9rem;
+    }
+
+
+    /*
+       SECTION SPACING
+    */
+
+    #about,
+    #gallery,
+    #videos {
+        padding:
+            3.5rem
+            1rem;
+    }
+
+
+    /*
+       GALLERY
+    */
+
+    .gallery-carousel {
+        aspect-ratio: 1 / 1;
+    }
+
+    .gallery-caption {
+        font-size: 0.85rem;
+
+        padding:
+            0.6rem
+            0.75rem;
+    }
+
+
+    /*
+       VIDEO CAPTIONS
+    */
+
+    .video-caption {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   360px AND BELOW
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    /*
+       PORTRAITS
+    */
+
+    .hero-portrait {
+        width: 70px;
+        height: 70px;
+
+        top: 35px;
+    }
+
+    .hero-portrait-left {
+        left: 8px;
+    }
+
+    .hero-portrait-right {
+        right: 8px;
+    }
+
+
+    /*
+       HERO BUTTONS
+    */
+
+    .hero-btns {
+        gap: 0.55rem;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        width: 95%;
+
+        max-width: 290px;
+
+        padding:
+            0.6rem
+            0.8rem;
+
+        font-size: 0.59rem;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        font-size: 0.52rem;
+
+        letter-spacing: 0.1em;
+    }
+
+    .hero-discover-arrow {
+        font-size: 0.82rem;
+    }
+}
+
+
+/* =========================================================
+   SMALL LAPTOP HERO BUTTON FIX — ONLY BUTTONS
+   769px – 1100px
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1100px) {
+
+    /*
+       ENROL + MEET OUR FOUNDER
+       ONLY changing their size.
+    */
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        min-width: 125px !important;
+
+        width: 125px !important;
+
+        padding:
+            0.5rem
+            0.75rem !important;
+
+        font-size: 0.58rem !important;
+
+        letter-spacing: 0.06em !important;
 
         box-sizing: border-box;
     }
 
 
-    .hero-discover-arrow {
-        font-size: 0.8rem !important;
-
-        line-height: 1 !important;
-    }
-}
-
-
-/* =========================================================
-   EXTRA SMALL LAPTOP
-   769px – 1000px
-   ========================================================= */
-
-@media (min-width: 769px) and (max-width: 1000px) {
-
     /*
-       Push everything down a little further.
-    */
-
-    #hero {
-        padding-bottom: 6rem !important;
-    }
-
-
-    /*
-       Smaller button row.
+       ONLY move the button row slightly DOWN.
+       Does not change the hero layout.
     */
 
     .hero-btns {
-        max-width: 300px !important;
+        position: relative;
 
-        gap: 0.4rem !important;
-
-        top: 3.2rem !important;
+        top: 1.2rem;
     }
 
 
     /*
-       Very compact buttons.
-    */
-
-    .hero-btns .btn-primary,
-    .hero-btns .btn-ghost {
-
-        width: 112px !important;
-
-        min-width: 112px !important;
-
-        max-width: 112px !important;
-
-        flex: 0 0 112px !important;
-
-        height: 31px !important;
-
-        min-height: 31px !important;
-
-        max-height: 31px !important;
-
-        font-size: 0.44rem !important;
-
-        letter-spacing: 0.035em !important;
-    }
-
-
-    /*
-       Discover moves down with them.
+       ONLY move DISCOVER MORE slightly DOWN.
     */
 
     .hero-discover {
+        position: relative;
 
-        top: 3.2rem !important;
-
-        margin-top: 0.8rem !important;
-
-        font-size: 0.48rem !important;
-    }
-
-    .hero-discover-arrow {
-        font-size: 0.75rem !important;
-    }
-}
-
-
-/* =========================================================
-   SMALL LAPTOP PORTRAIT / TIGHT VIEWPORT
-   769px – 900px
-   ========================================================= */
-
-@media (min-width: 769px) and (max-width: 900px) {
-
-    /*
-       Keep buttons side-by-side but very compact.
-    */
-
-    .hero-btns {
-        max-width: 270px !important;
-
-        gap: 0.35rem !important;
-
-        top: 3.5rem !important;
-    }
-
-
-    .hero-btns .btn-primary,
-    .hero-btns .btn-ghost {
-
-        width: 105px !important;
-
-        min-width: 105px !important;
-
-        max-width: 105px !important;
-
-        flex: 0 0 105px !important;
-
-        height: 30px !important;
-
-        min-height: 30px !important;
-
-        max-height: 30px !important;
-
-        font-size: 0.41rem !important;
-
-        letter-spacing: 0.025em !important;
-    }
-
-
-    .hero-discover {
-
-        top: 3.5rem !important;
-
-        font-size: 0.46rem !important;
-
-        letter-spacing: 0.08em !important;
-    }
-
-    .hero-discover-arrow {
-        font-size: 0.72rem !important;
+        top: 1.2rem;
     }
 }
