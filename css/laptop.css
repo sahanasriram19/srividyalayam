@@ -48,13 +48,13 @@
     top: 9vh;
   }
 
-  .hero-portrait-left {
-    left: 5%;
-  }
+    .hero-portrait-left {
+        left: 8%;
+    }
 
-  .hero-portrait-right {
-    right: 5%;
-  }
+    .hero-portrait-right {
+        right: 8%;
+    }
 
   /* Buttons: give them room to breathe below the portraits
      instead of relying on the fluid clamp() values, which
@@ -64,10 +64,10 @@
     padding-right: 4vw;
   }
 
-  .hero-btns {
+.hero-btns {
     gap: 1.5rem;
-    margin-top: 0.5rem;
-  }
+    margin-top: 2rem; /* pushed down further — was sitting too high on smaller laptop screens */
+}
 
   .hero-btns .btn-primary,
   .hero-btns .btn-ghost {
@@ -81,10 +81,10 @@
   }
 
   .hero-discover {
-    margin-top: 1rem;
+    margin-top: 1.5rem; /* was: margin-top: 1rem; */
     font-size: 0.72rem;
     max-width: 210px;
-  }
+}
 
   .hero-discover-arrow {
     font-size: 1.05rem;

@@ -28,7 +28,8 @@
    ========================================================= */
 
 #hero {
-    min-height: 100vh;
+    min-height: 100vh; /* fallback for browsers that don't support dvh */
+    min-height: 100dvh;
 
     position: relative;
 
@@ -67,19 +68,12 @@
 
 .hero-btns {
     display: flex;
-
     gap: clamp(1.25rem, 4vw, 4rem);
-
     justify-content: center;
-
     align-items: center;
-
     flex-wrap: wrap;
-
-    margin-top: 0;
-
+    margin-top: 0.75rem; /* was: margin-top: 0; */
     width: 100%;
-
     box-sizing: border-box;
 }
 
