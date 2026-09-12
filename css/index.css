@@ -263,7 +263,8 @@
     object-position: 40% 65%;
 
     /*
-       Slightly zoomed out from the original 1.55.
+       Very slight zoom-out.
+       Original: 1.55
     */
     transform: scale(1.48);
 
@@ -274,9 +275,9 @@
     object-position: 70% 15%;
 
     /*
-       Very slight zoom-out.
+       Keep the right portrait natural.
     */
-    transform: scale(0.98);
+    transform: scale(1);
 }
 
 
@@ -673,6 +674,7 @@ footer {
         padding-right: 1.5rem;
     }
 
+
     /*
        PORTRAITS
     */
@@ -695,15 +697,17 @@ footer {
 
     /*
        HERO CONTENT
-
-       This is the first major button adjustment.
-       The buttons become smaller before mobile.
     */
 
     .hero-content {
         padding-left: 5vw;
         padding-right: 5vw;
     }
+
+
+    /*
+       HERO BUTTONS
+    */
 
     .hero-btns {
         gap: 1.75rem;
@@ -799,9 +803,10 @@ footer {
 
 
     /*
-       ENROL + MEET FOUNDER
-
-       Smaller width, smaller padding and smaller gap.
+       HERO BUTTONS
+       Base small-laptop values.
+       The fluid override below makes these
+       adapt continuously between 901px and 1280px.
     */
 
     .hero-btns {
@@ -860,52 +865,118 @@ footer {
 
 
 /* =========================================================
-   SMALL LAPTOP HERO FIX
-   1025px – 1100px
+   FLUID SMALL-LAPTOP HERO
+   901px – 1280px
+   =========================================================
+   
+   This is the main fix.
+
+   Instead of waiting for one breakpoint and then
+   suddenly changing the buttons, the buttons now
+   continuously become smaller as the laptop gets
+   narrower.
    ========================================================= */
 
-@media (min-width: 1025px) and (max-width: 1100px) {
+@media (min-width: 901px) and (max-width: 1280px) {
+
+    /*
+       HERO BUTTON GROUP
+    */
 
     .hero-btns {
-        gap: clamp(0.75rem, 1.5vw, 1.25rem);
+        display: flex;
 
-        width: 100%;
-        max-width: 560px;
+        flex-direction: row;
 
         flex-wrap: nowrap;
+
+        align-items: center;
+        justify-content: center;
+
+        /*
+           Gap shrinks with the available screen width.
+        */
+        gap: clamp(0.65rem, 1.8vw, 1.5rem);
+
+        width: 100%;
+
+        /*
+           Prevent the group from becoming too wide.
+        */
+        max-width: 520px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        box-sizing: border-box;
     }
+
+
+    /*
+       ENROL + MEET OUR FOUNDER
+       
+       Both buttons always have the same width.
+       Their width shrinks smoothly on smaller laptops.
+    */
 
     .hero-btns .btn-primary,
     .hero-btns .btn-ghost {
-        min-width: clamp(125px, 14vw, 150px);
+        width: clamp(145px, 16vw, 190px);
+
+        min-width: 0;
+
+        max-width: 190px;
+
+        flex: 0 1 clamp(145px, 16vw, 190px);
 
         padding:
-            0.55rem
-            clamp(0.8rem, 1.5vw, 1.1rem);
+            clamp(0.5rem, 0.7vw, 0.65rem)
+            clamp(0.6rem, 1vw, 1rem);
 
-        font-size: clamp(0.58rem, 0.7vw, 0.65rem);
+        font-size: clamp(0.56rem, 0.65vw, 0.68rem);
+
+        line-height: 1.2;
 
         letter-spacing: 0.07em;
 
         white-space: nowrap;
+
+        box-sizing: border-box;
+
+        text-align: center;
     }
+
+
+    /*
+       REMOVE OLD LEFT OFFSET
+    */
 
     .hero-btns .btn-primary {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 
+
+    /*
+       DISCOVER MORE
+    */
+
     .hero-discover {
-        margin-top: 0.8rem;
-
-        font-size: clamp(0.55rem, 0.65vw, 0.62rem);
-
-        letter-spacing: 0.12em;
+        width: auto;
 
         max-width: 180px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        margin-top: clamp(0.65rem, 1vw, 1rem);
+
+        font-size: clamp(0.54rem, 0.6vw, 0.65rem);
+
+        letter-spacing: 0.13em;
     }
 
     .hero-discover-arrow {
-        font-size: 0.9rem;
+        font-size: clamp(0.85rem, 0.9vw, 1rem);
     }
 }
 
@@ -939,8 +1010,6 @@ footer {
 
     /*
        HERO CONTENT
-
-       Reduce horizontal room used by content.
     */
 
     .hero-content {
@@ -950,9 +1019,11 @@ footer {
 
 
     /*
-       ENROL + MEET FOUNDER
-
-       These are now significantly smaller than desktop.
+       HERO BUTTONS
+       
+       These values provide a fallback for tablet
+       widths. The 901px–1024px fluid rule below
+       makes the final result more precise.
     */
 
     .hero-btns {
@@ -977,9 +1048,6 @@ footer {
 
     /*
        DISCOVER MORE
-
-       Keep it compact so it doesn't push the hero
-       content too far down.
     */
 
     .hero-discover {
@@ -1037,6 +1105,71 @@ footer {
 
     .videos-layout {
         max-width: 850px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL LAPTOP / TABLET LANDSCAPE
+   901px – 1024px
+   ========================================================= */
+
+@media (min-width: 901px) and (max-width: 1024px) {
+
+    /*
+       Keep buttons side-by-side but make them
+       compact enough for 1024px, 960px, 940px,
+       920px and similar laptop widths.
+    */
+
+    .hero-btns {
+        gap: clamp(0.5rem, 1.5vw, 0.8rem);
+
+        max-width: 390px;
+    }
+
+    .hero-btns .btn-primary,
+    .hero-btns .btn-ghost {
+        width: clamp(135px, 15vw, 150px);
+
+        min-width: 0;
+
+        max-width: 150px;
+
+        flex: 0 1 clamp(135px, 15vw, 150px);
+
+        padding:
+            0.5rem
+            0.55rem;
+
+        font-size: clamp(0.53rem, 0.6vw, 0.58rem);
+
+        letter-spacing: 0.055em;
+
+        line-height: 1.2;
+    }
+
+    .hero-btns .btn-primary {
+        margin-left: 0 !important;
+    }
+
+
+    /*
+       DISCOVER MORE
+    */
+
+    .hero-discover {
+        margin-top: 0.7rem;
+
+        font-size: clamp(0.53rem, 0.6vw, 0.57rem);
+
+        letter-spacing: 0.11em;
+
+        max-width: 180px;
+    }
+
+    .hero-discover-arrow {
+        font-size: 0.85rem;
     }
 }
 
