@@ -161,23 +161,6 @@
 /* =================================================
    TABLET — PORTRAIT ORIENTATION OVERRIDE
    ================================================= 
-
-   Purpose: make portrait tablets use the SAME two-
-   column "horizontal" layouts as the landscape block
-   above, instead of collapsing to single-column/
-   stacked "mobile" layouts.
-
-   Why the range starts at 768px (not 769px): many
-   tablets are exactly 768px wide in portrait (e.g.
-   iPad, iPad mini). Since mobile.css's phone rules
-   trigger at "max-width: 768px", a portrait tablet
-   at exactly 768px was falling into the phone/mobile
-   layout entirely, skipping the tablet rules above.
-   This block starts at 768px specifically to reclaim
-   that width for tablets, and re-applies the two-
-   column layouts to beat mobile.css's stacking rules
-   (this file loads after mobile.css, so equal-
-   specificity selectors here win the cascade).
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
@@ -357,5 +340,27 @@
   .winners-masonry {
     column-count: 2 !important;
     column-gap: 1.5rem !important;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 780px) and (orientation: portrait) {
+
+  #hero {
+    padding-bottom: 1.25rem;
+  }
+
+  .nav-links a {
+    font-size: 0.76rem;
+    padding: 0.85rem 2rem;
+  }
+
+  .nav-links .nav-cta {
+    align-self: flex-start !important;
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0.5rem 2rem 0 !important;
+    padding: 0.4rem 0.9rem !important;
+    text-align: center !important;
+    border-radius: 2px !important;
   }
 }
