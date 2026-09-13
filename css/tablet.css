@@ -343,98 +343,69 @@
   }
 }
 
+/* =================================================
+   COMPACT PORTRAIT TABLETS
+   600px–900px wide
+   Targets 768px iPad / iPad Mini-sized portrait
+   screens without changing the larger 1024px tablet
+   rules above.
+   ================================================= */
 
-/* =========================================================
-   COMPACT TABLET / IPAD PORTRAIT FIXES
-   Added after all existing tablet rules so they win the
-   cascade at the actual iPad CSS viewport widths.
-   Does NOT affect 1025px+ laptop / iPad Pro landscape rules.
-   ========================================================= */
+@media (min-width: 600px) and (max-width: 900px) and (orientation: portrait) {
 
-/* 768px iPad through 1024px portrait */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-
-  /* ---- HAMBURGER NAV ---- */
-
+  /* ---- HAMBURGER NAV ----
+     Keep the dropdown full-width, but align its contents
+     consistently and make Enrol Now content-sized rather
+     than stretching across the menu. */
   nav {
-    padding-left: 1.2rem !important;
-    padding-right: 1.2rem !important;
-  }
-
-  .nav-hamburger {
-    display: flex !important;
-    flex: 0 0 auto;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
   }
 
   .nav-links {
-    display: flex !important;
-    position: absolute !important;
-    top: 70px !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .nav-links.open {
-    padding: 1rem 0 !important;
+    left: 0;
+    right: 0;
+    width: 100%;
+    align-items: flex-start;
   }
 
   .nav-links li {
-    width: 100% !important;
-    box-sizing: border-box !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    width: 100%;
   }
 
   .nav-links a {
-    display: block !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    padding: 0.85rem 2rem !important;
-    text-align: left !important;
+    display: block;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
-  /* Enrol Now must be a compact button, not a full-width bar.
-     Align it to exactly the same left edge as the menu links. */
-  .nav-links li:last-child {
-    width: auto !important;
-    align-self: flex-start !important;
-    margin: 0.5rem 0 0 2rem !important;
-  }
-
-  .nav-links li:last-child .nav-cta {
+  .nav-links .nav-cta {
     display: inline-block !important;
     width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    margin: 0 !important;
+    max-width: max-content;
+    margin: 0.5rem 0 0 2rem !important;
     padding: 0.65rem 1.2rem !important;
     text-align: center !important;
-    white-space: nowrap !important;
+    white-space: nowrap;
   }
 
 
-  /* ---- HERO ---- */
-
-  /* The hero is bottom-aligned, so moving the button group
-     down uses a positive translate rather than changing the
-     whole hero's vertical layout. */
+  /* ---- HOMEPAGE HERO ----
+     Move the CTA row slightly lower on compact portrait
+     tablets. Positive translateY replaces the previous
+     tablet rule's upward nudge. */
   .hero-btns {
-    transform: translateY(22px) !important;
+    gap: 1.5rem;
+    transform: translateY(18px);
   }
 
   .hero-btns .btn-primary,
   .hero-btns .btn-ghost {
-    min-width: 130px !important;
-    width: auto !important;
-    padding: 0.55rem 1.2rem !important;
-    font-size: 0.65rem !important;
+    min-width: 130px;
+    width: auto;
+    padding: 0.55rem 1.2rem;
+    font-size: 0.65rem;
   }
 
   .hero-btns .btn-primary {
@@ -447,95 +418,44 @@
 }
 
 
-/* 600px–767px portrait: iPad Mini-sized / compact tablets.
-   mobile.css is loaded before tablet.css, so these rules
-   deliberately override the mobile hamburger/hero rules. */
+/* =================================================
+   VERY COMPACT PORTRAIT TABLETS
+   600px–767px
+   Keeps iPad Mini-sized screens from inheriting
+   phone-sized hero buttons/layout where possible.
+   ================================================= */
+
 @media (min-width: 600px) and (max-width: 767px) and (orientation: portrait) {
 
-  /* ---- HAMBURGER NAV ---- */
-
-  nav {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-
-  .nav-hamburger {
-    display: flex !important;
-  }
-
-  .nav-links {
-    display: flex !important;
-    position: absolute !important;
-    top: 70px !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .nav-links.open {
-    padding: 1rem 0 !important;
-  }
-
-  .nav-links li {
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
   .nav-links a {
-    display: block !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    padding: 0.8rem 1.75rem !important;
-    text-align: left !important;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
-  .nav-links li:last-child {
-    width: auto !important;
-    align-self: flex-start !important;
-    margin: 0.5rem 0 0 1.75rem !important;
+  .nav-links .nav-cta {
+    margin-left: 1.75rem !important;
   }
 
-  .nav-links li:last-child .nav-cta {
-    display: inline-block !important;
-    width: auto !important;
-    min-width: 0 !important;
-    padding: 0.65rem 1.2rem !important;
-    margin: 0 !important;
-    text-align: center !important;
-    white-space: nowrap !important;
+  .hero-content {
+    padding-left: 3vw;
+    padding-right: 3vw;
   }
-
-
-  /* ---- HERO ---- */
 
   .hero-btns {
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-    gap: 1.25rem !important;
-    width: 100% !important;
-    transform: translateY(18px) !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    width: 100%;
+    transform: translateY(16px);
   }
 
   .hero-btns .btn-primary,
   .hero-btns .btn-ghost {
-    width: auto !important;
-    min-width: 125px !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-    padding: 0.55rem 1rem !important;
-    font-size: 0.64rem !important;
-  }
-
-  .hero-discover {
-    margin-top: 1.5rem !important;
+    width: auto;
+    min-width: 125px;
+    max-width: none;
+    padding: 0.55rem 1rem;
+    font-size: 0.64rem;
   }
 }
 
