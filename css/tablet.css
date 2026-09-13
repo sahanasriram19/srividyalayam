@@ -342,11 +342,3 @@
     column-gap: 1.5rem !important;
   }
 }
-
-@media (min-width: 740px) and (max-width: 780px) and (orientation: portrait) {
-
-.hero-btns {
-  display: none;
-}
-
-}
