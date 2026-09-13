@@ -163,9 +163,3 @@
     max-width: 1050px;
   }
 }
-
-@media (min-width: 1367px) and (max-width: 1600px) {
-  #hero {
-    padding-bottom: 1.25rem;
-  }
-}
