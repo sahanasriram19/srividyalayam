@@ -415,6 +415,14 @@
   .hero-discover {
     margin-top: 1.5rem !important;
   }
+
+   .hero-portrait-left {
+    left: 10%; /* Nudges it inward on narrow portrait screens */
+  }
+
+  .hero-portrait-right {
+    right: 10%; /* Nudges it inward on narrow portrait screens */
+  }
 }
 
 
