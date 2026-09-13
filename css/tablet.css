@@ -345,35 +345,8 @@
 
 @media (min-width: 740px) and (max-width: 780px) and (orientation: portrait) {
 
-  #hero {
-    padding-bottom: 1.25rem;
-  }
+.hero-btns {
+  display: none;
+}
 
-  /* hero-tablet.png's tagline/line graphic sits low in the
-     frame — fine on a taller iPad, but on this shorter
-     screen the same crop leaves it too close to the
-     buttons. Shifting the crop anchor toward the bottom of
-     the image trims mostly-empty decorative space off the
-     top instead, moving the graphic higher in the visible
-     frame, clear of the buttons below. Scoped here only —
-     the shared 768-1024px portrait rule (which the bigger
-     iPad uses) is untouched. */
-  .hero-bg {
-    background-position: center 90% !important;
-  }
-
-  .nav-links a {
-    font-size: 0.76rem;
-    padding: 0.85rem 2rem;
-  }
-
-  .nav-links .nav-cta {
-    align-self: flex-start !important;
-    display: inline-block !important;
-    width: auto !important;
-    margin: 0.5rem 2rem 0 !important;
-    padding: 0.4rem 0.9rem !important;
-    text-align: center !important;
-    border-radius: 2px !important;
-  }
 }
