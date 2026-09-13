@@ -169,3 +169,25 @@
     padding-bottom: 1.25rem;
   }
 }
+
+/* =============================================
+   WIDE DESKTOP (100% zoom, e.g. a 1920px-wide
+   16" laptop)
+   Range: 1601px and up
+   ============================================= */
+
+@media (min-width: 1601px) {
+
+  .hero-bg {
+    background-size: auto 108% !important;
+  }
+
+  #hero {
+    background-color: var(--crimson-deep);
+  }
+
+  .hero-portrait {
+    width: 230px;
+    height: 230px;
+  }
+}
