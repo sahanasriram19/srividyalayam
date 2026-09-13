@@ -217,13 +217,14 @@
 }
 
 .hero-portrait-left {
-    left: clamp(30px, 12vw, 280px);
+    /* Increased minimum, fluid percentage, and maximum values */
+    left: clamp(60px, 18vw, 380px);
 }
 
 .hero-portrait-right {
-    right: clamp(30px, 12vw, 280px);
+    /* Increased minimum, fluid percentage, and maximum values */
+    right: clamp(60px, 18vw, 380px);
 }
-
 
 /* =========================================================
    HERO PORTRAIT IMAGES
