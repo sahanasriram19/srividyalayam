@@ -415,14 +415,6 @@
   .hero-discover {
     margin-top: 1.5rem !important;
   }
-
-   .hero-portrait-left {
-    left: 10%; /* Nudges it inward on narrow portrait screens */
-  }
-
-  .hero-portrait-right {
-    right: 10%; /* Nudges it inward on narrow portrait screens */
-  }
 }
 
 
@@ -433,7 +425,7 @@
    phone-sized hero buttons/layout where possible.
    ================================================= */
 
-@media (min-width: 600px) and (max-width: 767px) and (orientation: portrait) {
+@media (min-width: 600px) and (max-width: 770px) and (orientation: portrait) {
 
   .nav-links a {
     padding-left: 1.75rem;
@@ -464,6 +456,14 @@
     max-width: none;
     padding: 0.55rem 1rem;
     font-size: 0.64rem;
+  }
+
+     .hero-portrait-left {
+    left: 10%; /* Nudges it inward on narrow portrait screens */
+  }
+
+  .hero-portrait-right {
+    right: 10%; /* Nudges it inward on narrow portrait screens */
   }
 }
 
