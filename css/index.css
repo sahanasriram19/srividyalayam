@@ -217,13 +217,11 @@
 }
 
 .hero-portrait-left {
-    /* Increased minimum, fluid percentage, and maximum values */
-    left: clamp(60px, 18vw, 380px);
+    left: clamp(45px, 14vw, 320px);
 }
 
 .hero-portrait-right {
-    /* Increased minimum, fluid percentage, and maximum values */
-    right: clamp(60px, 18vw, 380px);
+    right: clamp(45px, 14vw, 320px);
 }
 
 /* =========================================================
