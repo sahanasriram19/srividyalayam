@@ -349,6 +349,19 @@
     padding-bottom: 1.25rem;
   }
 
+  /* hero-tablet.png's tagline/line graphic sits low in the
+     frame — fine on a taller iPad, but on this shorter
+     screen the same crop leaves it too close to the
+     buttons. Shifting the crop anchor toward the bottom of
+     the image trims mostly-empty decorative space off the
+     top instead, moving the graphic higher in the visible
+     frame, clear of the buttons below. Scoped here only —
+     the shared 768-1024px portrait rule (which the bigger
+     iPad uses) is untouched. */
+  .hero-bg {
+    background-position: center 90% !important;
+  }
+
   .nav-links a {
     font-size: 0.76rem;
     padding: 0.85rem 2rem;
