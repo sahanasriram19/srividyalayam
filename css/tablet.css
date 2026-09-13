@@ -351,7 +351,7 @@
    rules above.
    ================================================= */
 
-@media (min-width: 600px) and (max-width: 900px) and (orientation: portrait) {
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
 
   /* ---- HAMBURGER NAV ----
      Keep the dropdown full-width, but align its contents
