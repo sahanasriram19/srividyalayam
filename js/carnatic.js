@@ -1,7 +1,8 @@
 // =============================================
-//  SRIVIDYALAYAM — Melakarta wheel (72 parent ragas)
-//  Used on learn.html. No libraries.
-//  Sound plays only when a visitor presses "Hear the Scale".
+//  SRIVIDYALAYAM — Learn page animations (learn.html)
+//  1. Tala keeper (the 35 talas)
+//  2. Melakarta wheel (72 parent ragas)
+//  No libraries. Sound plays only when a visitor presses a button.
 // =============================================
 
 (() => {
@@ -96,13 +97,404 @@
       src.start(when || ctx.currentTime);
     }
 
+    // Short percussive sounds for the tala keeper.
+    // kind: 'clap' | 'count' | 'wave'. accent = samam (first beat of the cycle).
+    let noiseBuf = null;
+    function beat(kind, accent = false) {
+      if (!ctx) return;
+      const t = ctx.currentTime + 0.005;
+
+      if (kind === 'clap') {
+        if (!noiseBuf) {
+          noiseBuf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * 0.25), ctx.sampleRate);
+          const d = noiseBuf.getChannelData(0);
+          for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+        }
+        const src = ctx.createBufferSource();
+        src.buffer = noiseBuf;
+        const bp = ctx.createBiquadFilter();
+        bp.type = 'bandpass';
+        bp.frequency.value = 1300;
+        bp.Q.value = 0.9;
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(accent ? 0.9 : 0.6, t + 0.004);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+        src.connect(bp);
+        bp.connect(g);
+        g.connect(master);
+        src.start(t);
+        src.stop(t + 0.2);
+      }
+
+      const o = ctx.createOscillator();
+      o.type = 'sine';
+      o.frequency.value = kind === 'clap' ? (accent ? 196 : 262) : kind === 'wave' ? 523 : 784;
+      const g2 = ctx.createGain();
+      const peak = kind === 'clap' ? (accent ? 0.45 : 0.3) : 0.12;
+      g2.gain.setValueAtTime(0.0001, t);
+      g2.gain.exponentialRampToValueAtTime(peak, t + 0.005);
+      g2.gain.exponentialRampToValueAtTime(0.0001, t + (kind === 'clap' ? 0.18 : 0.09));
+      o.connect(g2);
+      g2.connect(master);
+      o.start(t);
+      o.stop(t + 0.25);
+    }
+
     return {
       ensure,
       pluckBuffer,
       play,
+      beat,
       get ctx() { return ctx; },
     };
   })();
+
+  // =============================================
+  //  TALA KEEPER (Suladi Sapta Talas x 5 jatis)
+  // =============================================
+  // Angas: I = laghu (clap + finger counts, length set by jati)
+  //        O = drutam (clap, wave)   U = anudrutam (clap)
+  const TALAS = [
+    { key: 'dhruva',  name: 'Dhruva',  angas: ['I', 'O', 'I', 'I'], jati: 4 },
+    { key: 'matya',   name: 'Matya',   angas: ['I', 'O', 'I'],      jati: 4 },
+    { key: 'rupaka',  name: 'Rupaka',  angas: ['O', 'I'],           jati: 4 },
+    { key: 'jhampa',  name: 'Jhampa',  angas: ['I', 'U', 'O'],      jati: 7 },
+    { key: 'triputa', name: 'Triputa', angas: ['I', 'O', 'O'],      jati: 3 },
+    { key: 'ata',     name: 'Ata',     angas: ['I', 'I', 'O', 'O'], jati: 5 },
+    { key: 'eka',     name: 'Eka',     angas: ['I'],                jati: 4 },
+  ];
+  const JATIS = [
+    { n: 3, name: 'Tisra' },
+    { n: 4, name: 'Chatusra' },
+    { n: 5, name: 'Khanda' },
+    { n: 7, name: 'Misra' },
+    { n: 9, name: 'Sankeerna' },
+  ];
+  const SPEEDS = [
+    { key: 'slow', label: 'Slow', bpm: 48 },
+    { key: 'medium', label: 'Medium', bpm: 72 },
+    { key: 'fast', label: 'Fast', bpm: 104 },
+  ];
+  const FINGERS = ['Little finger', 'Ring finger', 'Middle finger', 'Index finger', 'Thumb'];
+  const FINGER_SHORT = ['Little', 'Ring', 'Middle', 'Index', 'Thumb'];
+
+  // Expand a tala into its beats: [{ kind, finger, label, short, anga }]
+  function talaBeats(tala, jati) {
+    const beats = [];
+    tala.angas.forEach((a, ai) => {
+      if (a === 'I') {
+        beats.push({ kind: 'clap', label: 'Clap', short: 'Clap', anga: ai });
+        for (let k = 0; k < jati - 1; k++) {
+          const f = k % 5;
+          beats.push({ kind: 'count', finger: f, label: FINGERS[f], short: FINGER_SHORT[f], anga: ai });
+        }
+      } else if (a === 'O') {
+        beats.push({ kind: 'clap', label: 'Clap', short: 'Clap', anga: ai });
+        beats.push({ kind: 'wave', label: 'Wave', short: 'Wave', anga: ai });
+      } else {
+        beats.push({ kind: 'clap', label: 'Clap', short: 'Clap', anga: ai });
+      }
+    });
+    return beats;
+  }
+
+  function angaLabel(a, jati) {
+    if (a === 'I') return `I<sub>${jati}</sub>`;
+    return a;
+  }
+
+  function initTala() {
+    const section = document.getElementById('tala');
+    if (!section) return;
+
+    const ui = {
+      circle: section.querySelector('.tala-circle'),
+      talaChips: section.querySelector('.tala-chips'),
+      jatiChips: section.querySelector('.jati-chips'),
+      speedChips: section.querySelector('.speed-chips'),
+      name: section.querySelector('.tala-name'),
+      alias: section.querySelector('.tala-alias'),
+      formula: section.querySelector('.tala-formula'),
+      strip: section.querySelector('.tala-strip'),
+      playBtn: section.querySelector('.tala-play'),
+      soundBtn: section.querySelector('.tala-sound'),
+    };
+
+    // ---- Controls ----
+    const adiBtn = `<button type="button" class="tala-chip" data-preset="adi">Adi</button>`;
+    ui.talaChips.innerHTML = adiBtn + TALAS.map(t =>
+      `<button type="button" class="tala-chip" data-tala="${t.key}">${t.name}</button>`).join('');
+    ui.jatiChips.innerHTML = JATIS.map(j =>
+      `<button type="button" class="tala-chip" data-jati="${j.n}">${j.name} <span class="chip-num">${j.n}</span></button>`).join('');
+    ui.speedChips.innerHTML = SPEEDS.map(s =>
+      `<button type="button" class="tala-chip" data-speed="${s.key}">${s.label}</button>`).join('');
+
+    // ---- SVG ----
+    const R = 158;
+    const svg = el('svg', {
+      viewBox: '-230 -230 460 460',
+      class: 'tala-svg',
+      role: 'img',
+      'aria-label': 'A tala cycle. A marker moves around the beats while the hand in the centre shows the clap, finger count or wave for each beat.',
+    }, ui.circle);
+    el('circle', { r: R, class: 'tala-track' }, svg);
+    const progress = el('path', { class: 'tala-progress' }, svg);
+    const angaLayer = el('g', { class: 'tala-angas' }, svg);
+    const nodeLayer = el('g', { class: 'tala-nodes' }, svg);
+    const marker = el('circle', { r: 7, class: 'tala-marker' }, svg);
+
+    // Hand in the centre: palm, four fingers (little → index) and a thumb
+    const hand = el('g', { class: 'tala-hand', transform: 'translate(0,-28)' }, svg);
+    const handInner = el('g', { class: 'tala-hand-inner' }, hand);
+    const ripple = el('circle', { r: 44, class: 'tala-ripple', cx: 0, cy: 8 }, handInner);
+    const palm = el('rect', { x: -31, y: -6, width: 62, height: 52, rx: 16, class: 'hand-part hand-palm' }, handInner);
+    const fingerEls = [
+      el('rect', { x: -31, y: -40, width: 13, height: 42, rx: 6.5, class: 'hand-part' }, handInner),
+      el('rect', { x: -15.5, y: -56, width: 13, height: 58, rx: 6.5, class: 'hand-part' }, handInner),
+      el('rect', { x: 0, y: -62, width: 13, height: 64, rx: 6.5, class: 'hand-part' }, handInner),
+      el('rect', { x: 15.5, y: -54, width: 13, height: 56, rx: 6.5, class: 'hand-part' }, handInner),
+      el('rect', { x: 26, y: 2, width: 13, height: 40, rx: 6.5, class: 'hand-part', transform: 'rotate(-38 32 22)' }, handInner),
+    ];
+    // Draw palm over finger bases
+    handInner.appendChild(palm);
+    const actionText = el('text', { class: 'tala-action', 'text-anchor': 'middle', y: 70 }, svg);
+    const countText = el('text', { class: 'tala-count', 'text-anchor': 'middle', y: 94 }, svg);
+
+    // ---- State ----
+    let tala = TALAS.find(t => t.key === 'triputa');
+    let jati = 4; // Chatusra Triputa = Adi
+    let speed = SPEEDS[1];
+    let beats = [];
+    let nodes = [];
+    let stripCells = [];
+    let t0 = performance.now();
+    let playing = !reduceMotion();
+    let pausedAt = 0;     // beats elapsed when paused
+    let lastBeat = -1;
+    let soundOn = false;
+    let running = false;
+    let rafId = 0;
+
+    const beatAngle = (i, n) => -90 + (i * 360) / n;
+
+    function arcPath(r, a0, a1) {
+      const [x0, y0] = polar(r, a0);
+      const [x1, y1] = polar(r, a1);
+      const large = a1 - a0 > 180 ? 1 : 0;
+      return `M${x0.toFixed(2)},${y0.toFixed(2)} A${r},${r} 0 ${large} 1 ${x1.toFixed(2)},${y1.toFixed(2)}`;
+    }
+
+    function build() {
+      beats = talaBeats(tala, jati);
+      const n = beats.length;
+      nodeLayer.innerHTML = '';
+      angaLayer.innerHTML = '';
+
+      // Anga arcs outside the beat ring
+      const step = 360 / n;
+      let start = 0;
+      tala.angas.forEach((a, ai) => {
+        const len = beats.filter(b => b.anga === ai).length;
+        const a0 = beatAngle(start, n) - step / 2 + 2;
+        const a1 = beatAngle(start + len - 1, n) + step / 2 - 2;
+        el('path', { d: arcPath(R + 30, a0, a1), class: `tala-anga-arc anga-${a}` }, angaLayer);
+        const mid = (a0 + a1) / 2;
+        const [lx, ly] = polar(R + 50, mid);
+        const t = el('text', {
+          x: lx.toFixed(2), y: ly.toFixed(2), class: 'tala-anga-label',
+          'text-anchor': 'middle', 'dominant-baseline': 'central',
+        }, angaLayer);
+        t.textContent = a === 'I' ? 'I' : a;
+        if (a === 'I') {
+          const sub = el('tspan', { class: 'tala-anga-sub', dy: 5 }, t);
+          sub.textContent = jati;
+        }
+        start += len;
+      });
+
+      // Beat nodes
+      const nodeR = n > 20 ? 10 : n > 12 ? 12 : 14;
+      nodes = beats.map((b, i) => {
+        const [x, y] = polar(R, beatAngle(i, n));
+        const g = el('g', { class: `tala-node kind-${b.kind}${i === 0 ? ' samam' : ''}`, transform: `translate(${x.toFixed(2)},${y.toFixed(2)})` }, nodeLayer);
+        el('circle', { r: nodeR }, g);
+        const num = el('text', { 'text-anchor': 'middle', 'dominant-baseline': 'central', class: 'tala-node-num' }, g);
+        num.textContent = i + 1;
+        if (n > 20) num.setAttribute('font-size', '9');
+        return g;
+      });
+
+      // Readout
+      const jatiName = JATIS.find(j => j.n === jati).name;
+      ui.name.textContent = `${jatiName} Jati ${tala.name} Tala`;
+      const isAdi = tala.key === 'triputa' && jati === 4;
+      ui.alias.hidden = !isAdi;
+      ui.formula.innerHTML = `${tala.angas.map(a => angaLabel(a, jati)).join(' ')}<span class="tala-formula-sep">·</span>${n} aksharas`;
+
+      // Strip: one cell per beat, grouped by anga
+      let html = '';
+      tala.angas.forEach((a, ai) => {
+        html += `<div class="strip-group"><div class="strip-anga">${a === 'I' ? 'Laghu' : a === 'O' ? 'Drutam' : 'Anudrutam'}</div><div class="strip-cells">`;
+        beats.forEach((b, i) => {
+          if (b.anga !== ai) return;
+          html += `<div class="strip-cell kind-${b.kind}" data-i="${i}"><span class="strip-num">${i + 1}</span><span class="strip-act">${b.short}</span></div>`;
+        });
+        html += '</div></div>';
+      });
+      ui.strip.innerHTML = html;
+      stripCells = [...ui.strip.querySelectorAll('.strip-cell')];
+
+      // Chip states
+      ui.talaChips.querySelectorAll('.tala-chip').forEach(c => {
+        const on = c.dataset.preset ? isAdi : (c.dataset.tala === tala.key && !isAdi);
+        c.classList.toggle('is-on', on);
+        c.setAttribute('aria-pressed', String(on));
+      });
+      ui.jatiChips.querySelectorAll('.tala-chip').forEach(c => {
+        const on = Number(c.dataset.jati) === jati;
+        c.classList.toggle('is-on', on);
+        c.setAttribute('aria-pressed', String(on));
+      });
+      ui.speedChips.querySelectorAll('.tala-chip').forEach(c => {
+        const on = c.dataset.speed === speed.key;
+        c.classList.toggle('is-on', on);
+        c.setAttribute('aria-pressed', String(on));
+      });
+
+      // Restart the cycle from samam
+      t0 = performance.now();
+      pausedAt = 0;
+      lastBeat = -1;
+      render(performance.now());
+    }
+
+    function elapsedBeats(now) {
+      if (!playing) return pausedAt;
+      return ((now - t0) / 1000) * (speed.bpm / 60);
+    }
+
+    function onBeat(i) {
+      const b = beats[i];
+      nodes.forEach((g, k) => g.classList.toggle('is-active', k === i));
+      stripCells.forEach((c, k) => c.classList.toggle('is-active', k === i));
+
+      fingerEls.forEach((f, k) => f.classList.toggle('lit', b.kind === 'count' && b.finger === k));
+      handInner.classList.remove('clap', 'wave');
+      void handInner.getBBox(); // restart the CSS animation
+      if (b.kind === 'clap') handInner.classList.add('clap');
+      if (b.kind === 'wave') handInner.classList.add('wave');
+
+      actionText.textContent = b.label;
+      countText.textContent = i === 0 ? `Samam · beat 1 of ${beats.length}` : `Beat ${i + 1} of ${beats.length}`;
+
+      if (soundOn && playing) Sound.beat(b.kind, i === 0);
+    }
+
+    function render(now) {
+      const n = beats.length;
+      const e = elapsedBeats(now);
+      const total = Math.floor(e);
+      const pos = e % n;
+      const i = Math.floor(pos);
+      const smooth = !reduceMotion();
+      const p = smooth ? pos : i;
+
+      const ang = beatAngle(p, n);
+      const [mx, my] = polar(R, ang);
+      marker.setAttribute('cx', mx.toFixed(2));
+      marker.setAttribute('cy', my.toFixed(2));
+      progress.setAttribute('d', p > 0.001 ? arcPath(R, -90, ang) : '');
+
+      if (total !== lastBeat) {
+        lastBeat = total;
+        onBeat(i);
+      }
+    }
+
+    function tick(now) {
+      if (running) rafId = requestAnimationFrame(tick);
+      render(now);
+    }
+    function start() {
+      if (running) return;
+      running = true;
+      rafId = requestAnimationFrame(tick);
+    }
+    function stop() {
+      running = false;
+      cancelAnimationFrame(rafId);
+    }
+
+    function setPlaying(on) {
+      const now = performance.now();
+      if (on && !playing) {
+        t0 = now - (pausedAt * 60000) / speed.bpm;
+      } else if (!on && playing) {
+        pausedAt = elapsedBeats(now);
+      }
+      playing = on;
+      ui.playBtn.innerHTML = playing
+        ? '<i class="ti ti-player-pause" aria-hidden="true"></i> Pause'
+        : '<i class="ti ti-player-play" aria-hidden="true"></i> Play';
+      ui.playBtn.setAttribute('aria-pressed', String(playing));
+    }
+
+    // ---- Events ----
+    ui.talaChips.addEventListener('click', e => {
+      const c = e.target.closest('.tala-chip');
+      if (!c) return;
+      if (c.dataset.preset === 'adi') {
+        tala = TALAS.find(t => t.key === 'triputa');
+        jati = 4;
+      } else {
+        tala = TALAS.find(t => t.key === c.dataset.tala);
+        jati = tala.jati; // each tala opens in its most commonly used jati
+      }
+      build();
+    });
+    ui.jatiChips.addEventListener('click', e => {
+      const c = e.target.closest('.tala-chip');
+      if (!c) return;
+      jati = Number(c.dataset.jati);
+      build();
+    });
+    ui.speedChips.addEventListener('click', e => {
+      const c = e.target.closest('.tala-chip');
+      if (!c) return;
+      const now = performance.now();
+      const e0 = elapsedBeats(now);
+      speed = SPEEDS.find(s => s.key === c.dataset.speed);
+      if (playing) t0 = now - (e0 * 60000) / speed.bpm; // keep our place in the cycle
+      ui.speedChips.querySelectorAll('.tala-chip').forEach(x => {
+        const on = x === c;
+        x.classList.toggle('is-on', on);
+        x.setAttribute('aria-pressed', String(on));
+      });
+    });
+    ui.playBtn.addEventListener('click', () => setPlaying(!playing));
+    ui.soundBtn.addEventListener('click', () => {
+      soundOn = !soundOn;
+      if (soundOn && !Sound.ensure()) soundOn = false;
+      if (soundOn && !playing) setPlaying(true);
+      ui.soundBtn.setAttribute('aria-pressed', String(soundOn));
+      ui.soundBtn.innerHTML = soundOn
+        ? '<i class="ti ti-volume-off" aria-hidden="true"></i> Mute'
+        : '<i class="ti ti-volume" aria-hidden="true"></i> Hear the Beat';
+    });
+
+    // Only animate while on screen
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        entries[0].isIntersecting ? start() : stop();
+      }, { threshold: 0.05 }).observe(section);
+    } else {
+      start();
+    }
+
+    setPlaying(playing);
+    build();
+  }
 
   // =============================================
   //  MELAKARTA WHEEL
@@ -525,9 +917,14 @@
     shape.setAttribute('points', currentShape(performance.now()).map(p => p.join(',')).join(' '));
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMelakarta);
-  } else {
+  function initAll() {
+    initTala();
     initMelakarta();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
   }
 })();
