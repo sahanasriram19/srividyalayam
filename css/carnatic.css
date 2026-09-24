@@ -1,6 +1,6 @@
 /* =========================================================
    SRIVIDYALAYAM — Melakarta wheel
-   Sits inside the Schedule & Structure section (classes.html)
+   Learn page (learn.html)
    ========================================================= */
 
 
@@ -10,10 +10,16 @@
 
 #melakarta {
     position: relative;
-    margin-top: 5rem;
-    padding-top: 4.5rem;
-    border-top: 1px solid rgba(201, 168, 76, 0.25);
+    background:
+        radial-gradient(ellipse at 28% 55%, #3a0014 0%, rgba(26, 0, 8, 0) 60%),
+        var(--crimson-deep);
+    padding: 6rem 2rem;
+    overflow: hidden;
     color: var(--gold-pale);
+}
+
+#melakarta .section-inner {
+    max-width: 1200px;
 }
 
 #melakarta .section-badge {
@@ -414,12 +420,37 @@
     font-size: 0.62rem;
 }
 
+/* Two rows by default:  [‹] [Hear the Scale] [›]  /  [Today]
+   One row when the panel is wide enough (container query below). */
+.mela-panel {
+    container-type: inline-size;
+}
+
 .mela-controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: stretch;
     gap: 0.6rem;
     margin-top: 1.8rem;
+}
+
+.mela-controls .mela-btn {
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.mela-prev      { grid-column: 1; grid-row: 1; }
+.mela-play      { grid-column: 2; grid-row: 1; }
+.mela-next      { grid-column: 3; grid-row: 1; }
+.mela-today-btn { grid-column: 1 / -1; grid-row: 2; }
+
+@container (min-width: 560px) {
+    .mela-controls {
+        grid-template-columns: auto minmax(0, 1fr) auto auto;
+    }
+
+    .mela-today-btn { grid-column: 3; grid-row: 1; }
+    .mela-next      { grid-column: 4; grid-row: 1; }
 }
 
 .mela-btn.solid {
@@ -454,8 +485,7 @@
 
 @media (max-width: 768px) {
     #melakarta {
-        margin-top: 3.5rem;
-        padding-top: 3rem;
+        padding: 4rem 1.5rem;
     }
 
     .mela-intro {
@@ -499,20 +529,6 @@
     .mela-notes {
         grid-template-columns: minmax(0, 1fr);
     }
-
-    .mela-controls {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-    }
-
-    .mela-controls .mela-btn {
-        justify-content: center;
-    }
-
-    .mela-prev      { grid-column: 1; grid-row: 1; }
-    .mela-play      { grid-column: 2; grid-row: 1; }
-    .mela-next      { grid-column: 3; grid-row: 1; }
-    .mela-today-btn { grid-column: 1 / -1; grid-row: 2; }
 }
 
 @media (prefers-reduced-motion: reduce) {

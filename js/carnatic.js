@@ -1,6 +1,6 @@
 // =============================================
 //  SRIVIDYALAYAM — Melakarta wheel (72 parent ragas)
-//  Used on classes.html. No libraries.
+//  Used on learn.html. No libraries.
 //  Sound plays only when a visitor presses "Hear the Scale".
 // =============================================
 

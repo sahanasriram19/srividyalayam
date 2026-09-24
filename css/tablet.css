@@ -467,3 +467,544 @@
   }
 }
 
+/* =========================================================
+   SRIVIDYALAYAM — Melakarta wheel
+   Learn page (learn.html)
+   ========================================================= */
+
+
+/* =========================================================
+   MELAKARTA SECTION
+   ========================================================= */
+
+#melakarta {
+    position: relative;
+    background:
+        radial-gradient(ellipse at 28% 55%, #3a0014 0%, rgba(26, 0, 8, 0) 60%),
+        var(--crimson-deep);
+    padding: 6rem 2rem;
+    overflow: hidden;
+    color: var(--gold-pale);
+}
+
+#melakarta .section-inner {
+    max-width: 1200px;
+}
+
+#melakarta .section-badge {
+    color: var(--gold);
+}
+
+#melakarta .section-title {
+    color: var(--cream);
+}
+
+#melakarta .section-title em {
+    color: var(--gold-light);
+}
+
+.mela-intro {
+    max-width: 680px;
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: rgba(245, 233, 200, 0.7);
+    margin-bottom: 3rem;
+}
+
+.mela-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+}
+
+
+/* ---------- Buttons ---------- */
+
+.mela-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    background: transparent;
+    color: rgba(201, 168, 76, 0.95);
+    border: 1px solid rgba(201, 168, 76, 0.6);
+
+    padding: 0.6rem 1.3rem;
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.mela-btn i {
+    font-size: 1rem;
+}
+
+.mela-btn:hover {
+    border-color: var(--gold-light);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+.mela-btn:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+}
+
+/* ---------- Wheel ---------- */
+
+.mela-wheel {
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+.mela-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.mela-rim {
+    fill: none;
+    stroke: rgba(201, 168, 76, 0.35);
+    stroke-width: 1;
+}
+
+.mela-seg path {
+    fill: rgba(201, 168, 76, 0.04);
+    stroke: rgba(201, 168, 76, 0.28);
+    stroke-width: 0.6;
+    cursor: pointer;
+    transition: fill 0.35s ease;
+}
+
+.mela-seg:nth-child(even) path {
+    fill: rgba(201, 168, 76, 0.08);
+}
+
+.mela-seg:hover path {
+    fill: rgba(201, 168, 76, 0.22);
+}
+
+.mela-seg-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 9.5px;
+    font-weight: 600;
+    fill: rgba(245, 233, 200, 0.78);
+    pointer-events: none;
+    transition: fill 0.35s ease;
+}
+
+.mela-seg-label.compact {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.mela-seg.is-today .mela-seg-label {
+    fill: var(--gold-light);
+}
+
+.mela-seg.is-active path {
+    fill: var(--gold);
+    stroke: var(--gold-light);
+}
+
+.mela-seg.is-active .mela-seg-label {
+    fill: var(--crimson-deep);
+    font-weight: 700;
+}
+
+.mela-chakra-seg path {
+    fill: rgba(107, 0, 32, 0.55);
+    stroke: rgba(201, 168, 76, 0.35);
+    stroke-width: 0.8;
+    transition: fill 0.4s ease;
+}
+
+.mela-chakra-seg.alt path {
+    fill: rgba(133, 0, 42, 0.45);
+}
+
+.mela-chakra-seg.is-active path {
+    fill: rgba(201, 168, 76, 0.28);
+}
+
+.mela-chakra-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    fill: rgba(226, 194, 114, 0.85);
+    pointer-events: none;
+}
+
+.mela-divider {
+    stroke: var(--gold);
+    stroke-width: 1.6;
+}
+
+.mela-today-mark circle {
+    fill: var(--gold-light);
+    stroke: var(--crimson-deep);
+    stroke-width: 1.5;
+}
+
+.mela-pointer {
+    fill: var(--gold-light);
+    filter: drop-shadow(0 0 6px rgba(226, 194, 114, 0.6));
+}
+
+.mela-core-disc {
+    stroke: rgba(201, 168, 76, 0.55);
+    stroke-width: 1.2;
+}
+
+.mela-core-guide {
+    fill: none;
+    stroke: rgba(201, 168, 76, 0.18);
+    stroke-width: 1;
+    stroke-dasharray: 2 4;
+}
+
+.mela-shape {
+    fill: rgba(201, 168, 76, 0.13);
+    stroke: rgba(226, 194, 114, 0.75);
+    stroke-width: 1.3;
+    stroke-linejoin: round;
+}
+
+.mela-note {
+    fill: rgba(201, 168, 76, 0.22);
+    transition: r 0.3s ease, fill 0.3s ease;
+}
+
+.mela-note.on {
+    fill: var(--gold);
+    r: 5.5px;
+}
+
+.mela-note.sounding {
+    fill: var(--gold-pale);
+    r: 8px;
+    filter: drop-shadow(0 0 6px rgba(245, 233, 200, 0.9));
+}
+
+.mela-note-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 8.5px;
+    font-weight: 600;
+    fill: rgba(245, 233, 200, 0.3);
+    transition: fill 0.3s ease;
+}
+
+.mela-note-label.on {
+    fill: rgba(245, 233, 200, 0.9);
+}
+
+.mela-core-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    fill: var(--gold-light);
+}
+
+.mela-core-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    fill: rgba(245, 233, 200, 0.6);
+}
+
+
+/* ---------- Panel ---------- */
+
+.mela-panel {
+    position: relative;
+    padding: 2.4rem 2.2rem;
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    background: linear-gradient(135deg, rgba(107, 0, 32, 0.35), rgba(26, 0, 8, 0.2));
+}
+
+.mela-panel::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    pointer-events: none;
+}
+
+.mela-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.mela-num {
+    color: var(--gold);
+}
+
+.mela-chakra {
+    color: rgba(245, 233, 200, 0.55);
+}
+
+.mela-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold-pale);
+    line-height: 1.1;
+    margin: 0.5rem 0 0.4rem;
+    overflow-wrap: anywhere;
+}
+
+.mela-today-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--crimson-deep);
+    background: var(--gold-light);
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.mela-today-tag[hidden] {
+    display: none;
+}
+
+.mela-scale-label {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 233, 200, 0.5);
+    margin: 1.3rem 0 0.55rem;
+}
+
+.mela-swaras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.swara-chip {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.35rem;
+    align-items: center;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--gold-pale);
+
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    background: rgba(26, 0, 8, 0.4);
+
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.swara-chip sub {
+    font-size: 0.7rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    margin-left: 1px;
+    align-self: flex-end;
+    margin-bottom: 0.45rem;
+}
+
+.swara-letter {
+    position: relative;
+}
+
+.tara-dot {
+    position: absolute;
+    top: -0.12rem;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.swara-chip.is-on {
+    background: var(--gold);
+    color: var(--crimson-deep);
+    border-color: var(--gold-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(201, 168, 76, 0.35);
+}
+
+.mela-notes {
+    list-style: none;
+    margin-top: 1.4rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid rgba(201, 168, 76, 0.2);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem 1rem;
+}
+
+.mela-notes li {
+    font-size: 0.82rem;
+    color: rgba(245, 233, 200, 0.7);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.note-key {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 1.6rem;
+}
+
+.note-key sub {
+    font-size: 0.62rem;
+}
+
+/* Two rows by default:  [‹] [Hear the Scale] [›]  /  [Today]
+   One row when the panel is wide enough (container query below). */
+.mela-panel {
+    container-type: inline-size;
+}
+
+.mela-controls {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: stretch;
+    gap: 0.6rem;
+    margin-top: 1.8rem;
+}
+
+.mela-controls .mela-btn {
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.mela-prev      { grid-column: 1; grid-row: 1; }
+.mela-play      { grid-column: 2; grid-row: 1; }
+.mela-next      { grid-column: 3; grid-row: 1; }
+.mela-today-btn { grid-column: 1 / -1; grid-row: 2; }
+
+@container (min-width: 560px) {
+    .mela-controls {
+        grid-template-columns: auto minmax(0, 1fr) auto auto;
+    }
+
+    .mela-today-btn { grid-column: 3; grid-row: 1; }
+    .mela-next      { grid-column: 4; grid-row: 1; }
+}
+
+.mela-btn.solid {
+    background: var(--gold);
+    color: var(--crimson-deep);
+    border-color: var(--gold);
+}
+
+.mela-btn.solid:hover {
+    background: var(--gold-light);
+    color: var(--crimson-deep);
+}
+
+.mela-btn.icon-only {
+    padding: 0.6rem 0.7rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .mela-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .mela-wheel {
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 768px) {
+    #melakarta {
+        padding: 4rem 1.5rem;
+    }
+
+    .mela-intro {
+        margin-bottom: 2rem;
+    }
+
+    .mela-panel {
+        padding: 1.8rem 1.4rem;
+    }
+
+    /* mobile.css shrinks every h3 to 1.1rem; keep the raga name prominent */
+    #melakarta h3.mela-name {
+        font-size: 1.75rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* keep all 8 swaras on one line */
+    .mela-swaras {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        gap: 0.25rem;
+    }
+
+    .swara-chip {
+        min-width: 0;
+        height: 2.2rem;
+        padding: 0;
+        font-size: 1.05rem;
+    }
+
+    .swara-chip sub {
+        font-size: 0.6rem;
+        margin-bottom: 0.35rem;
+    }
+
+    #melakarta h3.mela-name {
+        font-size: 1.5rem !important;
+    }
+
+    .mela-notes {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .swara-chip,
+    .mela-note,
+    .mela-seg path,
+    .mela-btn {
+        transition: none;
+    }
+}
