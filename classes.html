@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/mobile.css">
   <link rel="stylesheet" href="css/tablet.css" />
   <link rel="stylesheet" href="css/laptop.css" />
+  <link rel="stylesheet" href="css/carnatic.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
 <body>
@@ -138,6 +139,37 @@
           <i class="ti ti-map-pin" style="font-size: 2rem; color: var(--gold-light);"></i>
           <div class="schedule-card-title">Location</div>
           <p class="schedule-card-text">Classes are held at a convenient location for easy access. Details will be shared upon confirmation of enrolment. Contact us for exact address.</p>
+        </div>
+      </div>
+
+      <!-- MELAKARTA WHEEL -->
+      <div id="melakarta">
+        <div class="reveal">
+          <div class="section-badge"><span class="badge-line"></span>The Foundation of Raga</div>
+          <h2 class="section-title">The 72 <em>Melakartas</em></h2>
+          <p class="mela-intro">Every raga in Carnatic music descends from one of 72 parent scales, the melakartas. Each uses all seven swaras, and they are grouped into twelve chakras of six. The wheel turns slowly through all 72. Tap any raga to explore it, or listen to its scale.</p>
+        </div>
+        <div class="mela-layout">
+          <div class="mela-wheel"></div>
+          <div class="mela-panel">
+            <div class="mela-meta">
+              <span class="mela-num">Melakarta</span>
+              <span class="mela-chakra"></span>
+            </div>
+            <h3 class="mela-name">&nbsp;</h3>
+            <div class="mela-today-tag" hidden><i class="ti ti-star" aria-hidden="true"></i> Today's Melakarta</div>
+            <div class="mela-scale-label">Arohanam</div>
+            <div class="mela-swaras mela-aro"></div>
+            <div class="mela-scale-label">Avarohanam</div>
+            <div class="mela-swaras mela-ava"></div>
+            <ul class="mela-notes"></ul>
+            <div class="mela-controls">
+              <button type="button" class="mela-btn icon-only mela-prev" aria-label="Previous melakarta"><i class="ti ti-chevron-left" aria-hidden="true"></i></button>
+              <button type="button" class="mela-btn solid mela-play"><i class="ti ti-player-play" aria-hidden="true"></i> Hear the Scale</button>
+              <button type="button" class="mela-btn mela-today-btn"><i class="ti ti-star" aria-hidden="true"></i> Today</button>
+              <button type="button" class="mela-btn icon-only mela-next" aria-label="Next melakarta"><i class="ti ti-chevron-right" aria-hidden="true"></i></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -291,6 +323,7 @@
 </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/carnatic.js"></script>
   <script>
     async function submitEnrolForm() {
       const name  = document.getElementById('e-name').value.trim();

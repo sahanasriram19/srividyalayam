@@ -1,108 +1,7 @@
 /* =========================================================
-   SRIVIDYALAYAM — Carnatic live animations
-   Tanpura strings band + Melakarta wheel section
+   SRIVIDYALAYAM — Melakarta wheel
+   Sits inside the Schedule & Structure section (classes.html)
    ========================================================= */
-
-
-/* =========================================================
-   TANPURA BAND
-   ========================================================= */
-
-.tanpura-band {
-    position: relative;
-    z-index: 1;
-
-    background:
-        radial-gradient(ellipse at 50% 50%, rgba(107, 0, 32, 0.55) 0%, rgba(26, 0, 8, 0) 70%),
-        linear-gradient(180deg, #120005 0%, var(--crimson-deep) 50%, #120005 100%);
-
-    border-top: 1px solid rgba(201, 168, 76, 0.35);
-    border-bottom: 1px solid rgba(201, 168, 76, 0.35);
-
-    padding: 2rem 0 1.8rem;
-    overflow: hidden;
-}
-
-.tanpura-canvas {
-    display: block;
-    width: 100%;
-    max-width: 1400px;
-    height: 150px;
-    margin: 0 auto;
-}
-
-.tanpura-caption {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
-
-    padding: 0 1.5rem;
-    margin-top: 0.9rem;
-}
-
-.tanpura-caption-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15rem;
-    font-style: italic;
-    color: rgba(245, 233, 200, 0.8);
-    text-align: center;
-}
-
-.tanpura-caption-text strong {
-    font-style: normal;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    color: var(--gold-light);
-    margin-right: 0.4rem;
-}
-
-.tanpura-listen,
-.mela-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    background: transparent;
-    color: rgba(201, 168, 76, 0.95);
-    border: 1px solid rgba(201, 168, 76, 0.6);
-
-    padding: 0.6rem 1.3rem;
-
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-
-    cursor: pointer;
-    transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease, transform 0.3s ease;
-}
-
-.tanpura-listen i,
-.mela-btn i {
-    font-size: 1rem;
-}
-
-.tanpura-listen:hover,
-.mela-btn:hover {
-    border-color: var(--gold-light);
-    color: var(--gold-light);
-    transform: translateY(-2px);
-}
-
-.tanpura-listen[aria-pressed="true"] {
-    background: var(--gold);
-    color: var(--crimson-deep);
-    border-color: var(--gold);
-}
-
-.tanpura-listen:focus-visible,
-.mela-btn:focus-visible {
-    outline: 2px solid var(--gold-light);
-    outline-offset: 3px;
-}
 
 
 /* =========================================================
@@ -111,19 +10,10 @@
 
 #melakarta {
     position: relative;
-    z-index: 1;
-
-    background:
-        radial-gradient(ellipse at 28% 50%, #3a0014 0%, rgba(26, 0, 8, 0) 60%),
-        var(--crimson-deep);
-
-    padding: 6rem 2rem;
-    overflow: hidden;
+    margin-top: 5rem;
+    padding-top: 4.5rem;
+    border-top: 1px solid rgba(201, 168, 76, 0.25);
     color: var(--gold-pale);
-}
-
-#melakarta .section-inner {
-    max-width: 1200px;
 }
 
 #melakarta .section-badge {
@@ -131,7 +21,7 @@
 }
 
 #melakarta .section-title {
-    color: var(--gold-pale);
+    color: var(--cream);
 }
 
 #melakarta .section-title em {
@@ -153,6 +43,44 @@
     align-items: center;
 }
 
+
+/* ---------- Buttons ---------- */
+
+.mela-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    background: transparent;
+    color: rgba(201, 168, 76, 0.95);
+    border: 1px solid rgba(201, 168, 76, 0.6);
+
+    padding: 0.6rem 1.3rem;
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.mela-btn i {
+    font-size: 1rem;
+}
+
+.mela-btn:hover {
+    border-color: var(--gold-light);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+.mela-btn:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+}
 
 /* ---------- Wheel ---------- */
 
@@ -525,20 +453,9 @@
 }
 
 @media (max-width: 768px) {
-    .tanpura-band {
-        padding: 1.5rem 0 1.4rem;
-    }
-
-    .tanpura-canvas {
-        height: 120px;
-    }
-
-    .tanpura-caption-text {
-        font-size: 1rem;
-    }
-
     #melakarta {
-        padding: 4rem 1.25rem;
+        margin-top: 3.5rem;
+        padding-top: 3rem;
     }
 
     .mela-intro {
@@ -602,7 +519,6 @@
     .swara-chip,
     .mela-note,
     .mela-seg path,
-    .tanpura-listen,
     .mela-btn {
         transition: none;
     }

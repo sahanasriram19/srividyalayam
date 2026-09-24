@@ -1,8 +1,7 @@
 // =============================================
-//  SRIVIDYALAYAM — Carnatic live animations
-//  1. Tanpura strings (Pa · Sa · Sa · Sa)
-//  2. Melakarta wheel (72 parent ragas)
-//  No libraries. Sound is off until a visitor presses a button.
+//  SRIVIDYALAYAM — Melakarta wheel (72 parent ragas)
+//  Used on classes.html. No libraries.
+//  Sound plays only when a visitor presses "Hear the Scale".
 // =============================================
 
 (() => {
@@ -12,7 +11,7 @@
   const reduceMotion = () => reduceMotionQuery.matches;
   const SVGNS = 'http://www.w3.org/2000/svg';
 
-  // Madhya sthayi Sa. The tanpura and the melakarta scale share it, so they are in tune.
+  // Madhya sthayi Sa (the scale is played an octave above this)
   const SA = 146.83; // D3
 
   // =============================================
@@ -39,7 +38,7 @@
     }
 
     // Karplus-Strong plucked string. Lower "brightness" keeps more high
-    // harmonics ringing; "buzz" adds a touch of the tanpura's jivari.
+    // harmonics ringing; "buzz" adds a little veena-like edge.
     function pluckBuffer(freq, seconds, opts = {}) {
       const { brightness = 1, decay = 0.996, buzz = 0 } = opts;
       const key = [freq, seconds, brightness, decay, buzz].join('|');
@@ -106,211 +105,7 @@
   })();
 
   // =============================================
-  //  1. TANPURA STRINGS
-  // =============================================
-  function initTanpura() {
-    const band = document.querySelector('.tanpura-band');
-    if (!band) return;
-    const canvas = band.querySelector('.tanpura-canvas');
-    const g = canvas.getContext('2d');
-    const listenBtn = band.querySelector('.tanpura-listen');
-
-    // Played in order: Pa, Sa, Sa, then the low Sa. Each string has its own
-    // on-screen vibration speed (slowed down so the eye can follow it).
-    const strings = [
-      { label: 'Pa', freq: SA * 0.75,  core: '245,233,200', width: 1.2, vis: [5.1, 10.7, 16.9] },
-      { label: 'Sa', freq: SA,         core: '245,233,200', width: 1.1, vis: [6.3, 12.8, 19.4] },
-      { label: 'Sa', freq: SA * 1.002, core: '245,233,200', width: 1.1, vis: [6.4, 12.6, 19.9] },
-      { label: 'Sa', freq: SA / 2,     core: '217,164,65',  width: 2.1, vis: [3.6, 7.5, 11.8], low: true },
-    ];
-    const CYCLE = 3.6;                 // seconds for one Pa-Sa-Sa-Sa round
-    const OFFSETS = [0, 0.8, 1.6, 2.4];
-    const TAU = 1.5;                   // how quickly the vibration fades
-    const PLUCK_AT = 0.32;             // where along the string it is plucked
-
-    let W = 0;
-    let H = 0;
-    let running = false;
-    let visible = false;
-    let soundOn = false;
-    let rafId = 0;
-    let startTime = 0;
-
-    strings.forEach(s => { s.plucked = -99; s.next = 0; });
-
-    function resize() {
-      const rect = canvas.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = rect.width;
-      H = rect.height;
-      canvas.width = Math.round(W * dpr);
-      canvas.height = Math.round(H * dpr);
-      g.setTransform(dpr, 0, 0, dpr, 0, 0);
-      if (!running) draw(performance.now() / 1000);
-    }
-
-    function scheduleFrom(t) {
-      startTime = t;
-      strings.forEach((s, i) => { s.next = t + 0.4 + OFFSETS[i]; });
-    }
-
-    function pluck(s, t) {
-      s.plucked = t;
-      if (soundOn && Sound.ctx) {
-        const buf = Sound.pluckBuffer(s.freq, 5.5, { brightness: 0.28, decay: 0.9993, buzz: 0.35 });
-        Sound.play(buf, 0, s.low ? 0.34 : 0.22);
-      }
-    }
-
-    function draw(t) {
-      g.clearRect(0, 0, W, H);
-      const narrow = W < 600;
-      const labelW = narrow ? 34 : 64;
-      const x0 = labelW + 10;            // bridge
-      const x1 = W - (narrow ? 14 : 36); // tuning pegs
-      const L = x1 - x0;
-      const top = H * 0.2;
-      const gap = (H * 0.6) / (strings.length - 1);
-      const amp0 = reduceMotion() ? 0 : Math.min(gap * 0.42, 11);
-      const step = narrow ? 5 : 4;
-
-      // Bridge
-      g.strokeStyle = 'rgba(201,168,76,0.55)';
-      g.lineWidth = 3;
-      g.beginPath();
-      g.moveTo(x0, top - 12);
-      g.lineTo(x0, top + gap * 3 + 12);
-      g.stroke();
-
-      strings.forEach((s, i) => {
-        const y0 = top + gap * i;
-        const dt = t - s.plucked;
-        const e = dt >= 0 ? Math.exp(-dt / TAU) : 0;
-        const amp = amp0 * e;
-        const [w1, w2, w3] = s.vis;
-
-        g.beginPath();
-        for (let x = x0; x <= x1 + 0.1; x += step) {
-          const u = (x - x0) / L;
-          const pu = Math.PI * u;
-          let y = Math.sin(pu) * Math.cos(w1 * dt * 2 * Math.PI)
-            + 0.34 * Math.sin(2 * pu) * Math.cos(w2 * dt * 2 * Math.PI + 1)
-            + 0.16 * Math.sin(3 * pu) * Math.cos(w3 * dt * 2 * Math.PI + 2)
-            + 0.07 * Math.sin(pu) * Math.sin(70 * u - 38 * t); // jivari shimmer
-          y = y0 + amp * y;
-          if (x === x0) g.moveTo(x, y); else g.lineTo(x, y);
-        }
-
-        // Soft gold glow, then the string itself
-        g.strokeStyle = `rgba(226,194,114,${0.06 + 0.32 * e})`;
-        g.lineWidth = s.width + 3 + 6 * e;
-        g.stroke();
-        g.strokeStyle = `rgba(${s.core},${0.5 + 0.5 * e})`;
-        g.lineWidth = s.width;
-        g.stroke();
-
-        // Spark at the pluck point
-        if (dt >= 0 && dt < 0.7) {
-          const k = dt / 0.7;
-          const px = x0 + L * PLUCK_AT;
-          const r = 3 + k * 16;
-          const grad = g.createRadialGradient(px, y0, 0, px, y0, r);
-          grad.addColorStop(0, `rgba(245,233,200,${0.85 * (1 - k)})`);
-          grad.addColorStop(1, 'rgba(201,168,76,0)');
-          g.fillStyle = grad;
-          g.beginPath();
-          g.arc(px, y0, r, 0, Math.PI * 2);
-          g.fill();
-        }
-
-        // Tuning bead and peg
-        g.fillStyle = `rgba(201,168,76,${0.55 + 0.4 * e})`;
-        g.beginPath();
-        g.arc(x1 - (narrow ? 26 : 70), y0, narrow ? 2.4 : 3.2, 0, Math.PI * 2);
-        g.fill();
-        g.fillStyle = 'rgba(201,168,76,0.8)';
-        g.beginPath();
-        g.arc(x1, y0, narrow ? 2.6 : 3.6, 0, Math.PI * 2);
-        g.fill();
-
-        // Label (the low Sa gets a dot below: mandra sthayi)
-        const fs = narrow ? 13 : 17;
-        g.font = `600 ${fs}px "Cormorant Garamond", serif`;
-        g.textAlign = 'right';
-        g.textBaseline = 'middle';
-        g.fillStyle = `rgba(226,194,114,${0.45 + 0.55 * e})`;
-        g.fillText(s.label, labelW - 6, y0);
-        if (s.low) {
-          const tw = g.measureText('S').width;
-          const lw = g.measureText(s.label).width;
-          g.beginPath();
-          g.arc(labelW - 6 - lw + tw / 2, y0 + fs * 0.62, 1.6, 0, Math.PI * 2);
-          g.fill();
-        }
-      });
-    }
-
-    function frame(now) {
-      if (running) rafId = requestAnimationFrame(frame);
-      const t = now / 1000;
-      strings.forEach(s => {
-        if (t >= s.next) {
-          // If the tab was hidden for a while, restart the cycle instead of catching up
-          if (t - s.next > CYCLE) { scheduleFrom(t); return; }
-          pluck(s, s.next);
-          s.next += CYCLE;
-        }
-      });
-      draw(t);
-    }
-
-    function start() {
-      if (running) return;
-      running = true;
-      scheduleFrom(performance.now() / 1000);
-      rafId = requestAnimationFrame(frame);
-    }
-
-    function stop() {
-      running = false;
-      cancelAnimationFrame(rafId);
-    }
-
-    // Only animate while the band is on screen
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(entries => {
-        visible = entries[0].isIntersecting;
-        visible ? start() : stop();
-      }, { threshold: 0.05 }).observe(band);
-    } else {
-      start();
-    }
-
-    window.addEventListener('resize', resize);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(resize);
-    resize();
-
-    if (listenBtn) {
-      listenBtn.addEventListener('click', () => {
-        soundOn = !soundOn;
-        if (soundOn) {
-          if (!Sound.ensure()) { soundOn = false; return; }
-          scheduleFrom(performance.now() / 1000); // start the drone on Pa
-          if (!running) start();
-        }
-        listenBtn.setAttribute('aria-pressed', String(soundOn));
-        listenBtn.innerHTML = soundOn
-          ? '<i class="ti ti-volume-off" aria-hidden="true"></i> Mute the Drone'
-          : '<i class="ti ti-volume" aria-hidden="true"></i> Listen to the Drone';
-      });
-    }
-
-    // Other scripts (the melakarta player) can check the drone
-    initTanpura.isSoundOn = () => soundOn;
-  }
-
-  // =============================================
-  //  2. MELAKARTA WHEEL
+  //  MELAKARTA WHEEL
   // =============================================
   const MELAKARTAS = [
     'Kanakangi', 'Ratnangi', 'Ganamurti', 'Vanaspati', 'Manavati', 'Tanarupi',
@@ -731,9 +526,8 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { initTanpura(); initMelakarta(); });
+    document.addEventListener('DOMContentLoaded', initMelakarta);
   } else {
-    initTanpura();
     initMelakarta();
   }
 })();
