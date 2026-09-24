@@ -98,7 +98,7 @@
     }
 
     // Short percussive sounds for the tala keeper.
-    // kind: 'clap' | 'count' | 'wave'. accent = samam (first beat of the cycle).
+    // kind: 'clap' | 'count' | 'turn'. accent = samam (first beat of the cycle).
     let noiseBuf = null;
     function beat(kind, accent = false) {
       if (!ctx) return;
@@ -129,7 +129,7 @@
 
       const o = ctx.createOscillator();
       o.type = 'sine';
-      o.frequency.value = kind === 'clap' ? (accent ? 196 : 262) : kind === 'wave' ? 523 : 784;
+      o.frequency.value = kind === 'clap' ? (accent ? 196 : 262) : kind === 'turn' ? 523 : 784;
       const g2 = ctx.createGain();
       const peak = kind === 'clap' ? (accent ? 0.45 : 0.3) : 0.12;
       g2.gain.setValueAtTime(0.0001, t);
@@ -154,7 +154,7 @@
   //  TALA KEEPER (Suladi Sapta Talas x 5 jatis)
   // =============================================
   // Angas: I = laghu (clap + finger counts, length set by jati)
-  //        O = drutam (clap, wave)   U = anudrutam (clap)
+  //        O = drutam (clap, turn: the palm is turned up)   U = anudrutam (clap)
   const TALAS = [
     { key: 'dhruva',  name: 'Dhruva',  angas: ['I', 'O', 'I', 'I'], jati: 4 },
     { key: 'matya',   name: 'Matya',   angas: ['I', 'O', 'I'],      jati: 4 },
@@ -191,7 +191,7 @@
         }
       } else if (a === 'O') {
         beats.push({ kind: 'clap', label: 'Clap', short: 'Clap', anga: ai });
-        beats.push({ kind: 'wave', label: 'Wave', short: 'Wave', anga: ai });
+        beats.push({ kind: 'turn', label: 'Turn', short: 'Turn', anga: ai });
       } else {
         beats.push({ kind: 'clap', label: 'Clap', short: 'Clap', anga: ai });
       }
@@ -236,7 +236,7 @@
       viewBox: '-230 -230 460 460',
       class: 'tala-svg',
       role: 'img',
-      'aria-label': 'A tala cycle. A marker moves around the beats while the hand in the centre shows the clap, finger count or wave for each beat.',
+      'aria-label': 'A tala cycle. A marker moves around the beats while the hand in the centre shows the clap, finger count or turn of the hand for each beat.',
     }, ui.circle);
     el('circle', { r: R, class: 'tala-track' }, svg);
     const progress = el('path', { class: 'tala-progress' }, svg);
@@ -380,13 +380,14 @@
       stripCells.forEach((c, k) => c.classList.toggle('is-active', k === i));
 
       fingerEls.forEach((f, k) => f.classList.toggle('lit', b.kind === 'count' && b.finger === k));
-      handInner.classList.remove('clap', 'wave');
+      handInner.classList.remove('clap', 'turn');
       void handInner.getBBox(); // restart the CSS animation
       if (b.kind === 'clap') handInner.classList.add('clap');
-      if (b.kind === 'wave') handInner.classList.add('wave');
+      if (b.kind === 'turn') handInner.classList.add('turn');
 
       actionText.textContent = b.label;
-      countText.textContent = i === 0 ? `Samam · beat 1 of ${beats.length}` : `Beat ${i + 1} of ${beats.length}`;
+      const where = i === 0 ? `Samam · beat 1 of ${beats.length}` : `Beat ${i + 1} of ${beats.length}`;
+      countText.textContent = b.kind === 'turn' ? `Palm turned up · ${where}` : where;
 
       if (soundOn && playing) Sound.beat(b.kind, i === 0);
     }

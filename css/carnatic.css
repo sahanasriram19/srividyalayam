@@ -651,7 +651,7 @@
     fill: var(--crimson);
 }
 
-.tala-node.kind-wave circle {
+.tala-node.kind-turn circle {
     fill: var(--gold-pale);
     stroke: var(--gold);
 }
@@ -668,7 +668,7 @@
     fill: var(--gold-pale);
 }
 
-.tala-node.kind-wave .tala-node-num {
+.tala-node.kind-turn .tala-node-num {
     fill: #8B5A00;
 }
 
@@ -724,8 +724,14 @@
     animation: tala-ripple 0.6s ease-out;
 }
 
-.tala-hand-inner.wave {
-    animation: tala-wave 0.55s ease-in-out;
+.tala-hand-inner.turn {
+    animation: tala-turn 0.5s ease-in-out forwards;
+}
+
+/* Back of the hand showing while it is turned */
+.tala-hand-inner.turn .hand-part {
+    fill: var(--gold-pale);
+    stroke: rgba(139, 90, 0, 0.6);
 }
 
 @keyframes tala-clap-fill {
@@ -738,11 +744,11 @@
     100% { opacity: 0;   transform: scale(1.6); }
 }
 
-@keyframes tala-wave {
-    0%   { transform: rotate(0deg); }
-    35%  { transform: rotate(-22deg); }
-    70%  { transform: rotate(14deg); }
-    100% { transform: rotate(0deg); }
+/* The hand flips over (palm turned up), like turning it on the lap */
+@keyframes tala-turn {
+    0%   { transform: scaleX(1); }
+    50%  { transform: scaleX(0.05); }
+    100% { transform: scaleX(-1); }
 }
 
 .tala-action {
@@ -1007,7 +1013,7 @@
     border-color: rgba(107, 0, 32, 0.4);
 }
 
-.strip-cell.kind-wave {
+.strip-cell.kind-turn {
     background: #fdf8ea;
 }
 
@@ -1079,8 +1085,9 @@
 @media (prefers-reduced-motion: reduce) {
     .tala-hand-inner.clap .hand-part,
     .tala-hand-inner.clap .tala-ripple,
-    .tala-hand-inner.wave {
+    .tala-hand-inner.turn {
         animation: none;
+        transform: scaleX(-1);
     }
 
     .tala-node > *,
