@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/mobile.css" />
   <link rel="stylesheet" href="css/tablet.css" />
   <link rel="stylesheet" href="css/laptop.css" />
+  <link rel="stylesheet" href="css/carnatic.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
 <body>
@@ -51,6 +52,17 @@
     </div>
   </section>
 
+  <!-- TANPURA STRINGS -->
+  <section class="tanpura-band" aria-label="Tanpura drone">
+    <canvas class="tanpura-canvas" aria-hidden="true"></canvas>
+    <div class="tanpura-caption">
+      <p class="tanpura-caption-text"><strong>PA · SA · SA · SA</strong> The tanpura's eternal drone, the sruti every note returns to</p>
+      <button type="button" class="tanpura-listen" aria-pressed="false">
+        <i class="ti ti-volume" aria-hidden="true"></i> Listen to the Drone
+      </button>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="section-inner">
@@ -68,6 +80,39 @@
           <p>We honour the ancient <strong>guru-shishya tradition</strong>, where music is not merely taught but transmitted from heart to heart, with patience and care. Every student is seen as an individual, and every lesson is shaped around their journey.</p>
           <p>Whether you are a curious beginner or a returning musician, Srividyalayam is your home.</p>
           <a href="classes.html" class="btn-primary" style="margin-top: 1.2rem;">Explore Our Classes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MELAKARTA WHEEL -->
+  <section id="melakarta">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-badge"><span class="badge-line"></span>The Foundation of Raga</div>
+        <h2 class="section-title">The 72 <em>Melakartas</em></h2>
+        <p class="mela-intro">Every raga in Carnatic music descends from one of 72 parent scales, the melakartas. Each uses all seven swaras, and they are grouped into twelve chakras of six. The wheel turns slowly through all 72. Tap any raga to explore it, or listen to its scale.</p>
+      </div>
+      <div class="mela-layout">
+        <div class="mela-wheel"></div>
+        <div class="mela-panel">
+          <div class="mela-meta">
+            <span class="mela-num">Melakarta</span>
+            <span class="mela-chakra"></span>
+          </div>
+          <h3 class="mela-name">&nbsp;</h3>
+          <div class="mela-today-tag" hidden><i class="ti ti-star" aria-hidden="true"></i> Today's Melakarta</div>
+          <div class="mela-scale-label">Arohanam</div>
+          <div class="mela-swaras mela-aro"></div>
+          <div class="mela-scale-label">Avarohanam</div>
+          <div class="mela-swaras mela-ava"></div>
+          <ul class="mela-notes"></ul>
+          <div class="mela-controls">
+            <button type="button" class="mela-btn icon-only mela-prev" aria-label="Previous melakarta"><i class="ti ti-chevron-left" aria-hidden="true"></i></button>
+            <button type="button" class="mela-btn solid mela-play"><i class="ti ti-player-play" aria-hidden="true"></i> Hear the Scale</button>
+            <button type="button" class="mela-btn mela-today-btn"><i class="ti ti-star" aria-hidden="true"></i> Today</button>
+            <button type="button" class="mela-btn icon-only mela-next" aria-label="Next melakarta"><i class="ti ti-chevron-right" aria-hidden="true"></i></button>
+          </div>
         </div>
       </div>
     </div>
@@ -273,5 +318,6 @@
 </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/carnatic.js"></script>
 </body>
 </html>
