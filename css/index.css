@@ -56,7 +56,7 @@
 
     padding-left: clamp(0rem, 8vw, 8rem);
     padding-right: clamp(0rem, 8vw, 8rem);
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 
     box-sizing: border-box;
 }
