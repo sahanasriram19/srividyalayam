@@ -28,7 +28,8 @@
    ========================================================= */
 
 #hero {
-    min-height: 100vh; /* fallback for browsers that don't support dvh */
+    min-height: 100vh;
+    /* fallback for browsers that don't support dvh */
     min-height: 100dvh;
 
     position: relative;
@@ -37,7 +38,8 @@
     justify-content: center;
     text-align: center;
 
-    padding: 6rem 2rem 3rem; /* back to original — was 6rem 2rem 1.25rem */
+    padding: 6rem 2rem 3rem;
+    /* back to original — was 6rem 2rem 1.25rem */
     overflow: hidden;
 }
 
@@ -69,7 +71,8 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 0.75rem; /* was: margin-top: 0; */
+    margin-top: 0.75rem;
+    /* was: margin-top: 0; */
     width: 100%;
     box-sizing: border-box;
 }
@@ -109,13 +112,11 @@
     right: 0;
     bottom: 0;
 
-    background: linear-gradient(
-        160deg,
-        #8B5A00 0%,
-        #C07800 40%,
-        #E09010 60%,
-        #C07800 100%
-    );
+    background: linear-gradient(160deg,
+            #8B5A00 0%,
+            #C07800 40%,
+            #E09010 60%,
+            #C07800 100%);
 
     z-index: -2;
 
@@ -257,6 +258,7 @@
    ========================================================= */
 
 @keyframes bobble {
+
     0%,
     100% {
         opacity: 0.4;
@@ -288,8 +290,7 @@
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
+        minmax(0, 1fr) minmax(0, 1fr);
 
     gap: clamp(2rem, 4vw, 4rem);
 
@@ -317,11 +318,9 @@
 
     aspect-ratio: 3 / 2;
 
-    background: linear-gradient(
-        135deg,
-        var(--crimson-deep),
-        var(--crimson)
-    );
+    background: linear-gradient(135deg,
+            var(--crimson-deep),
+            var(--crimson));
 
     display: flex;
 
@@ -520,8 +519,7 @@
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
+        minmax(0, 1fr) minmax(0, 1fr);
 
     gap: 1.5rem;
 }
@@ -681,8 +679,7 @@ footer {
         min-width: 175px;
 
         padding:
-            0.7rem
-            1.5rem;
+            0.7rem 1.5rem;
 
         font-size: 0.72rem;
     }
@@ -778,8 +775,7 @@ footer {
         min-width: 155px;
 
         padding:
-            0.65rem
-            1.25rem;
+            0.65rem 1.25rem;
 
         font-size: 0.68rem;
 
@@ -874,8 +870,7 @@ footer {
         min-width: 140px;
 
         padding:
-            0.6rem
-            1rem;
+            0.6rem 1rem;
 
         font-size: 0.64rem;
 
@@ -1004,8 +999,7 @@ footer {
         max-width: 320px;
 
         padding:
-            0.7rem
-            1.25rem;
+            0.7rem 1.25rem;
 
         font-size: 0.67rem;
 
@@ -1050,9 +1044,7 @@ footer {
         overflow: hidden;
 
         padding:
-            4rem
-            1.25rem
-            3rem;
+            4rem 1.25rem 3rem;
 
         align-items: flex-end;
     }
@@ -1081,7 +1073,7 @@ footer {
     .hero-content {
         padding-left: 0;
         padding-right: 0;
-
+        padding-bottom: 3rem;
         width: 100%;
     }
 
@@ -1138,8 +1130,7 @@ footer {
         margin-left: 0 !important;
 
         padding:
-            0.7rem
-            1.5rem;
+            0.7rem 1.5rem;
 
         font-size: 0.7rem;
 
@@ -1172,8 +1163,7 @@ footer {
 
     #about {
         padding:
-            4rem
-            1.25rem;
+            4rem 1.25rem;
     }
 
     .about-grid {
@@ -1199,8 +1189,7 @@ footer {
 
     #gallery {
         padding:
-            4rem
-            1.25rem;
+            4rem 1.25rem;
     }
 
     .gallery-carousel {
@@ -1213,8 +1202,7 @@ footer {
         font-size: 0.95rem;
 
         padding:
-            0.7rem
-            1rem;
+            0.7rem 1rem;
     }
 
 
@@ -1224,8 +1212,7 @@ footer {
 
     #videos {
         padding:
-            4rem
-            1.25rem;
+            4rem 1.25rem;
     }
 
     .videos-grid {
@@ -1257,9 +1244,7 @@ footer {
 
     #hero {
         padding:
-            3rem
-            1rem
-            2.5rem;
+            3rem 1rem 2.5rem;
     }
 
 
@@ -1317,8 +1302,7 @@ footer {
         max-width: 300px;
 
         padding:
-            0.65rem
-            1rem;
+            0.65rem 1rem;
 
         font-size: 0.63rem;
 
@@ -1353,8 +1337,7 @@ footer {
     #gallery,
     #videos {
         padding:
-            3.5rem
-            1rem;
+            3.5rem 1rem;
     }
 
 
@@ -1370,8 +1353,7 @@ footer {
         font-size: 0.85rem;
 
         padding:
-            0.6rem
-            0.75rem;
+            0.6rem 0.75rem;
     }
 
 
@@ -1427,8 +1409,7 @@ footer {
         max-width: 290px;
 
         padding:
-            0.6rem
-            0.8rem;
+            0.6rem 0.8rem;
 
         font-size: 0.59rem;
     }
