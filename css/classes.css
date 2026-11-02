@@ -173,41 +173,34 @@
 }
 
 .schedule-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
+    /* Ruled list, same pattern as the Why Us page,
+       instead of three matching boxes. */
+    max-width: 980px;
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(201, 168, 76, 0.25);
 }
 
 .schedule-card {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(201, 168, 76, 0.2);
-    padding: 2rem;
-}
-
-.schedule-card-icon {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.schedule-card i {
-    display: block;
-    margin-bottom: 1.0rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr);
+    gap: 0.6rem 3.5rem;
+    align-items: baseline;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.25);
 }
 
 .schedule-card-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: var(--gold-light);
-    margin-bottom: 0.5rem;
 }
 
 .schedule-card-text {
     font-size: 0.97rem;
-    line-height: 1.7;
-    color: rgba(245, 233, 200, 0.65);
+    line-height: 1.75;
+    color: rgba(245, 233, 200, 0.7);
+    max-width: 60ch;
 }
 
 #schedule .section-badge {
@@ -259,24 +252,21 @@
 }
 
 .step-num {
-    width: 32px;
-    height: 32px;
+    /* Plain numeral instead of a filled square badge */
     flex-shrink: 0;
-    background: var(--crimson);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-width: 1.4rem;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    color: var(--gold-light);
+    line-height: 1;
+    color: var(--crimson);
 }
 
 .step-text {
     font-size: 0.9rem;
     line-height: 1.65;
     color: var(--muted);
-    padding-top: 0.35rem;
+    padding-top: 0.2rem;
 }
 
 .step-text strong {

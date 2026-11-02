@@ -94,83 +94,43 @@
 }
 
 .reasons-grid {
-    display: grid;
+    /* A plain ruled list rather than a grid of matching
+       cards: title on the left, explanation on the right. */
+    display: block;
 
-    grid-template-columns: repeat(3, 1fr);
+    max-width: 980px;
 
-    gap: 2rem;
+    margin-top: 2.5rem;
 
-    margin-top: 3rem;
-
-    align-items: stretch;
+    border-top: 1px solid rgba(107, 0, 32, 0.18);
 }
 
 .reason-card {
-    background: white;
+    display: grid;
 
-    border: 1px solid rgba(201, 168, 76, 0.2);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr);
 
-    padding: 2.5rem 2rem;
+    gap: 1rem 3.5rem;
 
-    position: relative;
+    align-items: baseline;
 
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s;
+    padding: 1.9rem 0;
 
-    height: 340px;
-}
-
-.reason-card:nth-child(-n + 3) .reason-title {
-    margin-top: 1rem;
-}
-
-.reason-card:nth-child(n + 4) .reason-title {
-    margin-top: 1rem;
-}
-
-.reason-card:hover {
-    transform: translateY(-4px);
-
-    box-shadow: 0 12px 40px rgba(139, 0, 0, 0.08);
-}
-
-.reason-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 3px;
-
-    background: linear-gradient(
-        to right,
-        var(--crimson),
-        var(--gold)
-    );
-}
-
-.reason-icon {
-    font-size: 2.2rem;
-
-    margin-bottom: 1.2rem;
-
-    display: block;
+    border-bottom: 1px solid rgba(107, 0, 32, 0.18);
 }
 
 .reason-title {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 1.4rem;
+    font-size: 1.45rem;
 
     font-weight: 600;
 
+    line-height: 1.25;
+
     color: var(--dark);
 
-    margin-bottom: 0.75rem;
+    margin: 0;
 }
 
 .reason-desc {
@@ -179,6 +139,8 @@
     line-height: 1.8;
 
     color: var(--muted);
+
+    max-width: 60ch;
 }
 
 

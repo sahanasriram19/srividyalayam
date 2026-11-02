@@ -506,14 +506,15 @@
 
   /* ---- SCHEDULE ---- */
 
+  /* Ruled list: title stacks above its text on phones */
   .schedule-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 1.75rem;
   }
 
   .schedule-card {
-    padding: 1.5rem 1.35rem;
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding: 1.3rem 0;
   }
 
 
@@ -529,7 +530,11 @@
   }
 
   .steps li {
-    gap: 0.8rem;
+    gap: 0.9rem;
+  }
+
+  .step-num {
+    font-size: 1.4rem;
   }
 }
 
@@ -545,15 +550,15 @@
     max-width: 100%;
   }
 
+  /* Ruled list: title stacks above its text on phones */
   .reasons-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    margin-top: 1.75rem;
   }
 
   .reason-card {
-    height: auto;
-    min-height: 0;
-    padding: 1.6rem 1.35rem;
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding: 1.4rem 0;
   }
 
   .stats-grid {

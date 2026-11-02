@@ -152,17 +152,6 @@
     padding: 2.25rem;
   }
 
-  /* 3-column schedule is too tight at tablet width */
-  .schedule-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Odd last card spans the full row instead of
-     leaving an empty gap beside it */
-  .schedule-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-  }
-
   .enrol-wrap {
     gap: 2.5rem;
   }
@@ -172,15 +161,11 @@
      WHY CHOOSE US PAGE
      ================================================= */
 
-  /* 3-column reasons is too tight at tablet width */
-  .reasons-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .reason-card {
-    height: auto;
-    min-height: 300px;
+  /* Reasons + schedule lists: slightly tighter
+     column gap between title and text */
+  .reason-card,
+  .schedule-card {
+    gap: 0.5rem 2.25rem;
   }
 
   /* 4-column stats is too tight at tablet width */
@@ -304,10 +289,6 @@
     padding: 2.25rem;
   }
 
-  .schedule-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   /* Stack intro + steps above the form so the
      form fields are not squeezed into a narrow column */
   .enrol-wrap {
@@ -319,24 +300,11 @@
     max-width: 640px;
   }
 
-  .schedule-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-  }
 
 
   /* =================================================
      WHY CHOOSE US PAGE
      ================================================= */
-
-  .reasons-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .reason-card {
-    height: auto;
-    min-height: 0;
-  }
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
