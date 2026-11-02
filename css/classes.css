@@ -173,34 +173,41 @@
 }
 
 .schedule-grid {
-    /* Ruled list, same pattern as the Why Us page,
-       instead of three matching boxes. */
-    max-width: 980px;
-    margin-top: 2.5rem;
-    border-top: 1px solid rgba(201, 168, 76, 0.25);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
 }
 
 .schedule-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr);
-    gap: 0.6rem 3.5rem;
-    align-items: baseline;
-    padding: 1.6rem 0;
-    border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 2rem;
+}
+
+.schedule-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.schedule-card i {
+    display: block;
+    margin-bottom: 1.0rem;
 }
 
 .schedule-card-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--gold-light);
+    margin-bottom: 0.5rem;
 }
 
 .schedule-card-text {
     font-size: 0.97rem;
-    line-height: 1.75;
-    color: rgba(245, 233, 200, 0.7);
-    max-width: 60ch;
+    line-height: 1.7;
+    color: rgba(245, 233, 200, 0.65);
 }
 
 #schedule .section-badge {

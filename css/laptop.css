@@ -141,6 +141,10 @@
      WHY CHOOSE US PAGE
      ================================================= */
 
+  .reasons-grid {
+    gap: 1.75rem;
+  }
+
   .stats-grid {
     gap: 1.75rem;
   }
