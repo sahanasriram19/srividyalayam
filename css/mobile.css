@@ -1,14 +1,143 @@
 /* =============================================
    SRIVIDYALAYAM — Mobile / Responsive Styles
-   All mobile-only rules live here for easy editing.
+   All phone-sized rules live here for easy editing.
+
+   Load order on every page:
+   style.css → page css → mobile.css → tablet.css → laptop.css
+
+   MOBILE TYPE SCALE (≤768px) — change values here only
+   --m-hero-title    page hero titles
+   --m-section-title section headings (h2.section-title)
+   --m-h2            other h2 / large card titles
+   --m-h3            card + sub-headings
+   --m-body          paragraphs, list items, captions
+   --m-small         secondary text (form notes, roles)
+   --m-label         small uppercase labels / badges
+   --m-button        buttons
    ============================================= */
 
 
 /* =================================================
-   SHARED / GLOBAL MOBILE
+   HAMBURGER NAV — phones AND tablets (≤1024px)
+   The full desktop nav (8 items) does not fit below
+   1024px, so tablets use the same dropdown as phones.
+   ================================================= */
+
+@media (max-width: 1024px) {
+
+  nav {
+    height: 70px !important;
+    padding: 0 1.25rem;
+  }
+
+  .nav-logo img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .nav-hamburger {
+    display: flex;
+    padding: 10px 6px;
+    margin-right: -6px;
+  }
+
+  .nav-hamburger span {
+    transform-origin: center;
+  }
+
+  /* Hamburger → X when the menu is open */
+  nav:has(.nav-links.open) .nav-hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  nav:has(.nav-links.open) .nav-hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  nav:has(.nav-links.open) .nav-hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-links {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    gap: 0;
+    background: #0f0005;
+    flex-direction: column;
+    padding: 0;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.35s ease,
+      padding 0.35s ease;
+  }
+
+  .nav-links.open {
+    max-height: 520px;
+    opacity: 1;
+    padding: 0.5rem 0 1.25rem;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    padding: 0.85rem 1.5rem;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+  }
+
+  .nav-links a.active {
+    color: var(--gold-light);
+    border-left: 2px solid var(--gold);
+    padding-left: calc(1.5rem - 2px);
+  }
+
+  .nav-links a.active::after {
+    display: none;
+  }
+
+  .nav-links .nav-cta {
+    display: block !important;
+    width: auto !important;
+    margin: 1rem 1.5rem 0 !important;
+    padding: 0.8rem 1.2rem !important;
+    text-align: center !important;
+    border-radius: 2px !important;
+    border-bottom: none;
+  }
+}
+
+
+/* =================================================
+   SHARED / GLOBAL MOBILE (≤768px)
    ================================================= */
 
 @media (max-width: 768px) {
+
+  :root {
+    --m-hero-title: 2.1rem;
+    --m-section-title: 1.65rem;
+    --m-h2: 1.4rem;
+    --m-h3: 1.15rem;
+    --m-body: 0.86rem;
+    --m-small: 0.78rem;
+    --m-label: 0.62rem;
+    --m-button: 0.68rem;
+    --m-pad-x: 1.25rem;
+    --m-pad-y: 3.5rem;
+  }
 
   /* ---- GLOBAL MOBILE SAFETY ---- */
 
@@ -17,6 +146,11 @@
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
+  }
+
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   img,
@@ -31,64 +165,46 @@
     min-width: 0;
   }
 
-
-  /* ---- NAV ---- */
-
-  nav {
-    height: 70px;
-    padding: 0 1rem;
+  /* Hover lift effects feel jumpy on touch screens */
+  .btn-primary:hover,
+  .btn-ghost:hover,
+  .gallery-card:hover,
+  .winner-card:hover {
+    transform: none;
   }
 
-  .nav-logo img {
-    width: 46px;
-    height: 46px;
+
+  /* ---- CONSISTENT SECTION SPACING (all pages) ---- */
+
+  #about,
+  #gallery,
+  #videos,
+  #founder-story,
+  #contact,
+  #classes,
+  #schedule,
+  #enrol,
+  #tala,
+  #melakarta,
+  #intro,
+  #reasons,
+  #stats,
+  #testimonials,
+  #cta {
+    padding: var(--m-pad-y) var(--m-pad-x) !important;
   }
 
-  .nav-hamburger {
-    display: flex;
+  .gallery-page,
+  .winners-page {
+    padding: 3rem var(--m-pad-x) 4rem !important;
   }
 
-  .nav-links {
-    display: flex;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: var(--crimson-deep);
-    flex-direction: column;
-    padding: 0;
-    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition:
-      max-height 0.35s ease,
-      opacity 0.35s ease,
-      padding 0.35s ease;
+  .section-badge {
+    margin-bottom: 0.6rem;
   }
 
-  .nav-links.open {
-    max-height: 400px;
-    opacity: 1;
-    padding: 1rem 0;
-  }
-
-  .nav-links a {
-    padding: 0.85rem 2rem;
-  }
-
-  .nav-links a.active::after {
-    display: none;
-  }
-
-  .nav-links .nav-cta {
-    margin: 0.5rem 2rem 0 !important;
-    padding: 0.65rem 1.2rem !important;
-    text-align: center !important;
-    border-radius: 2px !important;
-    display: block !important;
-    width: auto !important;
+  .section-title {
+    margin-bottom: 0.9rem;
   }
 
 
@@ -96,8 +212,9 @@
 
   .btn-primary,
   .btn-ghost {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.72rem;
+    padding: 0.8rem 1.5rem;
+    font-size: var(--m-button);
+    letter-spacing: 0.14em;
   }
 
 
@@ -105,25 +222,48 @@
 
   .form-row {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  /* 16px stops iPhones from zooming in when a field is tapped */
   .form-group input,
   .form-group select,
   .form-group textarea {
     max-width: 100%;
+    font-size: 16px !important;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .form-heading {
+    font-size: 1.4rem !important;
+  }
+
+  .form-submit {
+    padding: 0.95rem;
+    font-size: var(--m-button);
   }
 
 
-  /* ---- PAGE HERO ---- */
+  /* ---- PAGE HERO (all inner pages) ---- */
 
   .page-hero {
     width: 100%;
     min-height: auto;
-    padding: 10rem 1.25rem 6rem !important;
+    /* 70px = fixed nav height, so the visible space
+       above and below the title is equal */
+    padding: calc(70px + 3.25rem) var(--m-pad-x) 3.25rem !important;
+  }
+
+  .page-hero-label {
+    letter-spacing: 0.22em !important;
+    margin-bottom: 0.6rem;
   }
 
   .page-hero-title {
-    font-size: clamp(2.2rem, 10vw, 3.2rem);
     max-width: 100%;
     overflow-wrap: break-word;
   }
@@ -132,54 +272,31 @@
     max-width: 100%;
   }
 
-  .page-hero::before {
-    width: 300px;
-    height: 300px;
-  }
-
 
   /* ---- FOOTER ---- */
 
   footer {
-    padding: 2.5rem 1rem;
+    padding: 2.5rem var(--m-pad-x);
+  }
+
+  .footer-tagline {
+    font-size: 1rem !important;
   }
 
   .footer-social {
-    gap: 1rem;
+    gap: 0.9rem;
     flex-wrap: wrap;
   }
-}
 
-
-/* =================================================
-   SMALL PHONES
-   ================================================= */
-
-@media (max-width: 480px) {
-
-  nav {
-    padding: 0 0.75rem;
+  .footer-social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
   }
 
-  .nav-logo img {
-    width: 42px;
-    height: 42px;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .page-hero {
-    padding: 9rem 1rem 5rem !important;
-  }
-
-  .page-hero-title {
-    font-size: 2.25rem;
-  }
-
-  .form-success {
-    padding: 1.5rem 0.5rem;
+  .footer-copy {
+    font-size: 0.68rem;
+    line-height: 1.6;
   }
 }
 
@@ -192,12 +309,12 @@
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .about-visual {
     max-width: 100%;
-    padding-bottom: 3rem;
+    padding-bottom: 0;
   }
 
   .gallery-carousel {
@@ -222,6 +339,7 @@
 
   #hero {
     min-height: 100vh;
+    min-height: 100svh;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -236,18 +354,12 @@
     background-position: center center !important;
   }
 
-
-  /* Keep the full hero image visible on mobile */
-
   .hero-bg {
     background-image: url("../images/hero-mobile.png") !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
   }
-
-
-  /* Dark overlay */
 
   .hero-overlay {
     display: block !important;
@@ -308,7 +420,7 @@
 
   .founder-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .founder-quote-card {
@@ -317,6 +429,7 @@
 
   .founder-highlights {
     grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
   }
 
   .contact-grid {
@@ -332,20 +445,11 @@
 
 @media (max-width: 768px) {
 
-  #classes,
-  #schedule,
-  #enrol {
-    padding: 4rem 1.5rem;
-  }
-
-
   /* ---- CLASS INTRO ---- */
 
   .classes-intro {
     max-width: 100%;
-    margin-bottom: 2.5rem;
-    font-size: 0.88rem !important;
-    line-height: 1.75 !important;
+    margin-bottom: 2rem;
   }
 
 
@@ -353,48 +457,50 @@
 
   .class-block {
     grid-template-columns: 1fr;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
   }
 
   .class-block.reverse {
     direction: ltr;
   }
 
-
-  /* ---- CLASS IMAGE ---- */
+  /* Image always on top, text below, on every card */
+  .class-block.reverse .class-visual {
+    order: -1;
+  }
 
   .class-visual {
-    min-height: 200px;
+    min-height: 230px;
   }
 
 
   /* ---- CLASS INFORMATION ---- */
 
   .class-info {
-    padding: 2rem 1.5rem;
-  }
-
-  .class-name {
-    font-size: 1.7rem;
-  }
-
-  .class-desc {
-    font-size: 0.88rem !important;
-    line-height: 1.75 !important;
-  }
-
-  .class-features li {
-    font-size: 0.88rem !important;
-    line-height: 1.75 !important;
+    padding: 1.6rem 1.35rem 1.4rem;
   }
 
 
-  /* ---- CLASS LEVEL ICONS ---- */
+  /* ---- CLASS LEVEL ICONS ----
+     Keep Beginner / Intermediate / Advanced on one row */
 
   .level-icons {
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    justify-content: space-around;
+    margin-top: 1.25rem;
+  }
+
+  .level-icon-item {
+    width: auto;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .level-icon-item span,
+  .level-icon-item p {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.1em;
   }
 
 
@@ -402,10 +508,12 @@
 
   .schedule-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
   }
 
   .schedule-card {
-    padding: 1.8rem 1.5rem;
+    padding: 1.5rem 1.35rem;
   }
 
 
@@ -413,11 +521,11 @@
 
   .enrol-wrap {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .enrol-form {
-    padding: 2rem 1.5rem;
+    padding: 1.75rem 1.25rem;
   }
 
   .steps li {
@@ -431,68 +539,76 @@
    ================================================= */
 
 @media (max-width: 768px) {
-    #intro,
-    #reasons,
-    #stats,
-    #testimonials,
-    #cta {
-        padding: 4rem 1.5rem;
-    }
 
-    .intro-wrap,
-    .cta-wrap {
-        max-width: 100%;
-    }
+  .intro-wrap,
+  .cta-wrap {
+    max-width: 100%;
+  }
 
-    .reasons-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 
-    .reason-card {
-        height: auto;
-        padding: 2rem 1.5rem;
-    }
+  .reason-card {
+    height: auto;
+    min-height: 0;
+    padding: 1.6rem 1.35rem;
+  }
 
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
 
-    .stat-item {
-        border-right: none;
-        border-bottom: 1px solid rgba(201, 168, 76, 0.2);
-        padding: 1rem;
-    }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 1rem 0.5rem;
+  }
 
-    .cta-btns {
-        flex-direction: column;
-        width: 100%;
-    }
+  .stat-num {
+    font-size: 2.4rem !important;
+  }
 
-    .cta-btns .btn-primary,
-    .cta-btns .btn-ghost {
-        width: 100%;
-        text-align: center;
-    }
+  .cta-btns {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .cta-btns .btn-primary,
+  .cta-btns .btn-ghost {
+    width: 100%;
+    margin: 0 !important;
+    text-align: center;
+  }
 }
 
+
 /* =================================================
-   MOBILE — TESTIMONIALS
+   TESTIMONIALS (phones)
+   Card uses the full width; arrows sit centred
+   underneath instead of squeezing the card.
    ================================================= */
 
 @media (max-width: 768px) {
 
   .testimonial-carousel {
-    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
     width: 100%;
+    margin-top: 2rem;
   }
 
   .testimonial-track-wrap {
-    width: calc(100% - 76px);
-    flex: 0 0 calc(100% - 76px);
+    order: -1;
+    width: 100%;
+    flex: 0 0 100%;
     min-width: 0;
     overflow: hidden;
+    margin-bottom: 0.5rem;
   }
 
   .testimonial-track {
@@ -500,50 +616,129 @@
   }
 
   .testimonial-card {
-    /*
-     * Keep each testimonial exactly inside the space
-     * between the two arrows.
-     */
     min-width: 100%;
     max-width: 100%;
     width: 100%;
     min-height: auto;
-    padding: 1.8rem 1.5rem;
+    padding: 1.6rem 1.35rem;
     box-sizing: border-box;
     flex-shrink: 0;
   }
 
   .testimonial-arrow {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
     flex-shrink: 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
+
 /* =================================================
-   MOBILE TYPOGRAPHY
+   GALLERY PAGE (phones) — 2-column masonry
+   ================================================= */
+
+@media (max-width: 600px) {
+
+  .gallery-intro {
+    margin-bottom: 2rem;
+  }
+
+  .gallery-masonry {
+    column-count: 2;
+    column-gap: 0.7rem;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .gallery-card {
+    margin-bottom: 0.7rem;
+    border-radius: 10px;
+  }
+}
+
+
+/* =================================================
+   PRIZE WINNERS PAGE (phones)
+   ================================================= */
+
+@media (max-width: 600px) {
+
+  .winners-intro {
+    margin-bottom: 2rem;
+  }
+
+  .winners-masonry {
+    gap: 1.1rem;
+  }
+
+  .winner-image-placeholder,
+  .winner-card-large .winner-image-placeholder {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 5 / 4;
+  }
+}
+
+
+/* =================================================
+   MOBILE TYPOGRAPHY (≤768px)
+   One scale for every page — edit the variables
+   at the top of the shared mobile block.
    ================================================= */
 
 @media (max-width: 768px) {
 
-  .section-title {
-    font-size: 1.8rem !important;
-  }
+  /* ---- HERO + SECTION TITLES ---- */
 
   .page-hero-title {
-    font-size: clamp(2rem, 9vw, 2.8rem) !important;
+    font-size: var(--m-hero-title) !important;
+    line-height: 1.1 !important;
+  }
+
+  .section-title,
+  h2.section-title {
+    font-size: var(--m-section-title) !important;
+    line-height: 1.2 !important;
   }
 
 
-  /* ---- GLOBAL BODY TEXT ---- */
+  /* ---- OTHER HEADINGS ---- */
+
+  h2,
+  .winner-details h2,
+  .class-name {
+    font-size: var(--m-h2) !important;
+    line-height: 1.2 !important;
+  }
+
+  .winner-details h2,
+  .winner-card-large .winner-details h2,
+  .winner-details h3 {
+    font-size: var(--m-h3) !important;
+  }
+
+  h3,
+  .reason-title,
+  .schedule-card-title,
+  .founder-quote-text,
+  .gallery-caption {
+    font-size: var(--m-h3) !important;
+    line-height: 1.3 !important;
+  }
+
+  .page-hero-sub {
+    font-size: 1rem !important;
+  }
+
+
+  /* ---- BODY TEXT ---- */
 
   section p,
   main p,
   section li,
   main li,
-  .page-hero-sub,
   .about-text p,
   .founder-body p,
   .contact-info-text,
@@ -555,46 +750,88 @@
   .schedule-card-text,
   .intro-text,
   .reason-desc,
+  .class-desc,
+  .class-features li,
   .testimonial-text,
   .winner-description,
   .gallery-card-caption,
+  .gallery-intro p,
   .video-caption,
-  .form-sub,
-  .form-note {
-    font-size: 0.88rem !important;
-    line-height: 1.75 !important;
+  .mela-intro,
+  .form-sub {
+    font-size: var(--m-body) !important;
+    line-height: 1.7 !important;
   }
 
 
-  /* ---- LABELS / SMALL TEXT ---- */
+  /* ---- SECONDARY / SMALL TEXT ---- */
+
+  .form-note,
+  .testimonial-name,
+  .winner-year {
+    font-size: var(--m-small) !important;
+  }
+
+
+  /* ---- LABELS / BADGES ---- */
+
+  .testimonial-role {
+    font-size: 0.7rem !important;
+  }
 
   .section-badge,
   .winner-award,
-  .testimonial-role,
   .class-sub,
   .highlight-label,
   .stat-label,
   .form-group label,
   .page-hero-label {
-    font-size: 0.68rem !important;
+    font-size: var(--m-label) !important;
+    letter-spacing: 0.18em;
+  }
+}
+
+
+/* =================================================
+   SMALL PHONES (≤480px)
+   ================================================= */
+
+@media (max-width: 480px) {
+
+  :root {
+    --m-hero-title: 1.9rem;
+    --m-section-title: 1.5rem;
+    --m-h2: 1.3rem;
+    --m-h3: 1.08rem;
+    --m-body: 0.84rem;
+    --m-pad-x: 1.15rem;
+    --m-pad-y: 3.25rem;
   }
 
-
-  /* ---- HEADINGS ---- */
-
-  h2.section-title {
-    font-size: 1.8rem !important;
+  nav {
+    padding: 0 1rem;
   }
 
-  h2,
-  .winner-details h2,
-  .class-name {
-    font-size: 1.4rem !important;
+  .nav-logo img {
+    width: 42px;
+    height: 42px;
   }
 
-  h3,
-  .reason-title,
-  .schedule-card-title {
-    font-size: 1.1rem !important;
+  .form-success {
+    padding: 1.5rem 0.5rem;
+  }
+}
+
+
+/* =================================================
+   VERY SMALL PHONES (≤360px)
+   ================================================= */
+
+@media (max-width: 360px) {
+
+  :root {
+    --m-hero-title: 1.75rem;
+    --m-section-title: 1.4rem;
+    --m-pad-x: 1rem;
   }
 }

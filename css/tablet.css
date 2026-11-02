@@ -7,28 +7,70 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
 
-  /* ---- NAV (all pages) ---- */
-  nav {
-    padding: 0.5rem 1.75rem; /* Shrunk top/bottom padding to 0.5rem to make it thinner */
-    height: auto !important; /* Forces the container to shrink to its new padding */
-  }
+  /* ---- NAV ----
+     Tablets use the hamburger dropdown (see mobile.css,
+     "HAMBURGER NAV" block) — the 8-item desktop nav
+     pushed "Enrol Now" off-screen at this width. */
 
-  .nav-links {
-    gap: 0.1rem;
+  nav {
+    padding: 0 2rem;
   }
 
   .nav-links a {
-    font-size: 0.68rem;
-    padding: 0.35rem 0.65rem; /* Slightly reduced link padding to assist thickness */
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
-  .nav-cta {
-    padding: 0.4rem 0.9rem !important; /* Slightly reduced button height */
+  .nav-links a.active {
+    padding-left: calc(2rem - 2px);
   }
 
-  /* ---- PAGE HERO (founder / classes / why-us) ---- */
+  /* Enrol Now: content-sized button in the dropdown */
+  .nav-links .nav-cta {
+    display: inline-block !important;
+    max-width: max-content;
+    margin: 1rem 0 0 2rem !important;
+    padding: 0.75rem 1.6rem !important;
+    white-space: nowrap;
+  }
+
+  /* ---- PAGE HERO (all inner pages) ---- */
   .page-hero {
-    padding: 11rem 2rem 7rem !important;
+    /* 70px = fixed nav height */
+    padding: calc(70px + 4.5rem) 2rem 4.5rem !important;
+  }
+
+  .page-hero-title {
+    font-size: 3rem;
+  }
+
+  /* ---- SHARED TABLET TYPOGRAPHY ---- */
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  /* ---- SECTION SPACING ---- */
+  #about,
+  #gallery,
+  #videos,
+  #founder-story,
+  #contact,
+  #classes,
+  #schedule,
+  #enrol,
+  #tala,
+  #melakarta,
+  #intro,
+  #reasons,
+  #stats,
+  #testimonials,
+  #cta {
+    padding: 4.5rem 2rem !important;
+  }
+
+  .gallery-page,
+  .winners-page {
+    padding: 4rem 2rem 5rem !important;
   }
 
 
@@ -115,6 +157,12 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Odd last card spans the full row instead of
+     leaving an empty gap beside it */
+  .schedule-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
   .enrol-wrap {
     gap: 2.5rem;
   }
@@ -164,17 +212,6 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-
-  /* ---- NAV ---- */
-  nav {
-    padding: 0 1.2rem;
-  }
-
-  .nav-links a {
-    font-size: 0.66rem;
-    padding: 0.5rem 0.55rem;
-  }
-
 
   /* =================================================
      HOMEPAGE
@@ -271,8 +308,19 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Stack intro + steps above the form so the
+     form fields are not squeezed into a narrow column */
   .enrol-wrap {
+    grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  .enrol-intro {
+    max-width: 640px;
+  }
+
+  .schedule-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
 
 
@@ -287,7 +335,7 @@
 
   .reason-card {
     height: auto;
-    min-height: 300px;
+    min-height: 0;
   }
 
   .stats-grid {
@@ -353,44 +401,6 @@
 
 @media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
 
-  /* ---- HAMBURGER NAV ----
-     Keep the dropdown full-width, but align its contents
-     consistently and make Enrol Now content-sized rather
-     than stretching across the menu. */
-  nav {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-  }
-
-  .nav-links {
-    left: 0;
-    right: 0;
-    width: 100%;
-    align-items: flex-start;
-  }
-
-  .nav-links li {
-    width: 100%;
-  }
-
-  .nav-links a {
-    display: block;
-    width: 100%;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .nav-links .nav-cta {
-    display: inline-block !important;
-    width: auto !important;
-    max-width: max-content;
-    margin: 0.5rem 0 0 2rem !important;
-    padding: 0.65rem 1.2rem !important;
-    text-align: center !important;
-    white-space: nowrap;
-  }
-
-
   /* ---- HOMEPAGE HERO ----
      Move the CTA row slightly lower on compact portrait
      tablets. Positive translateY replaces the previous
@@ -426,15 +436,6 @@
    ================================================= */
 
 @media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-
-  .nav-links a {
-    padding-left: 1.75rem;
-    padding-right: 1.75rem;
-  }
-
-  .nav-links .nav-cta {
-    margin-left: 1.75rem !important;
-  }
 
   .hero-content {
     padding-left: 3vw;
